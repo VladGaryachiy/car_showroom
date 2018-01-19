@@ -1,0 +1,41 @@
+{
+  "name": "car_showroom",
+  "version": "1.0.0",
+  "description": "shop_cars",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2",
+    "jquery": "^3.2.1",
+    "pg": "^6.4.2",
+    "pg-connect": "^2.0.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1"
+  },
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/babel public/view/index.jsx -o public/view/index.js -w",
+    "compile":"browserify public/view/app.js -o public/js/main.js -d -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "VladGaryachiy"
+  },
+  "keywords": [
+    "Cars"
+  ],
+  "author": "VLad_Garyachiy",
+  "license": "ISC"
+}
