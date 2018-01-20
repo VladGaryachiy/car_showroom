@@ -1,7 +1,7 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+let express = require('express');
+let bodyParser = require('body-parser');
 
-var server = express();
+let server = express();
 
 server.use(express.static('public')); // доступ к файлам которые розположены в public
 server.use(bodyParser.urlencoded({extended:true})); /*подключили body-parser*/

@@ -4,13 +4,18 @@ let BrowserRouter = require('react-router-dom').BrowserRouter;
 let Route = require('react-router-dom').Route;
 let Link = require('react-router-dom').Link;
 
-/*Components*/
+
+/*Pages*/
 
 let Cars = require('./cars').Cars;
 let Home = require('./home').Home;
 let Finance = require('./finance').Finance;
 let Services = require('./services').Services;
 let Contacts = require('./contact').Contacts;
+
+/*Components*/
+
+let Navbar = require('./component/navbar').Navbar;
 
 
 
@@ -22,49 +27,8 @@ class MainComponent extends React.Component{
 render(){
     return(
         <BrowserRouter>
-          <div>
-            <div className="container-fluid">
-              <div className="row">
-                  <div className="navbar navbar-inverse">
-                    <div className="container">
-                        <div className="navbar-header">
-
-                        </div>
-                        <div className="collapse navbar-collapse">
-                            <ul className="nav navbar-nav">
-                                <li ><Link to="/"  className ="MainPage">Головна</Link></li>
-                                <li className="dropdown">
-                                    <a href="#"  className="dropdown-toggle" data-toggle="dropdown">Автомобілі
-                                        <b className="caret"/>
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        <li><Link to="/cars">Всі автомобілі</Link></li>
-                                        <hr/>
-                                        <li><Link to="/">Nissan</Link></li>
-                                        <li><Link to="/">Kia</Link></li>
-                                        <li><Link to="/">Lada</Link></li>
-                                    </ul>
-                                </li>
-                                <li className="dropdown">
-                                    <a href="#"  className="dropdown-toggle" data-toggle="dropdown">Сервіси
-                                        <b className="caret"/>
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        <li><Link to="/services">Сервіси</Link></li>
-                                        <hr/>
-                                        <li><Link to="/">Інше</Link></li>
-                                        <li><Link to="/">Інше</Link></li>
-                                        <li><Link to="/">Інше</Link></li>
-                                    </ul>
-                                </li>
-                                <li><Link to="/finance">Фінансові послуги</Link></li>
-                                <li><Link to="/contacts">Контакти</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
+          <React.Fragment>
+            <Navbar/>
 
             <div className="container-fluid" id="content">
                 <div className="row">
@@ -75,14 +39,11 @@ render(){
                     <Route exact path = "/contacts" component={Contacts}/>
                 </div>
             </div>
-          </div>
+          </React.Fragment>
         </BrowserRouter>
         )
     }
 }
 
+module.exports.MainComponent = MainComponent;
 
-ReactDOM.render(
-    <MainComponent/>,
-    document.getElementById('app')
-);
