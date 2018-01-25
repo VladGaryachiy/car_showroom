@@ -1,5 +1,5 @@
 let React = require('react');
-
+let Carousel = require('./component/carousel').Carousel;
 
 class Home extends React.Component{
     constructor(props){
@@ -8,9 +8,12 @@ class Home extends React.Component{
 
     render() {
         return(
-            <div>
-                <h4>Home page</h4>
-            </div>
+          <div>
+                <h2>Home Page</h2>
+                {/*Carousel*/}
+           {/*     <Carousel/>*/}
+          </div>
+
         )
     }
 }

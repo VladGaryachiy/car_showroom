@@ -16,6 +16,7 @@ let Contacts = require('./contact').Contacts;
 /*Components*/
 
 let Navbar = require('./component/navbar').Navbar;
+let Footer = require('./component/footer').Footer;
 
 
 
@@ -26,11 +27,13 @@ class MainComponent extends React.Component{
 
 render(){
     return(
+    <React.Fragment>
         <BrowserRouter>
           <React.Fragment>
+           {/*NAVBAR*/}
             <Navbar/>
-
-            <div className="container-fluid" id="content">
+            {/*PAGES*/}
+            <div className="container-fluid contentContainer" id="content" >
                 <div className="row">
                     <Route exact path = "/" component={Home}/>
                     <Route exact path = "/cars" component={Cars}/>
@@ -41,6 +44,13 @@ render(){
             </div>
           </React.Fragment>
         </BrowserRouter>
+
+
+      {/*FOOTER*/}
+
+    {/*  <Footer/>*/}
+
+    </React.Fragment>
         )
     }
 }

@@ -7,12 +7,12 @@ class Navbar extends React.Component{
 
     render(){
         return(
-            <div className="container-fluid" id="navbar">
+            <div className="container-fluid NavbarContainer" id="navbar" >
                 <div className="row">
-                    <div className="navbar navbar-inverse">
+                    <div className="navbar navbar-inverse navbar-fixed-top">
                         <div className="container">
                             <div className="navbar-header">
-
+                               <img alt="" src="../../img/logo1.png" width="80px" height="30px" className="brandStyle"/>
                             </div>
                             <div className="collapse navbar-collapse">
                                 <ul className="nav navbar-nav">
@@ -24,9 +24,10 @@ class Navbar extends React.Component{
                                         <ul className="dropdown-menu">
                                             <li><Link to="/cars">Всі автомобілі</Link></li>
                                             <hr/>
-                                            <li><Link to="/">Nissan</Link></li>
-                                            <li><Link to="/">Kia</Link></li>
-                                            <li><Link to="/">Lexus</Link></li>
+                                            <li><Link to="/finance">Пікапи</Link></li>
+                                            <li><Link to="/finance">Позашляховики</Link></li>
+                                            <li><Link to="/">Фургони</Link></li>
+                                            <li><Link to="/">Мінівени</Link></li>
                                         </ul>
                                     </li>
                                     <li className="dropdown">

@@ -1,18 +1,21 @@
 let express = require('express');
 let bodyParser = require('body-parser');
-
 let server = express();
+
 
 server.use(express.static('public')); // доступ к файлам которые розположены в public
 server.use(bodyParser.urlencoded({extended:true})); /*подключили body-parser*/
 server.use(bodyParser.json());
 
-/*
-server.post('/valid-form',require('./controllers/valid-form.js'));*/
 
 
-/*сервер слушает запросы переданы методом POST в котором указан url
-формы и функция котороя импортирует модуль с ответом на запрос*/
 
 
-server.listen(8000);
+// Get data
+
+
+server.get('/cars',require('./controllers/cars.js'));
+
+
+
+server.listen(8001);

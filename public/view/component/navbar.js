@@ -7,17 +7,21 @@ class Navbar extends React.Component {
     render() {
         return React.createElement(
             'div',
-            { className: 'container-fluid', id: 'navbar' },
+            { className: 'container-fluid NavbarContainer', id: 'navbar' },
             React.createElement(
                 'div',
                 { className: 'row' },
                 React.createElement(
                     'div',
-                    { className: 'navbar navbar-inverse' },
+                    { className: 'navbar navbar-inverse navbar-fixed-top' },
                     React.createElement(
                         'div',
                         { className: 'container' },
-                        React.createElement('div', { className: 'navbar-header' }),
+                        React.createElement(
+                            'div',
+                            { className: 'navbar-header' },
+                            React.createElement('img', { alt: '', src: '../../img/logo1.png', width: '80px', height: '30px', className: 'brandStyle' })
+                        ),
                         React.createElement(
                             'div',
                             { className: 'collapse navbar-collapse' },
@@ -60,8 +64,17 @@ class Navbar extends React.Component {
                                             null,
                                             React.createElement(
                                                 Link,
-                                                { to: '/' },
-                                                'Nissan'
+                                                { to: '/finance' },
+                                                '\u041F\u0456\u043A\u0430\u043F\u0438'
+                                            )
+                                        ),
+                                        React.createElement(
+                                            'li',
+                                            null,
+                                            React.createElement(
+                                                Link,
+                                                { to: '/finance' },
+                                                '\u041F\u043E\u0437\u0430\u0448\u043B\u044F\u0445\u043E\u0432\u0438\u043A\u0438'
                                             )
                                         ),
                                         React.createElement(
@@ -70,7 +83,7 @@ class Navbar extends React.Component {
                                             React.createElement(
                                                 Link,
                                                 { to: '/' },
-                                                'Kia'
+                                                '\u0424\u0443\u0440\u0433\u043E\u043D\u0438'
                                             )
                                         ),
                                         React.createElement(
@@ -79,7 +92,7 @@ class Navbar extends React.Component {
                                             React.createElement(
                                                 Link,
                                                 { to: '/' },
-                                                'Lexus'
+                                                '\u041C\u0456\u043D\u0456\u0432\u0435\u043D\u0438'
                                             )
                                         )
                                     )
