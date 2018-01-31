@@ -1,6 +1,12 @@
 let React = require('react');
+let ReactDOM = require('react-dom');
+let AboutCar = require('./aboutcar').AboutCar;
 
 let cars = [];
+
+let pickups = [];
+let SUVs = [];
+let vans = [];
 
 (function () {
     $.ajax({
@@ -10,15 +16,203 @@ let cars = [];
         cache: false,
         success: function (result) {
 
-            for (let i = 0; i < result.result.length; i++) {
-                cars.push(result.result[i]);
-            }
+            /*   for(let i = 0; i < result.result.length; i++){
+                   cars.push(result.result[i]);
+               }*/
+            pickups = result.result.filter(function (item) {
+                return item.type_car === 'Пікап';
+            });
+            SUVs = result.result.filter(function (item) {
+                return item.type_car === 'Позашляховик';
+            });
+            vans = result.result.filter(function (item) {
+                return item.type_car === 'Фургон';
+            });
         },
         error: function (error) {
             return error;
         }
     });
 })();
+
+class Pickup extends React.Component {
+    constructor(props) {
+        super(props);
+        this.ThisCar = this.ThisCar.bind(this);
+    }
+
+    ThisCar(e) {
+        let data = this.props.info;
+        let car = data.filter(item => {
+            return item.name === e.currentTarget.attributes[1].nodeValue;
+        });
+        ReactDOM.render(React.createElement(AboutCar, { infoCar: car }), document.getElementById('cars-container'));
+    }
+
+    render() {
+        let data = this.props.info;
+        let drive = data.filter(item => {
+            return item.drive === 'Повний';
+        });
+
+        return React.createElement(
+            React.Fragment,
+            null,
+            React.createElement(
+                'div',
+                { className: 'container' },
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    drive.map((item, i) => React.createElement(
+                        'div',
+                        { className: "col-md-5 car  pickup" + i, key: item.key, onClick: this.ThisCar, 'data-name': item.name },
+                        React.createElement(
+                            'div',
+                            { className: 'banner' },
+                            React.createElement(
+                                'div',
+                                null,
+                                React.createElement(
+                                    'p',
+                                    { className: 'carName' },
+                                    item.name
+                                )
+                            )
+                        )
+                    ))
+                )
+            )
+        );
+    }
+
+}
+class SUV extends React.Component {
+    constructor(props) {
+        super(props);
+        this.ThisCar = this.ThisCar.bind(this);
+    }
+
+    ThisCar(e) {
+        let data = this.props.info;
+        let car = data.filter(item => {
+            return item.name === e.currentTarget.attributes[1].nodeValue;
+        });
+        ReactDOM.render(React.createElement(AboutCar, { infoCar: car }), document.getElementById('cars-container'));
+    }
+
+    render() {
+        let data = this.props.info;
+        let drive = data.filter(item => {
+            return item.drive === 'Передній';
+        });
+        return React.createElement(
+            React.Fragment,
+            null,
+            React.createElement(
+                'div',
+                { className: 'container' },
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    drive.map((item, i) => React.createElement(
+                        'div',
+                        { className: "col-md-5 car  suv" + i, key: item.key, onClick: this.ThisCar, 'data-name': item.name },
+                        React.createElement(
+                            'div',
+                            { className: 'banner' },
+                            React.createElement(
+                                'div',
+                                null,
+                                React.createElement(
+                                    'p',
+                                    { className: 'carName' },
+                                    item.name
+                                )
+                            )
+                        )
+                    ))
+                )
+            )
+        );
+    }
+}
+class Van extends React.Component {
+    constructor(props) {
+        super(props);
+        this.ThisCar = this.ThisCar.bind(this);
+    }
+    ThisCar(e) {
+        let data = this.props.info;
+        let car = data.filter(item => {
+            return item.name === e.currentTarget.attributes[1].nodeValue;
+        });
+        ReactDOM.render(React.createElement(AboutCar, { infoCar: car }), document.getElementById('cars-container'));
+    }
+
+    render() {
+        let data = this.props.info;
+
+        return React.createElement(
+            React.Fragment,
+            null,
+            React.createElement(
+                'div',
+                { className: 'container' },
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    data.map((item, i) => React.createElement(
+                        'div',
+                        { className: "col-md-5 car  van" + i, key: item.key, onClick: this.ThisCar, 'data-name': item.name },
+                        React.createElement(
+                            'div',
+                            { className: 'banner' },
+                            React.createElement(
+                                'h1',
+                                { className: 'carName' },
+                                item.name
+                            )
+                        )
+                    ))
+                )
+            )
+        );
+    }
+
+}
+
+class AllCars extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return React.createElement(
+            React.Fragment,
+            null,
+            React.createElement(
+                'h1',
+                { 'data-name': 'Pickups' },
+                '\u041F\u0456\u043A\u0430\u043F\u0438'
+            ),
+            React.createElement(Pickup, { info: pickups }),
+            React.createElement('hr', null),
+            React.createElement(
+                'h1',
+                { 'data-name': 'SUV' },
+                '\u041F\u043E\u0437\u0430\u0448\u043B\u044F\u0445\u043E\u0432\u0438\u043A\u0438'
+            ),
+            React.createElement(SUV, { info: SUVs }),
+            React.createElement(
+                'h1',
+                { 'data-name': 'VAN' },
+                '\u0424\u0443\u0440\u0433\u043E\u043D\u0438'
+            ),
+            React.createElement(Van, { info: vans })
+        );
+    }
+}
+module.exports.AllCars = AllCars;
 
 class Cars extends React.Component {
     constructor(props) {
@@ -27,149 +221,37 @@ class Cars extends React.Component {
 
     render() {
         return React.createElement(
-            React.Fragment,
-            null,
-            cars.map(item => React.createElement(
-                'div',
-                { className: 'car' },
-                React.createElement(
-                    'h3',
-                    null,
-                    '\u041D\u0430\u0437\u0432\u0430 : ',
-                    item.name,
-                    ' id: ',
-                    item.id
-                ),
-                React.createElement('hr', null),
-                React.createElement(
-                    'h1',
-                    null,
-                    '\u0414\u0432\u0438\u0433\u0443\u043D'
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u0422\u0438\u043F : ',
-                    item.type_car
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u0422\u0438\u043F \u043F\u0430\u043B\u044C\u043D\u043E\u0433\u043E : ',
-                    item.fuel_type
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041E\u0431\'\u0454\u043C \u0434\u0432\u0438\u0433\u0443\u043D\u0430 : ',
-                    item.engine_capecity
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u0446\u0438\u043B\u0456\u043D\u0434\u0440\u0456\u0432 : ',
-                    item.numb_cylinder
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u043A\u043B\u0430\u043F\u0430\u043D\u0456\u0432 : ',
-                    item.numb_valves
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041F\u043E\u0442\u0443\u0436\u043D\u0456\u0441\u0442\u044C : ',
-                    item.power,
-                    ' \u043B.\u0441'
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041E\u0431\u043E\u0440\u043E\u0442\u0438 \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0457 \u0448\u0432\u0438\u0434\u043A\u043Ec\u0442\u0456 : ',
-                    item.turnovers_max_power
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041A\u0440\u0443\u0442\u044F\u0449\u0438\u0439 \u043C\u043E\u043C\u0435\u043D\u0442 : ',
-                    item.targue
-                ),
-                React.createElement('hr', null),
-                React.createElement(
-                    'h1',
-                    null,
-                    '\u0413\u0430\u0431\u0430\u0440\u0438\u0442\u0438'
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u043C\u0456\u0441\u0446\u044C: ',
-                    item.places
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u0414\u043E\u0432\u0436\u0438\u043D\u0430: ',
-                    item.length
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u0428\u0438\u0440\u0438\u043D\u0430: ',
-                    item.width
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u0412\u0438\u0441\u043E\u0442\u0430: ',
-                    item.height
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u0412\u0430\u043D\u0442\u0430\u0436\u043D\u0435 \u0432\u0456\u0434\u0434\u0456\u043B\u0435\u043D\u043D\u044F : ',
-                    item.amount_cargo_cell
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041E\u0431\'\u0454\u043C \u0431\u0430\u043A\u0443 : ',
-                    item.amount_fuel_tank
-                ),
-                React.createElement('hr', null),
-                React.createElement(
-                    'h1',
-                    null,
-                    '\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043F\u0435\u0440\u0435\u0434\u0430\u0447 \u0456 \u043F\u0440\u0438\u0432\u0456\u0434'
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043F\u0435\u0440\u0435\u0434\u0430\u0447 : ',
-                    item.transmission
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u0422\u0438\u043F \u043A\u043E\u0440\u043E\u0431\u043A\u0438 \u043F\u0435\u0440\u0435\u0434\u0430\u0447: ',
-                    item.type_trans
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u0430\u0447: ',
-                    item.amount_gears
-                ),
-                React.createElement(
-                    'p',
-                    null,
-                    '\u041F\u0440\u0438\u0432\u0456\u0434: ',
-                    item.drive
-                )
-            ))
+            'div',
+            { className: 'cars-container', id: 'cars-container' },
+            React.createElement(
+                'h1',
+                null,
+                '\u041F\u0456\u043A\u0430\u043F\u0438'
+            ),
+            React.createElement(Pickup, { info: pickups }),
+            React.createElement('hr', null),
+            React.createElement(
+                'h1',
+                null,
+                '\u041F\u043E\u0437\u0430\u0448\u043B\u044F\u0445\u043E\u0432\u0438\u043A\u0438'
+            ),
+            React.createElement(SUV, { info: SUVs }),
+            React.createElement(
+                'h1',
+                null,
+                '\u0424\u0443\u0440\u0433\u043E\u043D\u0438'
+            ),
+            React.createElement(Van, { info: vans })
         );
     }
 }
 
 module.exports.Cars = Cars;
+
+/*
+{pickups.map(item=>
+    <div className="col-md-3 car">
+        <h1>{item.name}</h1>
+        <h3>{item.type_car}</h3>
+    </div>
+)}*/

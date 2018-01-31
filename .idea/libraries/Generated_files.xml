@@ -2,31 +2,43 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/public/view/component/navbar.js" />
         <item url="file://$PROJECT_DIR$/public/view/cars.js" />
         <item url="file://$PROJECT_DIR$/public/view/component/carousel.js" />
         <item url="file://$PROJECT_DIR$/public/view/app.js" />
         <item url="file://$PROJECT_DIR$/public/view/services.js" />
-        <item url="file://$PROJECT_DIR$/public/view/container.js" />
+        <item url="file://$PROJECT_DIR$/public/view/type_cars/aboutcar.js" />
+        <item url="file://$PROJECT_DIR$/public/view/type_cars/suv.js" />
         <item url="file://$PROJECT_DIR$/public/view/home.js" />
         <item url="file://$PROJECT_DIR$/public/view/contact.js" />
-        <item url="file://$PROJECT_DIR$/public/view/component/footer.js" />
+        <item url="file://$PROJECT_DIR$/public/view/type_cars/pickup.js" />
+        <item url="file://$PROJECT_DIR$/public/view/aboutcar.js" />
         <item url="file://$PROJECT_DIR$/public/view/finance.js" />
+        <item url="file://$PROJECT_DIR$/public/view/component/navbar.js" />
+        <item url="file://$PROJECT_DIR$/public/view/container.js" />
+        <item url="file://$PROJECT_DIR$/public/view/component/footer.js" />
+        <item url="file://$PROJECT_DIR$/public/view/type_cars/van.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/public/view/contacts.js" />
       <root url="file://$PROJECT_DIR$/public/view/contacts.js" />
-      <root url="file://$PROJECT_DIR$/public/view/component/navbar.js" />
+      <root url="file://$PROJECT_DIR$/public/view/type_cars/pickups.js" />
+      <root url="file://$PROJECT_DIR$/public/view/type_cars/pickups.js" />
       <root url="file://$PROJECT_DIR$/public/view/cars.js" />
       <root url="file://$PROJECT_DIR$/public/view/component/carousel.js" />
       <root url="file://$PROJECT_DIR$/public/view/app.js" />
       <root url="file://$PROJECT_DIR$/public/view/services.js" />
-      <root url="file://$PROJECT_DIR$/public/view/container.js" />
+      <root url="file://$PROJECT_DIR$/public/view/type_cars/aboutcar.js" />
+      <root url="file://$PROJECT_DIR$/public/view/type_cars/suv.js" />
       <root url="file://$PROJECT_DIR$/public/view/home.js" />
       <root url="file://$PROJECT_DIR$/public/view/contact.js" />
-      <root url="file://$PROJECT_DIR$/public/view/component/footer.js" />
+      <root url="file://$PROJECT_DIR$/public/view/type_cars/pickup.js" />
+      <root url="file://$PROJECT_DIR$/public/view/aboutcar.js" />
       <root url="file://$PROJECT_DIR$/public/view/finance.js" />
+      <root url="file://$PROJECT_DIR$/public/view/component/navbar.js" />
+      <root url="file://$PROJECT_DIR$/public/view/container.js" />
+      <root url="file://$PROJECT_DIR$/public/view/component/footer.js" />
+      <root url="file://$PROJECT_DIR$/public/view/type_cars/van.js" />
     </CLASSES>
     <SOURCES />
   </library>

@@ -12,6 +12,12 @@ let Finance = require('./finance').Finance;
 let Services = require('./services').Services;
 let Contacts = require('./contact').Contacts;
 
+/*Type cars*/
+
+let Pickups = require('./type_cars/pickup').Pickups;
+let SUVS = require('./type_cars/suv').SUVS;
+let VANS = require('./type_cars/van').VANS;
+
 /*Components*/
 
 let Navbar = require('./component/navbar').Navbar;
@@ -43,7 +49,10 @@ class MainComponent extends React.Component {
                             React.createElement(Route, { exact: true, path: '/cars', component: Cars }),
                             React.createElement(Route, { exact: true, path: '/services', component: Services }),
                             React.createElement(Route, { exact: true, path: '/finance', component: Finance }),
-                            React.createElement(Route, { exact: true, path: '/contacts', component: Contacts })
+                            React.createElement(Route, { exact: true, path: '/contacts', component: Contacts }),
+                            React.createElement(Route, { exact: true, path: '/pickups', component: Pickups }),
+                            React.createElement(Route, { exact: true, path: '/suvs', component: SUVS }),
+                            React.createElement(Route, { exact: true, path: '/vans', component: VANS })
                         )
                     )
                 )

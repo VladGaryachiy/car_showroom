@@ -1,0 +1,66 @@
+.anchor-container{
+    padding-left: 150px;
+}
+.anchor{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    height: 130px;
+    margin-left: 20px;
+    background-color: rgba(155, 74, 0, 0.07);
+    font-family: "Courier New", monospace;
+    font-size: 20px;
+}
+.motors{
+    background-color: white;
+    margin-left: -150px;
+    border-top: 2px solid rgba(155, 74, 0, 0.07);
+    border-bottom: 2px solid rgba(155, 74, 0, 0.07);
+}
+.imgMotors{
+    padding-left: 100px;
+    padding-top: 50px;
+}
+.aboutMotors > h2{
+    text-align: center;
+    font-family: Impact, fantasy;
+    font-size: 35px;
+    color:black;
+}
+.aboutMotors > p{
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 24px;
+    color: black;
+    padding-left: 30px;
+}
+.aboutMotors{
+    padding-bottom: 30px;
+}
+.aboutDimensions{
+    margin-left: -150px;
+    height: 500px;
+    background: url('../img/sierra_double_cab/2.jpg') 100% 100% no-repeat;
+    background-size: cover;
+
+}
+.aboutDimensionsData{
+    float: right;
+    margin-top: -40px;
+    height: 500px;
+    width: 430px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+.aboutDimensionsData > h2{
+    text-align: center;
+    font-family: Impact, fantasy;
+    font-size: 35px;
+    color:white;
+}
+.aboutDimensionsData > p{
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 24px;
+    color: white;
+    padding-left: 30px;
+
+}

@@ -9,34 +9,50 @@ SELECT * FROM name JOIN surname ON name.surname_id = surname.id JOIN surname ON 
 
 
 -----------------------FULL INFO------------------------------------
- <React.Fragment>
-                {cars.map(item=>
-                    <div className="car">
-                        <h3>Назва : {item.name}</h3>
-                        <hr/>
-                        <h1>Двигун</h1>
-                        <p>Тип : {item.type_car}</p>
-                        <p>Тип пального : {item.fuel_type}</p>
-                        <p>Об'єм двигуна : {item.engine_capecity}</p>
-                        <p>Кількість циліндрів : {item.numb_cylinder}</p>
-                        <p>Кількість клапанів : {item.numb_valves}</p>
-                        <p>Потужність : {item.power} л.с</p>
-                        <p>Обороти максимальної швидкоcті : {item.turnovers_max_power}</p>
-                        <p>Крутящий момент : {item.targue}</p>
-                        <hr/>
-                        <h1>Габарити</h1>
-                        <p>Кількість місць: {item.places}</p>
-                        <p>Довжина: {item.length}</p>
-                        <p>Ширина: {item.width}</p>
-                        <p>Висота: {item.height}</p>
-                        <p>Вантажне відділення : {item.amount_cargo_cell}</p>
-                        <p>Об'єм баку : {item.amount_fuel_tank}</p>
-                        <hr/>
-                        <h1>Коробка передач і привід</h1>
-                        <p>Коробка передач : {item.transmission}</p>
-                        <p>Тип коробки передач: {item.type_trans}</p>
-                        <p>Кількість передач: {item.amount_gears}</p>
-                        <p>Привід: {item.drive}</p>
-                    </div>
-                )}
-            </React.Fragment>
+  <React.Fragment>
+                  {cars.map(item=>
+                      <div className="car">
+                          <h3>Назва : {item.name} id: {item.id}</h3>
+                          <p>Тип : {item.type_car}</p>
+                          <img src={item.img1} alt="" height="200px" width="350px"/>
+                          <hr/>
+                          <h1>Двигун</h1>
+                          <p>Двигун : {item.motor}</p>
+                          <p>Код двигуна : {item.motor_code}</p>
+                          <p>Тип двигуна : {item.motor_type}</p>
+                          <p>Тип пального : {item.fuel_type}</p>
+                          <p>Об'єм двигуна : {item.engine_capecity}</p>
+                          <p>Кількість циліндрів : {item.numb_cylinder}</p>
+                          <p>Кількість клапанів : {item.numb_valves}</p>
+                          <p>Потужність : {item.power} л.с</p>
+                          <p>Обороти максимальної швидкоcті : {item.turnovers_max_power}</p>
+                          <p>Крутящий момент : {item.targue}</p>
+                          <hr/>
+                          <h1>Габарити</h1>
+                          <p>Кількість місць: {item.places}</p>
+                          <p>Довжина: {item.length}</p>
+                          <p>Ширина: {item.width}</p>
+                          <p>Висота: {item.height}</p>
+                          <p>Вантажне відділення : {item.amount_cargo_cell}</p>
+                          <p>Об'єм баку : {item.amount_fuel_tank}</p>
+                          <hr/>
+                          <h1>Коробка передач і привід</h1>
+                          <p>Коробка передач : {item.transmission}</p>
+                          <p>Тип коробки передач: {item.type_trans}</p>
+                          <p>Кількість передач: {item.amount_gears}</p>
+                          <p>Привід: {item.drive}</p>
+                          <hr/>
+                          <h1>Витрата пального</h1>
+                          <p>По місту: {item.consumption_in_city}</p>
+                          <p>За містом: {item.consumption_out_city}</p>
+                          <hr/>
+                          <h1>Рік : {item.year}</h1>
+                          <h1>Країна : {item.country}</h1>
+                          <hr/>
+                          <h1>Ціна</h1>
+                          <h2>{item.price} грн</h2>
+                      </div>
+
+
+                  )}
+              </React.Fragment>

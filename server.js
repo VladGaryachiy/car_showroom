@@ -15,6 +15,9 @@ server.use(bodyParser.json());
 
 
 server.get('/cars',require('./controllers/cars.js'));
+server.get('/pickups',require('./controllers/pickups.js'));
+server.get('/suvs',require('./controllers/suvs.js'));
+server.get('/vans',require('./controllers/vans.js'));
 
 
 

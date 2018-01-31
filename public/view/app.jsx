@@ -13,6 +13,13 @@ let Finance = require('./finance').Finance;
 let Services = require('./services').Services;
 let Contacts = require('./contact').Contacts;
 
+/*Type cars*/
+
+let Pickups = require('./type_cars/pickup').Pickups;
+let SUVS = require('./type_cars/suv').SUVS;
+let VANS = require('./type_cars/van').VANS;
+
+
 /*Components*/
 
 let Navbar = require('./component/navbar').Navbar;
@@ -40,6 +47,12 @@ render(){
                     <Route exact path = "/services" component={Services}/>
                     <Route exact path = "/finance" component={Finance}/>
                     <Route exact path = "/contacts" component={Contacts}/>
+
+                        {/*Type cars pages*/}
+                    <Route exact path = "/pickups" component={Pickups}/>
+                    <Route exact path = "/suvs" component={SUVS}/>
+                    <Route exact path = "/vans" component={VANS}/>
+
                 </div>
             </div>
           </React.Fragment>

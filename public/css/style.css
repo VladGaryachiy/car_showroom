@@ -6,10 +6,13 @@ body{
     border: none;
 }
 .navbar-inverse{
-    background-color: #cfd2c9;
+    background-color: white;
 }
 .navbar-inverse .navbar-nav>li>a{
     color:black;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+    color: #bc1900;
 }
 .navbar-nav{
     float: right;
@@ -42,7 +45,97 @@ body{
 
 
 .car{
-    border:1px solid black;
-    padding:20px;
-    margin:30px;
+    padding:10px;
+    margin:10px;
+}
+.cars-container{
+    padding-left: 150px;
+}
+.sliderAboutCar{
+    margin-left: -150px;
+}
+
+
+/*
+.numbElement1, .numbElement3, .numbElement5, .numbElement7{
+    margin-top: 50px;
+}*/
+
+
+.pickup0{
+    height: 500px;
+    background: url('../img/sierra_double_cab/2.jpg') 13% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+    cursor: pointer;
+}
+.pickup1{
+    height: 500px;
+    background: url('../img/sierra_crew_cab/1.jpg') 35% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+    cursor: pointer;
+}
+.pickup2{
+    height: 500px;
+    background: url('../img/sierra_regular_cab/1.jpg') 75% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+    cursor: pointer;
+}
+.pickup3{
+    height: 500px;
+    background: url('../img/canyon_extended_cab/2.jpg') 45% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+    cursor: pointer;
+}
+.pickup4{
+    height: 500px;
+    background: url('../img/canyon_crew_cab/4.jpg') 30% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+    cursor: pointer;
+}
+.banner{
+    display: block;
+    margin-top: -10px;
+    margin-left: -10px;
+    padding: 10px;
+    height: 500px;
+    width: 696px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.suv0{
+    height: 500px;
+    background: url('../img/yukon/1.jpg') 50% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+}
+.suv1{
+    height: 500px;
+    background: url('../img/acadia/6.jpg') 17% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+}
+.suv2{
+    height: 500px;
+    background: url('../img/terrain/3.jpg') 35% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+}
+
+.van0{
+    height: 500px;
+    background: url('../img/savana/1.jpg') 60% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+}
+
+.carName{
+    text-align: center;
+    color:white;
+    font-family: "Courier New" ,monospace;
+    font-size: 40px;
 }

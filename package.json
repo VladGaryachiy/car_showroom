@@ -11,6 +11,7 @@
     "pg": "^6.4.2",
     "pg-connect": "^2.0.2",
     "react": "^16.2.0",
+    "react-children-render": "^1.0.2",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2"
@@ -27,7 +28,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node_modules/.bin/babel public/view/index.jsx -o public/view/index.js -w",
-    "compile":"browserify public/view/container.js -o public/js/main.js -d -w"
+    "compile": "browserify public/view/container.js -o public/js/main.js -d -w"
   },
   "repository": {
     "type": "git",
