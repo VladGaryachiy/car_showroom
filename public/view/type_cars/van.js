@@ -2,7 +2,20 @@ let React = require('react');
 let ReactDOM = require('react-dom');
 let AboutCar = require('../aboutcar').AboutCar;
 
-let vans = [];
+let Route = require('react-router-dom').Route;
+let Link = require('react-router-dom').Link;
+let Switch = require('react-router-dom').Switch;
+
+const DataVans = {
+    vans: [],
+
+    get: function (name) {
+        return this.vans.filter(function (item) {
+            return item.name === name;
+        });
+    }
+
+};
 
 (function () {
     $.ajax({
@@ -13,7 +26,7 @@ let vans = [];
         success: function (result) {
 
             for (let i = 0; i < result.result.length; i++) {
-                vans.push(result.result[i]);
+                DataVans.vans.push(result.result[i]);
             }
         },
         error: function (error) {
@@ -22,21 +35,14 @@ let vans = [];
     });
 })();
 
-class VANS extends React.Component {
+class AllVans extends React.Component {
 
     constructor(props) {
         super(props);
-        this.ThisCar = this.ThisCar.bind(this);
-    }
-    ThisCar(e) {
-
-        let car = vans.filter(item => {
-            return item.name === e.currentTarget.attributes[1].nodeValue;
-        });
-        ReactDOM.render(React.createElement(AboutCar, { infoCar: car }), document.getElementById('cars-container'));
     }
 
     render() {
+
         return React.createElement(
             'div',
             { className: 'cars-container', id: 'cars-container' },
@@ -46,19 +52,23 @@ class VANS extends React.Component {
                 React.createElement(
                     'div',
                     { className: 'row' },
-                    vans.map((item, i) => React.createElement(
-                        'div',
-                        { className: "col-md-5 car  van" + i, key: item.key, onClick: this.ThisCar, 'data-name': item.name },
+                    DataVans.vans.map((item, i) => React.createElement(
+                        Link,
+                        { to: `/vans/${item.name}`, key: item.key },
                         React.createElement(
                             'div',
-                            { className: 'banner' },
+                            { className: "col-md-5 car  van" + i, key: item.key, 'data-name': item.name },
                             React.createElement(
                                 'div',
-                                null,
+                                { className: 'banner' },
                                 React.createElement(
-                                    'p',
-                                    { className: 'carName' },
-                                    item.name
+                                    'div',
+                                    null,
+                                    React.createElement(
+                                        'p',
+                                        { className: 'carName' },
+                                        item.name
+                                    )
                                 )
                             )
                         )
@@ -70,51 +80,48 @@ class VANS extends React.Component {
 
 }
 
-module.exports.VANS = VANS;
-
-class VansVol2 extends React.Component {
-
+class Van extends React.Component {
     constructor(props) {
         super(props);
-        this.ThisCar = this.ThisCar.bind(this);
     }
-    ThisCar(e) {
-
-        let car = vans.filter(item => {
-            return item.name === e.currentTarget.attributes[1].nodeValue;
-        });
-        ReactDOM.render(React.createElement(AboutCar, { infoCar: car }), document.getElementById('cars-container'));
-    }
-
     render() {
-
+        const Van = DataVans.get(this.props.match.params.van);
         return React.createElement(
             'div',
-            { className: 'container' },
+            { className: 'cars-container', id: 'cars-container' },
             React.createElement(
-                'div',
-                { className: 'row' },
-                vans.map((item, i) => React.createElement(
-                    'div',
-                    { className: "col-md-5 car  van" + i, key: item.key, onClick: this.ThisCar, 'data-name': item.name },
-                    React.createElement(
-                        'div',
-                        { className: 'banner' },
-                        React.createElement(
-                            'div',
-                            null,
-                            React.createElement(
-                                'p',
-                                { className: 'carName' },
-                                item.name
-                            )
-                        )
-                    )
-                ))
+                React.Fragment,
+                null,
+                React.createElement(AboutCar, { infoCar: Van }),
+                React.createElement(
+                    Link,
+                    { to: '/vans' },
+                    'Back'
+                )
             )
         );
     }
 
 }
 
-module.exports.VansVol2 = VansVol2;
+class VANS extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                Switch,
+                null,
+                React.createElement(Route, { exact: true, path: '/vans', component: AllVans }),
+                React.createElement(Route, { path: '/vans/:van', component: Van })
+            )
+        );
+    }
+
+}
+
+module.exports.VANS = VANS;

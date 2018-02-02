@@ -7,3 +7,4 @@ ReactDOM.render(
     <MainComponent/>,
     document.getElementById('app')
 );
+

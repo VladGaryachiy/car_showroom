@@ -2,7 +2,23 @@ let React = require('react');
 let ReactDOM = require('react-dom');
 let AboutCar = require('./aboutcar').AboutCar;
 
-let cars = [];
+let Route = require('react-router-dom').Route;
+let Link = require('react-router-dom').Link;
+let Switch = require('react-router-dom').Switch;
+
+
+const DataCars = {
+    cars : [
+
+    ],
+
+    get: function (name) {
+        return this.cars.filter(function (item) {
+            return item.name === name;
+        })
+    }
+
+};
 
 
 
@@ -20,9 +36,9 @@ let cars = [];
         cache: false,
         success: function (result) {
             
-         /*   for(let i = 0; i < result.result.length; i++){
-                cars.push(result.result[i]);
-            }*/
+            for(let i = 0; i < result.result.length; i++){
+                DataCars.cars.push(result.result[i]);
+            }
             pickups = result.result.filter(function (item) {
                 return item.type_car === 'Пікап'
             });
@@ -42,31 +58,13 @@ let cars = [];
 })();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Pickup extends React.Component{
     constructor(props){
         super(props);
-        this.ThisCar = this.ThisCar.bind(this);
+/*        this.ThisCar = this.ThisCar.bind(this);*/
     }
 
+/*
     ThisCar(e){
         let data = this.props.info;
         let car = data.filter(item=>{
@@ -77,6 +75,7 @@ class Pickup extends React.Component{
             document.getElementById('cars-container')
         )
     }
+*/
 
     render(){
         let data = this.props.info;
@@ -84,20 +83,21 @@ class Pickup extends React.Component{
             return item.drive === 'Повний'
         });
 
-
         return(
             <React.Fragment>
                 <div className="container">
                     <div className="row">
                         {
                             drive.map((item,i) =>
-                                <div className={"col-md-5 car  pickup"+i} key={item.key} onClick={this.ThisCar} data-name={item.name}>
-                                    <div className="banner">
-                                        <div>
-                                            <p className="carName">{item.name}</p>
+                                <Link to={`/cars/${item.name}`}  key={item.key} >
+                                    <div className={"col-md-5 car  pickup"+i} key={item.key}  data-name={item.name}>
+                                        <div className="banner">
+                                            <div>
+                                                <p className="carName">{item.name}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         }
                     </div>
@@ -111,19 +111,9 @@ class Pickup extends React.Component{
 class SUV extends React.Component{
     constructor(props){
         super(props);
-        this.ThisCar = this.ThisCar.bind(this);
     }
 
-    ThisCar(e){
-        let data = this.props.info;
-        let car = data.filter(item=>{
-            return item.name === e.currentTarget.attributes[1].nodeValue
-        });
-        ReactDOM.render(
-            <AboutCar infoCar={car}/>,
-            document.getElementById('cars-container')
-        )
-    }
+
 
     render(){
         let data = this.props.info;
@@ -136,13 +126,15 @@ class SUV extends React.Component{
                     <div className="row">
                         {
                             drive.map((item,i) =>
-                                <div className={"col-md-5 car  suv"+i} key={item.key} onClick={this.ThisCar} data-name={item.name}>
-                                    <div className="banner">
-                                        <div>
-                                            <p className="carName">{item.name}</p>
+                                <Link to={`/cars/${item.name}`}  key={item.key} >
+                                    <div className={"col-md-5 car  suv"+i} key={item.key} data-name={item.name}>
+                                        <div className="banner">
+                                            <div>
+                                                <p className="carName">{item.name}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         }
                     </div>
@@ -155,18 +147,8 @@ class SUV extends React.Component{
 class Van extends React.Component{
     constructor(props){
         super(props);
-        this.ThisCar = this.ThisCar.bind(this);
     }
-    ThisCar(e){
-        let data = this.props.info;
-        let car = data.filter(item=>{
-            return item.name === e.currentTarget.attributes[1].nodeValue
-        });
-        ReactDOM.render(
-            <AboutCar infoCar={car}/>,
-            document.getElementById('cars-container')
-        )
-    }
+
 
     render(){
         let data = this.props.info;
@@ -177,11 +159,13 @@ class Van extends React.Component{
                     <div className="row">
                         {
                             data.map((item, i) =>
-                                <div className={"col-md-5 car  van"+i} key={item.key} onClick={this.ThisCar} data-name={item.name}>
-                                     <div className="banner">
-                                        <h1 className="carName">{item.name}</h1>
+                                <Link to={`/cars/${item.name}`} key={item.key} >
+                                    <div className={"col-md-5 car  van"+i} key={item.key}  data-name={item.name}>
+                                        <div className="banner">
+                                            <h1 className="carName">{item.name}</h1>
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         }
                     </div>
@@ -190,31 +174,48 @@ class Van extends React.Component{
         )
 
     }
-
 }
 
 
-class AllCars extends  React.Component{
+class Car extends  React.Component{
     constructor(props){
         super(props);
     }
+    render(){
+        const Car = DataCars.get(this.props.match.params.car) ;
+        return(
+            <div className="cars-container" id="cars-container">
+                <React.Fragment>
+                    <AboutCar infoCar={Car}/>
+                    <Link to='/cars'>Back</Link>
+                </React.Fragment>
+            </div>
+
+        )
+    }
+
+}
+
+
+class AllCars extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
     render() {
         return(
-           <React.Fragment>
-               <h1 data-name="Pickups">Пікапи</h1>
-               <Pickup info={pickups}/>
-               <hr/>
-               <h1 data-name="SUV">Позашляховики</h1>
-               <SUV info={SUVs}/>
-               <h1 data-name="VAN">Фургони</h1>
-               <Van info={vans}/>
-           </React.Fragment>
+            <div className="cars-container" id="cars-container">
+                <h1>Пікапи</h1>
+                <Pickup info={pickups}/>
+                <hr/>
+                <h1>Позашляховики</h1>
+                <SUV info={SUVs}/>
+                <h1>Фургони</h1>
+                <Van info={vans}/>
+            </div>
         )
     }
 }
-module.exports.AllCars = AllCars;
-
-
 
 
 class Cars extends React.Component{
@@ -224,15 +225,12 @@ class Cars extends React.Component{
 
     render() {
         return(
-           <div className="cars-container" id="cars-container">
-                <h1>Пікапи</h1>
-                <Pickup info={pickups}/>
-                <hr/>
-                <h1>Позашляховики</h1>
-                <SUV info={SUVs}/>
-                <h1>Фургони</h1>
-                <Van info={vans}/>
-           </div>
+            <div>
+                <Switch>
+                    <Route exact path='/cars' component={AllCars}/>
+                    <Route path='/cars/:car' component={Car}/>
+                </Switch>
+            </div>
         )
     }
 }

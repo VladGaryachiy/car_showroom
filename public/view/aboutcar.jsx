@@ -9,6 +9,7 @@ class AboutCar extends React.Component{
             let data = this.props.infoCar;
             return(
                 <React.Fragment>
+                    <h1>{data[0].name}</h1>
                     <div id="carousel" className="carousel slide sliderAboutCar" >
                         <ol className="carousel-indicators">
                             <li className="active" data-target="#carousel" data-slide="0"></li>

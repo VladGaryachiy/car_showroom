@@ -46,13 +46,13 @@ class MainComponent extends React.Component {
                             'div',
                             { className: 'row' },
                             React.createElement(Route, { exact: true, path: '/', component: Home }),
-                            React.createElement(Route, { exact: true, path: '/cars', component: Cars }),
+                            React.createElement(Route, { path: '/cars', component: Cars }),
                             React.createElement(Route, { exact: true, path: '/services', component: Services }),
                             React.createElement(Route, { exact: true, path: '/finance', component: Finance }),
                             React.createElement(Route, { exact: true, path: '/contacts', component: Contacts }),
-                            React.createElement(Route, { exact: true, path: '/pickups', component: Pickups }),
-                            React.createElement(Route, { exact: true, path: '/suvs', component: SUVS }),
-                            React.createElement(Route, { exact: true, path: '/vans', component: VANS })
+                            React.createElement(Route, { path: '/pickups', component: Pickups }),
+                            React.createElement(Route, { path: '/suvs', component: SUVS }),
+                            React.createElement(Route, { path: '/vans', component: VANS })
                         )
                     )
                 )

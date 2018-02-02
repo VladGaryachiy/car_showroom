@@ -43,15 +43,15 @@ render(){
             <div className="container-fluid contentContainer" id="content" >
                 <div className="row">
                     <Route exact path = "/" component={Home}/>
-                    <Route exact path = "/cars" component={Cars}/>
+                    <Route path = "/cars" component={Cars}/>
                     <Route exact path = "/services" component={Services}/>
                     <Route exact path = "/finance" component={Finance}/>
                     <Route exact path = "/contacts" component={Contacts}/>
 
                         {/*Type cars pages*/}
-                    <Route exact path = "/pickups" component={Pickups}/>
-                    <Route exact path = "/suvs" component={SUVS}/>
-                    <Route exact path = "/vans" component={VANS}/>
+                    <Route  path = "/pickups" component={Pickups}/>
+                    <Route  path = "/suvs" component={SUVS}/>
+                    <Route  path = "/vans" component={VANS}/>
 
                 </div>
             </div>

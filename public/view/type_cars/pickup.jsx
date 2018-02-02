@@ -2,8 +2,24 @@ let React = require('react');
 let ReactDOM = require('react-dom');
 let AboutCar = require('../aboutcar').AboutCar;
 
+let Route = require('react-router-dom').Route;
+let Link = require('react-router-dom').Link;
+let Switch = require('react-router-dom').Switch;
 
-let pickups = [];
+const DataPickups = {
+    pickups: [
+
+    ],
+
+    get:function (name) {
+        return this.pickups.filter(function (item) {
+            return item.name === name;
+        })
+
+    }
+
+
+};
 
 (function () {
     $.ajax({
@@ -14,7 +30,7 @@ let pickups = [];
         success: function (result) {
 
               for(let i = 0; i < result.result.length; i++) {
-                  pickups.push(result.result[i]);
+                  DataPickups.pickups.push(result.result[i]);
               }
 
 
@@ -28,25 +44,15 @@ let pickups = [];
 
 
 
-class Pickups extends React.Component{
+class AllPickups extends React.Component{
 
     constructor(props){
         super(props);
-        this.ThisCar = this.ThisCar.bind(this)
     }
-    ThisCar(e){
 
-        let car = pickups.filter(item=>{
-            return item.name === e.currentTarget.attributes[1].nodeValue
-        });
-        ReactDOM.render(
-            <AboutCar infoCar={car}/>,
-            document.getElementById('cars-container')
-        )
-    }
 
     render(){
-        let drive = pickups.filter((item ) => {
+        let drive = DataPickups.pickups.filter((item ) => {
             return item.drive === 'Повний'
         });
         return(
@@ -55,13 +61,18 @@ class Pickups extends React.Component{
                     <div className="row">
                         {
                             drive.map((item,i) =>
-                                <div className={"col-md-5 car  pickup"+i} key={item.key} onClick={this.ThisCar} data-name={item.name}>
-                                    <div className="banner">
-                                        <div>
-                                            <p className="carName">{item.name}</p>
+
+                                <Link to={`/pickups/${item.name}`}  key={item.key} >
+                                    <div className={"col-md-5 car  pickup"+i} key={item.key}  data-name={item.name}>
+                                        <div className="banner">
+                                            <div>
+                                                <p className="carName">{item.name}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
+
+
                             )
                         }
                     </div>
@@ -73,46 +84,40 @@ class Pickups extends React.Component{
 
 }
 
-module.exports.Pickups = Pickups;
-
-
-class PickupsVol2 extends React.Component {
-
-    constructor(props){
-        super(props);
-        this.ThisCar = this.ThisCar.bind(this)
-    }
-    ThisCar(e){
-
-        let car = pickups.filter(item=>{
-            return item.name === e.currentTarget.attributes[1].nodeValue
-        });
-        ReactDOM.render(
-            <AboutCar infoCar={car}/>,
-            document.getElementById('cars-container')
+class Pickup extends React.Component{
+        constructor(props){
+            super(props)
+        }
+        render(){
+            const Pickup = DataPickups.get(this.props.match.params.pickup) ;
+            return(
+                <div className="cars-container" id="cars-container">
+                    <React.Fragment>
+                        <AboutCar infoCar={Pickup}/>
+                        <Link to='/pickups'>Back</Link>
+                    </React.Fragment>
+                </div>
         )
     }
 
-    render(){
-        let drive = pickups.filter((item ) => {
-            return item.drive === 'Повний'
-        });
-        return(
+}
 
-            <div className="container">
-                <div className="row">
-                    {
-                        drive.map((item,i) =>
-                            <div className={"col-md-5 car  pickup"+i} key={item.key} onClick={this.ThisCar} data-name={item.name}>
-                                <div className="banner">
-                                    <div>
-                                        <p className="carName">{item.name}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    }
-                </div>
+
+
+
+
+class Pickups extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return(
+            <div>
+                <Switch>
+                    <Route exact path='/pickups' component={AllPickups}/>
+                    <Route path='/pickups/:pickup' component={Pickup}/>
+                </Switch>
             </div>
         )
     }
@@ -120,5 +125,7 @@ class PickupsVol2 extends React.Component {
 }
 
 
-module.exports.PickupsVol2 = PickupsVol2;
+module.exports.Pickups = Pickups;
+
+
 

@@ -2,33 +2,11 @@
 let React = require('react');
 let ReactDOM = require('react-dom');
 let Link = require('react-router-dom').Link;
-let AllCars = require('../cars').AllCars;
-let PickupsVol2 = require('../type_cars/pickup').PickupsVol2;
-let SUVVol2 = require('../type_cars/suv').SUVVol2;
-let VansVol2 = require('../type_cars/van').VansVol2;
 
 class Navbar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.ShowAllCars = this.ShowAllCars.bind(this);
-        this.ShowPickups = this.ShowPickups.bind(this);
-        this.ShowSUV = this.ShowSUV.bind(this);
-        this.ShowVans = this.ShowVans.bind(this);
-    }
-
-    ShowAllCars() {
-        ReactDOM.render(React.createElement(AllCars, null), document.getElementById('cars-container'));
-    }
-
-    ShowPickups() {
-        ReactDOM.render(React.createElement(PickupsVol2, null), document.getElementById('cars-container'));
-    }
-    ShowSUV() {
-        ReactDOM.render(React.createElement(SUVVol2, null), document.getElementById('cars-container'));
-    }
-    ShowVans() {
-        ReactDOM.render(React.createElement(VansVol2, null), document.getElementById('cars-container'));
     }
 
     render() {
@@ -78,7 +56,7 @@ class Navbar extends React.Component {
                                         { className: 'dropdown-menu' },
                                         React.createElement(
                                             'li',
-                                            { onClick: this.ShowAllCars },
+                                            null,
                                             React.createElement(
                                                 Link,
                                                 { to: '/cars' },
@@ -88,7 +66,7 @@ class Navbar extends React.Component {
                                         React.createElement('hr', null),
                                         React.createElement(
                                             'li',
-                                            { onClick: this.ShowPickups },
+                                            null,
                                             React.createElement(
                                                 Link,
                                                 { to: '/pickups' },
@@ -97,7 +75,7 @@ class Navbar extends React.Component {
                                         ),
                                         React.createElement(
                                             'li',
-                                            { onClick: this.ShowSUV },
+                                            null,
                                             React.createElement(
                                                 Link,
                                                 { to: '/suvs' },
@@ -106,7 +84,7 @@ class Navbar extends React.Component {
                                         ),
                                         React.createElement(
                                             'li',
-                                            { onClick: this.ShowVans },
+                                            null,
                                             React.createElement(
                                                 Link,
                                                 { to: '/vans' },

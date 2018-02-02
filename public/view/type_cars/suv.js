@@ -2,7 +2,20 @@ let React = require('react');
 let ReactDOM = require('react-dom');
 let AboutCar = require('../aboutcar').AboutCar;
 
-let suvs = [];
+let Route = require('react-router-dom').Route;
+let Link = require('react-router-dom').Link;
+let Switch = require('react-router-dom').Switch;
+
+const DataSUVS = {
+    suvs: [],
+
+    get: function (name) {
+        return this.suvs.filter(function (item) {
+            return item.name === name;
+        });
+    }
+
+};
 
 (function () {
     $.ajax({
@@ -13,7 +26,7 @@ let suvs = [];
         success: function (result) {
 
             for (let i = 0; i < result.result.length; i++) {
-                suvs.push(result.result[i]);
+                DataSUVS.suvs.push(result.result[i]);
             }
         },
         error: function (error) {
@@ -22,22 +35,14 @@ let suvs = [];
     });
 })();
 
-class SUVS extends React.Component {
+class AllSUVS extends React.Component {
 
     constructor(props) {
         super(props);
-        this.ThisCar = this.ThisCar.bind(this);
-    }
-    ThisCar(e) {
-
-        let car = suvs.filter(item => {
-            return item.name === e.currentTarget.attributes[1].nodeValue;
-        });
-        ReactDOM.render(React.createElement(AboutCar, { infoCar: car }), document.getElementById('cars-container'));
     }
 
     render() {
-        let drive = suvs.filter(item => {
+        let drive = DataSUVS.suvs.filter(item => {
             return item.drive === 'Передній';
         });
         return React.createElement(
@@ -50,18 +55,22 @@ class SUVS extends React.Component {
                     'div',
                     { className: 'row' },
                     drive.map((item, i) => React.createElement(
-                        'div',
-                        { className: "col-md-5 car  suv" + i, key: item.key, onClick: this.ThisCar, 'data-name': item.name },
+                        Link,
+                        { to: `/suvs/${item.name}`, key: item.key },
                         React.createElement(
                             'div',
-                            { className: 'banner' },
+                            { className: "col-md-5 car  suv" + i, key: item.key, 'data-name': item.name },
                             React.createElement(
                                 'div',
-                                null,
+                                { className: 'banner' },
                                 React.createElement(
-                                    'p',
-                                    { className: 'carName' },
-                                    item.name
+                                    'div',
+                                    null,
+                                    React.createElement(
+                                        'p',
+                                        { className: 'carName' },
+                                        item.name
+                                    )
                                 )
                             )
                         )
@@ -73,53 +82,48 @@ class SUVS extends React.Component {
 
 }
 
-module.exports.SUVS = SUVS;
-
-class SUVVol2 extends React.Component {
-
+class SUV extends React.Component {
     constructor(props) {
         super(props);
-        this.ThisCar = this.ThisCar.bind(this);
     }
-    ThisCar(e) {
-
-        let car = suvs.filter(item => {
-            return item.name === e.currentTarget.attributes[1].nodeValue;
-        });
-        ReactDOM.render(React.createElement(AboutCar, { infoCar: car }), document.getElementById('cars-container'));
-    }
-
     render() {
-        let drive = suvs.filter(item => {
-            return item.drive === 'Передній';
-        });
+        const SUV = DataSUVS.get(this.props.match.params.suv);
         return React.createElement(
             'div',
-            { className: 'container' },
+            { className: 'cars-container', id: 'cars-container' },
             React.createElement(
-                'div',
-                { className: 'row' },
-                drive.map((item, i) => React.createElement(
-                    'div',
-                    { className: "col-md-5 car  suv" + i, key: item.key, onClick: this.ThisCar, 'data-name': item.name },
-                    React.createElement(
-                        'div',
-                        { className: 'banner' },
-                        React.createElement(
-                            'div',
-                            null,
-                            React.createElement(
-                                'p',
-                                { className: 'carName' },
-                                item.name
-                            )
-                        )
-                    )
-                ))
+                React.Fragment,
+                null,
+                React.createElement(AboutCar, { infoCar: SUV }),
+                React.createElement(
+                    Link,
+                    { to: '/suvs' },
+                    'Back'
+                )
             )
         );
     }
 
 }
 
-module.exports.SUVVol2 = SUVVol2;
+class SUVS extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                Switch,
+                null,
+                React.createElement(Route, { exact: true, path: '/suvs', component: AllSUVS }),
+                React.createElement(Route, { path: '/suvs/:suv', component: SUV })
+            )
+        );
+    }
+
+}
+
+module.exports.SUVS = SUVS;

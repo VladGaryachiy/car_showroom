@@ -10,6 +10,11 @@ class AboutCar extends React.Component {
             React.Fragment,
             null,
             React.createElement(
+                "h1",
+                null,
+                data[0].name
+            ),
+            React.createElement(
                 "div",
                 { id: "carousel", className: "carousel slide sliderAboutCar" },
                 React.createElement(
