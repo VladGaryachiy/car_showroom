@@ -51,21 +51,7 @@ let vans = [];
 class Pickup extends React.Component {
     constructor(props) {
         super(props);
-        /*        this.ThisCar = this.ThisCar.bind(this);*/
     }
-
-    /*
-        ThisCar(e){
-            let data = this.props.info;
-            let car = data.filter(item=>{
-                return item.name === e.currentTarget.attributes[1].nodeValue
-            });
-            ReactDOM.render(
-                <AboutCar infoCar={car}/>,
-                document.getElementById('cars-container')
-            )
-        }
-    */
 
     render() {
         let data = this.props.info;
@@ -87,20 +73,29 @@ class Pickup extends React.Component {
                         { to: `/cars/${item.name}`, key: item.key },
                         React.createElement(
                             'div',
-                            { className: "col-md-5 car  pickup" + i, key: item.key, 'data-name': item.name },
+                            { className: "col-md-5 col-sm-12   pickupBlock" + i, key: item.key, 'data-name': item.name },
                             React.createElement(
                                 'div',
-                                { className: 'banner' },
+                                { className: 'block' },
                                 React.createElement(
-                                    'div',
-                                    null,
+                                    'h2',
+                                    { className: 'carName' },
                                     React.createElement(
-                                        'p',
-                                        { className: 'carName' },
-                                        item.name
-                                    )
+                                        'span',
+                                        { className: 'GMC' },
+                                        'GMC'
+                                    ),
+                                    ' ',
+                                    item.name
+                                ),
+                                React.createElement(
+                                    'h3',
+                                    { className: 'price' },
+                                    '\u0426\u0456\u043D\u0430 \u0432\u0456\u0434 - ',
+                                    item.price
                                 )
-                            )
+                            ),
+                            React.createElement('div', { className: " pickupImg" + i })
                         )
                     ))
                 )
@@ -133,20 +128,29 @@ class SUV extends React.Component {
                         { to: `/cars/${item.name}`, key: item.key },
                         React.createElement(
                             'div',
-                            { className: "col-md-5 car  suv" + i, key: item.key, 'data-name': item.name },
+                            { className: "col-md-5 col-sm-12   suvBlock" + i, key: item.key, 'data-name': item.name },
                             React.createElement(
                                 'div',
-                                { className: 'banner' },
+                                { className: 'block' },
                                 React.createElement(
-                                    'div',
-                                    null,
+                                    'h2',
+                                    { className: 'carName' },
                                     React.createElement(
-                                        'p',
-                                        { className: 'carName' },
-                                        item.name
-                                    )
+                                        'span',
+                                        { className: 'GMC' },
+                                        'GMC'
+                                    ),
+                                    ' ',
+                                    item.name
+                                ),
+                                React.createElement(
+                                    'h3',
+                                    { className: 'price' },
+                                    '\u0426\u0456\u043D\u0430 \u0432\u0456\u0434 - ',
+                                    item.price
                                 )
-                            )
+                            ),
+                            React.createElement('div', { className: " suvImg" + i })
                         )
                     ))
                 )
@@ -176,16 +180,29 @@ class Van extends React.Component {
                         { to: `/cars/${item.name}`, key: item.key },
                         React.createElement(
                             'div',
-                            { className: "col-md-5 car  van" + i, key: item.key, 'data-name': item.name },
+                            { className: "col-md-5 col-sm-12   vanBlock" + i, key: item.key, 'data-name': item.name },
                             React.createElement(
                                 'div',
-                                { className: 'banner' },
+                                { className: 'block' },
                                 React.createElement(
-                                    'h1',
+                                    'h2',
                                     { className: 'carName' },
+                                    React.createElement(
+                                        'span',
+                                        { className: 'GMC' },
+                                        'GMC'
+                                    ),
+                                    ' ',
                                     item.name
+                                ),
+                                React.createElement(
+                                    'h3',
+                                    { className: 'price' },
+                                    '\u0426\u0456\u043D\u0430 \u0432\u0456\u0434 - ',
+                                    item.price
                                 )
-                            )
+                            ),
+                            React.createElement('div', { className: " vanImg" + i })
                         )
                     ))
                 )
@@ -229,20 +246,25 @@ class AllCars extends React.Component {
             { className: 'cars-container', id: 'cars-container' },
             React.createElement(
                 'h1',
-                null,
+                { className: 'type_cars' },
                 '\u041F\u0456\u043A\u0430\u043F\u0438'
             ),
             React.createElement(Pickup, { info: pickups }),
-            React.createElement('hr', null),
+            React.createElement('br', null),
+            React.createElement('br', null),
+            React.createElement('br', null),
             React.createElement(
                 'h1',
-                null,
+                { className: 'type_cars' },
                 '\u041F\u043E\u0437\u0430\u0448\u043B\u044F\u0445\u043E\u0432\u0438\u043A\u0438'
             ),
             React.createElement(SUV, { info: SUVs }),
+            React.createElement('br', null),
+            React.createElement('br', null),
+            React.createElement('br', null),
             React.createElement(
                 'h1',
-                null,
+                { className: 'type_cars', id: 'type_cars' },
                 '\u0424\u0443\u0440\u0433\u043E\u043D\u0438'
             ),
             React.createElement(Van, { info: vans })
@@ -270,11 +292,3 @@ class Cars extends React.Component {
 }
 
 module.exports.Cars = Cars;
-
-/*
-{pickups.map(item=>
-    <div className="col-md-3 car">
-        <h1>{item.name}</h1>
-        <h3>{item.type_car}</h3>
-    </div>
-)}*/

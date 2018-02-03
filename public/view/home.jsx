@@ -12,6 +12,9 @@ class Home extends React.Component{
                 <h2>Home Page</h2>
                 {/*Carousel*/}
            {/*     <Carousel/>*/}
+
+
+
           </div>
 
         )

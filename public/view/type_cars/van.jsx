@@ -54,17 +54,19 @@ class AllVans extends React.Component{
     render(){
 
         return(
-            <div className="cars-container" id="cars-container">
+            <div className="cars-container-one-type" id="cars-container">
                 <div className="container">
                     <div className="row">
                         {
                            DataVans.vans.map((item,i) =>
                                 <Link to={`/vans/${item.name}`}  key={item.key} >
-                                    <div className={"col-md-5 car  van"+i} key={item.key}  data-name={item.name}>
-                                        <div className="banner">
-                                            <div>
-                                                <p className="carName">{item.name}</p>
-                                            </div>
+                                    <div className={"col-md-5 col-sm-12   vanBlock"+i} key={item.key}  data-name={item.name}>
+                                        <div className="block">
+                                            <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
+                                            <h3 className="price">Ціна від - {item.price}</h3>
+                                        </div>
+                                        <div className={" vanImg"+i}>
+
                                         </div>
                                     </div>
                                 </Link>

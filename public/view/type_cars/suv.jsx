@@ -56,18 +56,20 @@ class AllSUVS extends React.Component{
             return item.drive === 'Передній'
         });
         return(
-            <div className="cars-container" id="cars-container">
+            <div className="cars-container-one-type" id="cars-container">
                 <div className="container">
                     <div className="row">
                         {
                             drive.map((item,i) =>
 
                                 <Link to={`/suvs/${item.name}`}  key={item.key} >
-                                    <div className={"col-md-5 car  suv"+i} key={item.key}  data-name={item.name}>
-                                        <div className="banner">
-                                            <div>
-                                                <p className="carName">{item.name}</p>
-                                            </div>
+                                    <div className={"col-md-5 col-sm-12   suvBlock"+i} key={item.key}  data-name={item.name}>
+                                        <div className="block">
+                                            <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
+                                            <h3 className="price">Ціна від - {item.price}</h3>
+                                        </div>
+                                        <div className={" suvImg"+i}>
+
                                         </div>
                                     </div>
                                 </Link>

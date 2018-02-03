@@ -61,21 +61,9 @@ const DataCars = {
 class Pickup extends React.Component{
     constructor(props){
         super(props);
-/*        this.ThisCar = this.ThisCar.bind(this);*/
     }
 
-/*
-    ThisCar(e){
-        let data = this.props.info;
-        let car = data.filter(item=>{
-            return item.name === e.currentTarget.attributes[1].nodeValue
-        });
-        ReactDOM.render(
-            <AboutCar infoCar={car}/>,
-            document.getElementById('cars-container')
-        )
-    }
-*/
+
 
     render(){
         let data = this.props.info;
@@ -90,11 +78,14 @@ class Pickup extends React.Component{
                         {
                             drive.map((item,i) =>
                                 <Link to={`/cars/${item.name}`}  key={item.key} >
-                                    <div className={"col-md-5 car  pickup"+i} key={item.key}  data-name={item.name}>
-                                        <div className="banner">
-                                            <div>
-                                                <p className="carName">{item.name}</p>
-                                            </div>
+                               {/*     <span className="carName">{item.name}</span>*/}
+                                    <div className={"col-md-5 col-sm-12   pickupBlock"+i} key={item.key}  data-name={item.name}>
+                                       <div className="block">
+                                           <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
+                                           <h3 className="price">Ціна від - {item.price}</h3>
+                                       </div>
+                                        <div className={" pickupImg"+i}>
+
                                         </div>
                                     </div>
                                 </Link>
@@ -127,11 +118,13 @@ class SUV extends React.Component{
                         {
                             drive.map((item,i) =>
                                 <Link to={`/cars/${item.name}`}  key={item.key} >
-                                    <div className={"col-md-5 car  suv"+i} key={item.key} data-name={item.name}>
-                                        <div className="banner">
-                                            <div>
-                                                <p className="carName">{item.name}</p>
-                                            </div>
+                                    <div className={"col-md-5 col-sm-12   suvBlock"+i} key={item.key}  data-name={item.name}>
+                                        <div className="block">
+                                            <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
+                                            <h3 className="price">Ціна від - {item.price}</h3>
+                                        </div>
+                                        <div className={" suvImg"+i}>
+
                                         </div>
                                     </div>
                                 </Link>
@@ -160,9 +153,13 @@ class Van extends React.Component{
                         {
                             data.map((item, i) =>
                                 <Link to={`/cars/${item.name}`} key={item.key} >
-                                    <div className={"col-md-5 car  van"+i} key={item.key}  data-name={item.name}>
-                                        <div className="banner">
-                                            <h1 className="carName">{item.name}</h1>
+                                    <div className={"col-md-5 col-sm-12   vanBlock"+i} key={item.key}  data-name={item.name}>
+                                        <div className="block">
+                                            <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
+                                            <h3 className="price">Ціна від - {item.price}</h3>
+                                        </div>
+                                        <div className={" vanImg"+i}>
+
                                         </div>
                                     </div>
                                 </Link>
@@ -200,17 +197,27 @@ class Car extends  React.Component{
 class AllCars extends React.Component{
     constructor(props){
         super(props);
+
+
     }
+
+
 
     render() {
         return(
             <div className="cars-container" id="cars-container">
-                <h1>Пікапи</h1>
+
+                <h1 className="type_cars" >Пікапи</h1>
                 <Pickup info={pickups}/>
-                <hr/>
-                <h1>Позашляховики</h1>
+                <br/>
+                <br/>
+                <br/>
+                <h1 className="type_cars"  >Позашляховики</h1>
                 <SUV info={SUVs}/>
-                <h1>Фургони</h1>
+                <br/>
+                <br/>
+                <br/>
+                <h1 className="type_cars" id="type_cars">Фургони</h1>
                 <Van info={vans}/>
             </div>
         )
@@ -237,10 +244,3 @@ class Cars extends React.Component{
 
 module.exports.Cars = Cars;
 
-/*
-{pickups.map(item=>
-    <div className="col-md-3 car">
-        <h1>{item.name}</h1>
-        <h3>{item.type_car}</h3>
-    </div>
-)}*/

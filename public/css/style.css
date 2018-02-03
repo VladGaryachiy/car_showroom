@@ -2,25 +2,65 @@ body{
     background-color: white;
 }
 .navbar{
+    height:70px;
     border-radius: 0;
     border: none;
 }
 .navbar-inverse{
-    background-color: white;
+    background-color: rgba(235, 235, 235, 0.9);
 }
 .navbar-inverse .navbar-nav>li>a{
-    color:black;
+    color: black;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
 }
+
+.navbar-inverse .navbar-nav>li>a:visited{
+    color: black;
+}
+.navbar-inverse .navbar-nav>li>a:active{
+    color: rgba(105, 0, 0, 1);
+}
+
 .navbar-inverse .navbar-nav>li>a:hover{
-    color: #bc1900;
+    color: white;
 }
 .navbar-nav{
     float: right;
     padding: 5px;
     margin-right: 100px;
+    margin-top:5px;
 }
 .navbar-inverse .navbar-nav>li>.MainPage{
     color:red;
+    font-weight:500;
+    font-size: 17px;
+}
+.navbar-inverse .navbar-nav>li>.MainPage:visited{
+    color:red;
+}
+.navbar-header{
+    padding-top: 5px;
+    padding-left: 14px;
+    height: 70px;
+    width: 110px;
+    background-color: white;
+}
+
+.nav>li{
+    position: relative;
+    display: block;
+    height: 70px;
+    margin-top: -10px;
+    padding-top: 10px;
+}
+
+.nav>li:hover{
+    background-color:rgba(0, 0, 0, 0.1);
+}
+.dropdown-menu {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .footer{
@@ -44,12 +84,21 @@ body{
 }
 
 
-.car{
+/*.car{
     padding:10px;
     margin:10px;
-}
+}*/
+
+/*.car:hover{
+    zoom: 0.5;
+}*/
 .cars-container{
     padding-left: 150px;
+    margin-top: 160px;
+}
+
+.cars-container-one-type{
+    margin-top: 60px;
 }
 .sliderAboutCar{
     margin-left: -150px;
@@ -61,43 +110,81 @@ body{
     margin-top: 50px;
 }*/
 
+/*---------------------------------------PICKUPS--------------------------------------------------*/
+.pickupImg0{
+    height: 500px;
+    background: url('../img/sierra_crew_cab/logo.jpg') 13% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+    cursor: pointer;
+}
 
-.pickup0{
+.pickupImg1{
     height: 500px;
-    background: url('../img/sierra_double_cab/2.jpg') 13% 100% no-repeat;
+    background: url('../img/sierra_regular_cab/logo.jpg') 13% 100% no-repeat;
     zoom:0.7;
     background-size:cover;
     cursor: pointer;
 }
-.pickup1{
+.pickupImg2{
     height: 500px;
-    background: url('../img/sierra_crew_cab/1.jpg') 35% 100% no-repeat;
+    background: url('../img/canyon_extended_cab/logo.jpg') 13% 100% no-repeat;
     zoom:0.7;
     background-size:cover;
     cursor: pointer;
 }
-.pickup2{
+.pickupImg3{
     height: 500px;
-    background: url('../img/sierra_regular_cab/1.jpg') 75% 100% no-repeat;
+    background: url('../img/canyon_crew_cab/logo.jpg') 13% 100% no-repeat;
     zoom:0.7;
     background-size:cover;
     cursor: pointer;
 }
-.pickup3{
+
+.pickupImg4{
     height: 500px;
-    background: url('../img/canyon_extended_cab/2.jpg') 45% 100% no-repeat;
+    background: url('../img/sierra_double_cab/logo.jpg') 13% 100% no-repeat;
     zoom:0.7;
     background-size:cover;
     cursor: pointer;
+
 }
-.pickup4{
+.pickupBlock0{
     height: 500px;
-    background: url('../img/canyon_crew_cab/4.jpg') 30% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
+    padding-top: 80px;
 }
-.banner{
+
+.pickupBlock1{
+    height: 500px;
+    padding-top: 80px;
+    margin-top: 140px;
+    margin-left: 120px;
+}
+
+.pickupBlock2{
+    height: 500px;
+    padding-top: 80px;
+    margin-top: -90px;
+}
+/*.pickupBlock2 > .block{
+    margin-bottom: 80px;
+}*/
+.pickupBlock3{
+    height: 500px;
+    padding-top: 80px;
+    margin-top: 140px;
+    margin-left: 120px;
+}
+
+
+
+.pickupBlock4{
+    height: 500px;
+    padding-top: 80px;
+    margin-top: -90px;
+}
+
+/*.banner:hover{
     display: block;
     margin-top: -10px;
     margin-left: -10px;
@@ -105,37 +192,111 @@ body{
     height: 500px;
     width: 696px;
     background-color: rgba(0, 0, 0, 0.8);
+
+}*/
+
+/*-----------------------------------SUV---------------------------------------------------------*/
+.suvImg0{
+    height: 500px;
+    background: url('../img/yukon/logo.jpg') 13% 100% no-repeat;
+    zoom:0.7;
+    background-size:cover;
+    cursor: pointer;
 }
 
-.suv0{
+.suvImg1{
     height: 500px;
-    background: url('../img/yukon/1.jpg') 50% 100% no-repeat;
+    background: url('../img/acadia/logo.jpg') 13% 100% no-repeat;
     zoom:0.7;
     background-size:cover;
+    cursor: pointer;
+
 }
-.suv1{
+.suvImg2{
     height: 500px;
-    background: url('../img/acadia/6.jpg') 17% 100% no-repeat;
+    background: url('../img/terrain/logo.jpg') 35% 100% no-repeat;
     zoom:0.7;
     background-size:cover;
-}
-.suv2{
-    height: 500px;
-    background: url('../img/terrain/3.jpg') 35% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
+    cursor: pointer;
 }
 
-.van0{
+
+.suvBlock0{
     height: 500px;
-    background: url('../img/savana/1.jpg') 60% 100% no-repeat;
+    padding-top: 80px;
+}
+
+.suvBlock1{
+    height: 500px;
+    padding-top: 80px;
+    margin-top: 140px;
+    margin-left: 120px;
+}
+
+.suvBlock2{
+    height: 500px;
+    padding-top: 80px;
+    margin-top: -90px;
+}
+
+/*--------------------------------------VAN----------------------------------------*/
+
+.vanImg0{
+    height: 500px;
+    background: url('../img/savana/logo.jpg') 13% 100% no-repeat;
     zoom:0.7;
     background-size:cover;
+    cursor: pointer;
 }
+.vanBlock0{
+    height: 500px;
+    padding-top: 80px;
+}
+
+
+
+
 
 .carName{
-    text-align: center;
-    color:white;
-    font-family: "Courier New" ,monospace;
-    font-size: 40px;
+    text-align: right;
+    margin-top: -50px;
+    padding-bottom: 3px;
+    color:black;
+    font-family: Impact, fantasy;
+    font-size: 35px;
+    border-bottom: 1px solid red;
+}
+
+.GMC{
+    font-size: 35px;
+    color: red;
+}
+.type_cars{
+    position: relative;
+    text-align: right;
+    padding-right:40px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: -70px;
+    -webkit-clip-path: circle(58.2% at 80% 600%);
+    clip-path: circle(58.2% at 80% 600%);
+    background-color: red;
+    font-family: Impact, fantasy;
+    color: white;
+}
+.price{
+    margin-top: -4px;
+    text-align:right;
+    font-family: "New Century Schoolbook", "TeX Gyre Schola", serif;
+    font-size: 27px;
+    color: #9d9d9d;
+    font-weight: 100
+}
+.block{
+
+}
+
+#text{
+    transform: translateX(-300px);
+    transform: translateY(-300px);
 }

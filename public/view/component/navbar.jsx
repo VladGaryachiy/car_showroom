@@ -11,6 +11,8 @@ class Navbar extends React.Component{
     }
 
 
+
+
     render(){
         return(
             <div className="container-fluid NavbarContainer" id="navbar" >
@@ -28,7 +30,7 @@ class Navbar extends React.Component{
                                             <b className="caret"/>
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li ><Link to="/cars">Всі автомобілі</Link></li>
+                                            <li id="gondon"><Link to="/cars"  >Всі автомобілі</Link></li>
                                             <hr/>
                                             <li ><Link to="/pickups">Пікапи</Link></li>
                                             <li ><Link to="/suvs">Позашляховики</Link></li>

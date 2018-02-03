@@ -47,7 +47,7 @@ class AllSUVS extends React.Component {
         });
         return React.createElement(
             'div',
-            { className: 'cars-container', id: 'cars-container' },
+            { className: 'cars-container-one-type', id: 'cars-container' },
             React.createElement(
                 'div',
                 { className: 'container' },
@@ -59,20 +59,29 @@ class AllSUVS extends React.Component {
                         { to: `/suvs/${item.name}`, key: item.key },
                         React.createElement(
                             'div',
-                            { className: "col-md-5 car  suv" + i, key: item.key, 'data-name': item.name },
+                            { className: "col-md-5 col-sm-12   suvBlock" + i, key: item.key, 'data-name': item.name },
                             React.createElement(
                                 'div',
-                                { className: 'banner' },
+                                { className: 'block' },
                                 React.createElement(
-                                    'div',
-                                    null,
+                                    'h2',
+                                    { className: 'carName' },
                                     React.createElement(
-                                        'p',
-                                        { className: 'carName' },
-                                        item.name
-                                    )
+                                        'span',
+                                        { className: 'GMC' },
+                                        'GMC'
+                                    ),
+                                    ' ',
+                                    item.name
+                                ),
+                                React.createElement(
+                                    'h3',
+                                    { className: 'price' },
+                                    '\u0426\u0456\u043D\u0430 \u0432\u0456\u0434 - ',
+                                    item.price
                                 )
-                            )
+                            ),
+                            React.createElement('div', { className: " suvImg" + i })
                         )
                     ))
                 )
