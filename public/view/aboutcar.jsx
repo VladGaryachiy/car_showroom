@@ -1,6 +1,9 @@
 let React = require('react');
 
 
+let Tween = require('rc-tween-one/lib/TweenOne');
+let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
+
 class AboutCar extends React.Component{
     constructor(props) {
         super(props);
@@ -9,29 +12,8 @@ class AboutCar extends React.Component{
             let data = this.props.infoCar;
             return(
                 <React.Fragment>
-                    <h1>{data[0].name}</h1>
-                    <div id="carousel" className="carousel slide sliderAboutCar" >
-                        <ol className="carousel-indicators">
-                            <li className="active" data-target="#carousel" data-slide="0"></li>
-                            <li data-target="#carousel" data-slide="1"></li>
-
-                        </ol>
-                        <div className="carousel-inner">
-                            <div className="item active">
-                                <img src={data[0].slider1} alt=""/>
-                            </div>
-                            <div className="item ">
-                                <img src={data[0].slider2} alt=""/>
-                            </div>
-                        </div>
-                        <a href="#carousel" className="left carousel-control" data-slide="prev">
-                            <span className="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a href="#carousel" className="right carousel-control" data-slide="next">
-                            <span className="glyphicon glyphicon-chevron-right"></span>
-                        </a>
-                    </div>
-                    <div className="container anchor-container">
+                    {/*Navigation*/}
+                   {/* <div className="container anchor-container">
                         <div className="row">
                             <a href="#motor">
                                 <div className="col-md-2 anchor">
@@ -60,8 +42,100 @@ class AboutCar extends React.Component{
                                 </div>
                             </a>
                         </div>
+                    </div>*/}
+
+                    <div className="container-fluid">
+                        <div className="row">
+                            <Tween
+                                key="1"
+                                animation={{
+                                    type: 'from',
+                                    ease: 'easeOutQuart',
+                                    opacity: 0 ,
+                                    translateX: '-300px',
+                                    duration:900,
+                                }}
+                                reverseDelay={200}
+                                style={{
+                                    position:'relative',
+                                    zIndex:100
+                                }}>
+                                <h1 className='carName-main'> {data[0].name}</h1>
+                            </Tween>
+                            <div className="col-md-7"  style={{
+                                position:'relative',
+                                zIndex:20
+                            }}>
+                            <Tween
+                                key="1"
+                                animation={{
+                                    type: 'from',
+                                    ease: 'easeOutQuart',
+                                    opacity: 0 ,
+                                    translateX: '700px',
+                                    translateY:'-300px',
+                                    scale:0.2,
+                                    duration:1000,
+                                }}
+                                reverseDelay={100}
+                            >
+                                <div className="prev-car" style={{
+                                    backgroundImage:'url('+data[0].logo+')',
+                                    height:'500px',
+
+                                }}>
+
+                                </div>
+                            </Tween>
+                            </div>
+                            <Tween
+                                key="1"
+                                animation={{
+                                    type: 'from',
+                                    ease: 'easeOutQuart',
+                                    opacity: 0 ,
+                                    translateX: '300px',
+                                    duration:900,
+                                }}
+                                reverseDelay={200}
+                                style={{
+                                    position:'relative',
+                                    zIndex:100
+                                }}>
+                                <h1 className='carName-price'>Ціна від - {data[0].price}</h1>
+                            </Tween>
+                        </div>
                     </div>
-                    <a name="motor"> </a>
+
+                    <div className="container-fluid" key={data[0].key}>
+                        <div className="row">
+                            <hr/>
+                            <div className="col-md-6">
+                                <h1 className='info-name'>Двигун</h1>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="info-img" style={{
+                                    backgroundImage:'url('+data[0].img2+')',
+                                    height:'500px',
+                                }}>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                        
+
+
+
+
+
+
+
+
+                   {/* <a name="motor"> </a>
                         <div className="container-fluid motors">
                             <br/>
                             <br/>
@@ -127,7 +201,7 @@ class AboutCar extends React.Component{
                             <div className="col-md-6">
                                 <h2>Витрата пального</h2>
 
-                                {/*  <table>
+                                  <table>
                                     <tr>
                                         <td>
                                             <b>{data[0].drive} привід</b>
@@ -138,7 +212,7 @@ class AboutCar extends React.Component{
 
 
                                     </tr>
-                                </table>*/}
+                                </table>
 
                                 <hr/>
                                 <h3>Рік : {data[0].year}</h3>
@@ -148,7 +222,7 @@ class AboutCar extends React.Component{
                                 <h1>{data[0].price} грн</h1>
                             </div>
                         </div>
-                    </div>
+                    </div>*/}
 
                 </React.Fragment>
 

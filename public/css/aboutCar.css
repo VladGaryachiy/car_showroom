@@ -39,7 +39,7 @@
 .aboutDimensions{
     margin-left: -150px;
     height: 500px;
-    background: url('../img/sierra_double_cab/2.jpg') 100% 100% no-repeat;
+/*    background: url('../img/sierra_double_cab/2.jpg') 100% 100% no-repeat;*/
     background-size: cover;
 
 }
@@ -64,3 +64,57 @@
     padding-left: 30px;
 
 }
+
+.aboutCars-container{
+
+}
+
+.carName-main{
+    z-index: 100;
+    position: relative;
+    text-align: left;
+    margin-top: 35px;
+    color: white;
+    font-family: Impact, fantasy;
+    font-size: 40px;
+
+    padding-left: 50px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    -webkit-clip-path: circle(55% at 80% 600%);
+    clip-path: circle(55% at 20% 600%);
+    background-color: red;
+    transform: translateX(0px)
+}
+
+.carName-price{
+    position: relative;
+    text-align: right;
+    padding-right:40px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 440px;
+    -webkit-clip-path: circle(58.2% at 80% 600%);
+    clip-path: circle(46% at 80% 600%);
+    background-color: rgba(115, 115, 115, 0.6);
+    font-family: Impact, fantasy;
+    font-size: 40px;
+    color: black;
+}
+
+.GMC-main{
+    font-size: 55px;
+    color: red;
+}
+
+.prev-car {
+    z-index: 10;
+    position: relative;
+    background-size: 80% 85%;
+    background-repeat: no-repeat;
+    transform: translateX(400px) ;
+    margin-top: 0px;
+}
+
+
+

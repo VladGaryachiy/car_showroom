@@ -10,6 +10,7 @@ class Contacts extends React.Component{
         return(
             <div>
                 <h4>Contacts page</h4>
+
             </div>
         )
     }

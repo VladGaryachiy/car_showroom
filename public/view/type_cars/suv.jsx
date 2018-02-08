@@ -6,6 +6,9 @@ let Route = require('react-router-dom').Route;
 let Link = require('react-router-dom').Link;
 let Switch = require('react-router-dom').Switch;
 
+let Tween = require('rc-tween-one/lib/TweenOne');
+let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
+
 const DataSUVS = {
     suvs: [
 
@@ -48,8 +51,11 @@ class AllSUVS extends React.Component{
 
     constructor(props){
         super(props);
+        this.UpScroll = this.UpScroll.bind(this);
     }
-
+    UpScroll(){
+        window.scrollTo(0, 0);
+    }
 
     render(){
         let drive = DataSUVS.suvs.filter((item ) => {
@@ -61,19 +67,27 @@ class AllSUVS extends React.Component{
                     <div className="row">
                         {
                             drive.map((item,i) =>
+                                <Tween
+                                    key={i}
+                                    animation={{ y: 50, type: 'from', ease: 'easeOutQuart', opacity: 0  }}
+                                    reverseDelay={200}
+                                >
+                                    <Link to={`/suvs/${item.name}`}  key={item.key} onClick={this.UpScroll}>
+                                        <div className={"col-md-5 col-sm-12   suvBlock"+i} key={item.key}  data-name={item.name}>
+                                            <div className="block">
+                                                <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
+                                                <h3 className="price">Ціна від - {item.price}</h3>
+                                            </div>
+                                            <div className='logo' style={{
+                                                backgroundImage:'url('+item.logo+')',
+                                                height:'500px',
 
-                                <Link to={`/suvs/${item.name}`}  key={item.key} >
-                                    <div className={"col-md-5 col-sm-12   suvBlock"+i} key={item.key}  data-name={item.name}>
-                                        <div className="block">
-                                            <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
-                                            <h3 className="price">Ціна від - {item.price}</h3>
+                                            }}>
+
+                                            </div>
                                         </div>
-                                        <div className={" suvImg"+i}>
-
-                                        </div>
-                                    </div>
-                                </Link>
-
+                                    </Link>
+                                </Tween>
 
                             )
                         }
@@ -93,7 +107,7 @@ class SUV extends React.Component{
     render(){
         const SUV = DataSUVS.get(this.props.match.params.suv) ;
         return(
-            <div className="cars-container" id="cars-container">
+            <div className="aboutCars-container" id="aboutCars-container">
                 <React.Fragment>
                     <AboutCar infoCar={SUV}/>
                     <Link to='/suvs'>Back</Link>

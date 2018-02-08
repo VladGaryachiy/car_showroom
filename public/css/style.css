@@ -1,5 +1,6 @@
 body{
     background-color: white;
+
 }
 .navbar{
     height:70px;
@@ -111,44 +112,18 @@ body{
 }*/
 
 /*---------------------------------------PICKUPS--------------------------------------------------*/
-.pickupImg0{
-    height: 500px;
-    background: url('../img/sierra_crew_cab/logo.jpg') 13% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
-}
 
-.pickupImg1{
-    height: 500px;
-    background: url('../img/sierra_regular_cab/logo.jpg') 13% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
-}
-.pickupImg2{
-    height: 500px;
-    background: url('../img/canyon_extended_cab/logo.jpg') 13% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
-}
-.pickupImg3{
-    height: 500px;
-    background: url('../img/canyon_crew_cab/logo.jpg') 13% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
-}
-
-.pickupImg4{
-    height: 500px;
-    background: url('../img/sierra_double_cab/logo.jpg') 13% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
+.logo{
+        background-size: 100% 70%;
+        background-repeat: no-repeat;
 
 }
+
+
+
+
+
+
 .pickupBlock0{
     height: 500px;
     padding-top: 80px;
@@ -196,29 +171,6 @@ body{
 }*/
 
 /*-----------------------------------SUV---------------------------------------------------------*/
-.suvImg0{
-    height: 500px;
-    background: url('../img/yukon/logo.jpg') 13% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
-}
-
-.suvImg1{
-    height: 500px;
-    background: url('../img/acadia/logo.jpg') 13% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
-
-}
-.suvImg2{
-    height: 500px;
-    background: url('../img/terrain/logo.jpg') 35% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
-}
 
 
 .suvBlock0{
@@ -241,13 +193,6 @@ body{
 
 /*--------------------------------------VAN----------------------------------------*/
 
-.vanImg0{
-    height: 500px;
-    background: url('../img/savana/logo.jpg') 13% 100% no-repeat;
-    zoom:0.7;
-    background-size:cover;
-    cursor: pointer;
-}
 .vanBlock0{
     height: 500px;
     padding-top: 80px;
@@ -296,7 +241,13 @@ body{
 
 }
 
-#text{
-    transform: translateX(-300px);
-    transform: translateY(-300px);
+
+.anim-appear {
+    opacity: 0.01;
 }
+
+.anim-appear.anim-appear-active{
+    opacity: 2;
+    transition: opacity 500ms ease-in;
+}
+

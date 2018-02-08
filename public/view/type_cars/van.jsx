@@ -6,6 +6,9 @@ let Route = require('react-router-dom').Route;
 let Link = require('react-router-dom').Link;
 let Switch = require('react-router-dom').Switch;
 
+let Tween = require('rc-tween-one/lib/TweenOne');
+let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
+
 const DataVans = {
     vans: [
 
@@ -48,8 +51,11 @@ class AllVans extends React.Component{
 
     constructor(props){
         super(props);
+        this.UpScroll = this.UpScroll.bind(this);
     }
-
+    UpScroll(){
+        window.scrollTo(0, 0);
+    }
 
     render(){
 
@@ -59,18 +65,26 @@ class AllVans extends React.Component{
                     <div className="row">
                         {
                            DataVans.vans.map((item,i) =>
-                                <Link to={`/vans/${item.name}`}  key={item.key} >
+                               <Tween
+                                   key={i}
+                                   animation={{ y: 50, type: 'from', ease: 'easeOutQuart', opacity: 0  }}
+                                   reverseDelay={200}
+                               >
+                                <Link to={`/vans/${item.name}`}  key={item.key} onClick={this.UpScroll} >
                                     <div className={"col-md-5 col-sm-12   vanBlock"+i} key={item.key}  data-name={item.name}>
                                         <div className="block">
                                             <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
                                             <h3 className="price">Ціна від - {item.price}</h3>
                                         </div>
-                                        <div className={" vanImg"+i}>
+                                        <div className='logo' style={{
+                                            backgroundImage:'url('+item.logo+')',
+                                            height:'500px',
 
+                                        }}>
                                         </div>
                                     </div>
                                 </Link>
-
+                               </Tween>
 
                             )
                         }
@@ -90,7 +104,7 @@ class Van extends React.Component{
     render(){
         const Van = DataVans.get(this.props.match.params.van) ;
         return(
-            <div className="cars-container" id="cars-container">
+            <div className="aboutCars-container" id="aboutCars-container">
                 <React.Fragment>
                     <AboutCar infoCar={Van}/>
                     <Link to='/vans'>Back</Link>
