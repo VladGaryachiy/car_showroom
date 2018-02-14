@@ -8,8 +8,11 @@ class Navbar extends React.Component{
     constructor(props){
        super(props);
 
+        this.UpScroll = this.UpScroll.bind(this);
     }
-
+    UpScroll(){
+        window.scrollTo(0, 0);
+    }
 
 
 
@@ -17,12 +20,14 @@ class Navbar extends React.Component{
         return(
             <div className="container-fluid NavbarContainer" id="navbar" >
                 <div className="row">
-                    <div className="navbar navbar-inverse navbar-fixed-top">
+                    <div className="navbar navbar-inverse navbar-fixed-top  col-xs-12 col-md-12 col-sm-12">
                         <div className="container">
                             <div className="navbar-header">
                                <img alt="" src="../../img/logo1.png" width="80px" height="30px" className="brandStyle"/>
+
+
                             </div>
-                            <div className="collapse navbar-collapse">
+                            <div className="collapse navbar-collapse" id="responsive-menu">
                                 <ul className="nav navbar-nav">
                                     <li ><Link to="/"  className ="MainPage">Головна</Link></li>
                                     <li className="dropdown">
@@ -30,11 +35,11 @@ class Navbar extends React.Component{
                                             <b className="caret"/>
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li id="gondon"><Link to="/cars"  >Всі автомобілі</Link></li>
+                                            <li onClick={this.UpScroll}><Link to="/cars"  >Всі автомобілі</Link></li>
                                             <hr/>
-                                            <li ><Link to="/pickups">Пікапи</Link></li>
-                                            <li ><Link to="/suvs">Позашляховики</Link></li>
-                                            <li ><Link to="/vans">Фургони</Link></li>
+                                            <li  onClick={this.UpScroll}><Link to="/pickups">Пікапи</Link></li>
+                                            <li  onClick={this.UpScroll}><Link to="/suvs">Позашляховики</Link></li>
+                                            <li  onClick={this.UpScroll}><Link to="/vans">Фургони</Link></li>
                                         </ul>
                                     </li>
                                     <li className="dropdown">

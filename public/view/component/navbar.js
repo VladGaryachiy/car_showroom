@@ -7,6 +7,11 @@ class Navbar extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.UpScroll = this.UpScroll.bind(this);
+    }
+    UpScroll() {
+        window.scrollTo(0, 0);
     }
 
     render() {
@@ -18,7 +23,7 @@ class Navbar extends React.Component {
                 { className: 'row' },
                 React.createElement(
                     'div',
-                    { className: 'navbar navbar-inverse navbar-fixed-top' },
+                    { className: 'navbar navbar-inverse navbar-fixed-top  col-xs-12 col-md-12 col-sm-12' },
                     React.createElement(
                         'div',
                         { className: 'container' },
@@ -29,7 +34,7 @@ class Navbar extends React.Component {
                         ),
                         React.createElement(
                             'div',
-                            { className: 'collapse navbar-collapse' },
+                            { className: 'collapse navbar-collapse', id: 'responsive-menu' },
                             React.createElement(
                                 'ul',
                                 { className: 'nav navbar-nav' },
@@ -56,7 +61,7 @@ class Navbar extends React.Component {
                                         { className: 'dropdown-menu' },
                                         React.createElement(
                                             'li',
-                                            { id: 'gondon' },
+                                            { onClick: this.UpScroll },
                                             React.createElement(
                                                 Link,
                                                 { to: '/cars' },
@@ -66,7 +71,7 @@ class Navbar extends React.Component {
                                         React.createElement('hr', null),
                                         React.createElement(
                                             'li',
-                                            null,
+                                            { onClick: this.UpScroll },
                                             React.createElement(
                                                 Link,
                                                 { to: '/pickups' },
@@ -75,7 +80,7 @@ class Navbar extends React.Component {
                                         ),
                                         React.createElement(
                                             'li',
-                                            null,
+                                            { onClick: this.UpScroll },
                                             React.createElement(
                                                 Link,
                                                 { to: '/suvs' },
@@ -84,7 +89,7 @@ class Navbar extends React.Component {
                                         ),
                                         React.createElement(
                                             'li',
-                                            null,
+                                            { onClick: this.UpScroll },
                                             React.createElement(
                                                 Link,
                                                 { to: '/vans' },

@@ -82,7 +82,7 @@ class Pickup extends React.Component{
                             drive.map((item,i) =>
 
                             <Link to={`/cars/${item.name}`}  key={item.key} onClick={this.UpScroll}>
-                                        <div className={"col-md-5 col-sm-12   pickupBlock"+i} key={item.key}  data-name={item.name}>
+                                        <div className={"col-md-5 col-sm-12  t pickupBlock"+i} key={item.key}  data-name={item.name}>
                                             <div className="block">
                                                 <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
                                                 <h3 className="price">Ціна від - {item.price}</h3>
@@ -227,7 +227,7 @@ class AllCars extends React.Component{
 
     render() {
         return(
-            <div className="cars-container" id="cars-container">
+            <div className="cars-container col-sm-12 col-xs-12 col-md-12" id="cars-container">
                 <ScrollOverPack>
                     <Tween
                         key="1"

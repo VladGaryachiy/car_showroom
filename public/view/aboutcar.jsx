@@ -1,4 +1,7 @@
 let React = require('react');
+let $ = require('jquery');
+require('velocity-animate/velocity');
+
 
 
 let Tween = require('rc-tween-one/lib/TweenOne');
@@ -7,6 +10,164 @@ let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
 class AboutCar extends React.Component{
     constructor(props) {
         super(props);
+        this.state = {
+               background:''
+        };
+        this.Navigation = this.Navigation.bind(this);
+        this.NavigationOut = this.NavigationOut.bind(this);
+    }
+
+
+    Navigation(event){
+        let menu = [
+           'Двигун',
+           'Габарити',
+           'Коробка передач',
+           'Витрата пального'
+        ];
+
+        let nameElement = event.currentTarget.attributes[1].nodeValue;
+        let element = event.currentTarget.attributes[1].name;
+
+        if(nameElement === menu[0]) {
+            event.currentTarget.textContent = nameElement;
+            $('[data-drive]').animate({
+                marginLeft:'-165px',
+                width: "210px",
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                fontSize: '18px',
+                cursor:'pointer',
+                paddingLeft: '25px',
+                paddingTop: '10px'
+
+            },400,function () {
+      /*          $('[data-drive]').addClass('activeMenu');*/
+            });
+        }
+        else if(nameElement === menu[1]){
+            event.currentTarget.textContent = nameElement;
+            $('[data-size]').animate({
+                marginLeft:'-165px',
+                width: "210px",
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                fontSize: '18px',
+                cursor:'pointer',
+                paddingLeft: '25px',
+                paddingTop: '10px'
+
+            },400,function () {
+              /*  $('[data-drive]').addClass('activeMenu');*/
+            })
+        }
+        else if(nameElement === menu[2]){
+            event.currentTarget.textContent = nameElement;
+            $('[data-transmission]').animate({
+                marginLeft:'-165px',
+                width: "210px",
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                fontSize: '18px',
+                cursor:'pointer',
+                paddingLeft: '25px',
+                paddingTop: '10px'
+
+            },400,function () {
+     /*           $('[data-drive]').addClass('activeMenu');*/
+            })
+        }
+        else if(nameElement === menu[3]){
+            event.currentTarget.textContent = nameElement;
+            $('[data-fuel]').animate({
+                marginLeft:'-165px',
+                width: "210px",
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                fontSize: '18px',
+                cursor:'pointer',
+                paddingLeft: '25px',
+                paddingTop: '10px'
+
+            },400,function () {
+            /*    $('[data-drive]').addClass('activeMenu');*/
+            })
+        }
+    }
+
+    NavigationOut(event){
+        let menu = [
+            'Двигун',
+            'Габарити',
+            'Коробка передач',
+            'Витрата пального'
+        ];
+
+        let nameElement = event.currentTarget.attributes[1].nodeValue;
+        let element = event.currentTarget.attributes[1].name;
+
+
+/*        console.log(event)*/
+
+        if(nameElement === menu[0]) {
+            $('[data-drive]').animate({
+                cursor: 'pointer',
+                marginTop: '20px',
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                width: '45px',
+                borderRadius: '50px',
+                paddingTop: '5px',
+                paddingLeft: '3px',
+                color:'white',
+                marginLeft:'0px',
+            },400,function () {
+                $('[data-drive]').html('<i class="fa fa-car fa-2x" aria-hidden="true" ></i>');
+            });
+        }
+        else if(nameElement === menu[1]){
+            $('[data-size]').animate({
+                cursor: 'pointer',
+                marginTop: '20px',
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                width: '45px',
+                height: '45px',
+                borderRadius: '50px',
+                paddingTop: '5px',
+                paddingLeft: '3px',
+                color:'white',
+                marginLeft:'0px',
+            },400,function () {
+                $('[data-size]').html('<i class="fa fa-arrows-h fa-2x " aria-hidden="true"></i>')
+            });
+        }
+        else if(nameElement === menu[2]){
+            $('[data-transmission]').animate({
+                cursor: 'pointer',
+                marginTop: '20px',
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                width: '45px',
+                height: '45px',
+                borderRadius: '50px',
+                paddingTop: '5px',
+                paddingLeft: '3px',
+                color:'white',
+                marginLeft:'0px',
+            },400,function () {
+                $('[data-transmission]').html('<i class="fa fa-cogs  fa-2x" aria-hidden="true"></i>')
+            });
+        }
+        else if(nameElement === menu[3]){
+            $('[data-fuel]').animate({
+                cursor: 'pointer',
+                marginTop: '20px',
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                width: '45px',
+                height: '45px',
+                borderRadius: '50px',
+                paddingTop: '5px',
+                paddingLeft: '3px',
+                color:'white',
+                marginLeft:'0px',
+            },400,function () {
+                $('[data-fuel]').html('<i class="fa fa-battery-half  fa-2x" aria-hidden="true"></i>')
+            });
+        }
     }
         render(){
             let data = this.props.infoCar;
@@ -60,36 +221,10 @@ class AboutCar extends React.Component{
                                     position:'relative',
                                     zIndex:100
                                 }}>
-                                <h1 className='carName-main'> {data[0].name}</h1>
+                                <h1 className='carName-main'><span className="logo-name">GMC</span> {data[0].name}</h1>
                             </Tween>
-                            <div className="col-md-7"  style={{
-                                position:'relative',
-                                zIndex:20
-                            }}>
                             <Tween
-                                key="1"
-                                animation={{
-                                    type: 'from',
-                                    ease: 'easeOutQuart',
-                                    opacity: 0 ,
-                                    translateX: '700px',
-                                    translateY:'-300px',
-                                    scale:0.2,
-                                    duration:1000,
-                                }}
-                                reverseDelay={100}
-                            >
-                                <div className="prev-car" style={{
-                                    backgroundImage:'url('+data[0].logo+')',
-                                    height:'500px',
-
-                                }}>
-
-                                </div>
-                            </Tween>
-                            </div>
-                            <Tween
-                                key="1"
+                                key="2"
                                 animation={{
                                     type: 'from',
                                     ease: 'easeOutQuart',
@@ -104,6 +239,56 @@ class AboutCar extends React.Component{
                                 }}>
                                 <h1 className='carName-price'>Ціна від - {data[0].price}</h1>
                             </Tween>
+
+                            <div className="col-md-7"  style={{
+                                position:'relative',
+                                zIndex:20
+                            }}>
+                                <Tween
+                                    key="3"
+                                    animation={{
+                                        type: 'from',
+                                        ease: 'easeOutQuart',
+                                        opacity: 0 ,
+                                        translateX: '700px',
+                                        translateY:'-300px',
+                                        scale:0.2,
+                                        duration:1000,
+                                    }}
+                                    reverseDelay={100}
+                                >
+                                    <div className="prev-car" style={{
+                                        backgroundImage:'url('+data[0].logo+')',
+                                        height:'500px',
+
+                                    }}>
+
+                                    </div>
+                                </Tween>
+
+                            </div>
+
+                            <div className="col-md-3 col-sm-3 col-xs-3">
+                               <div className="navigation-container">
+                                    <ul className="list-menu">
+                                        <li className="menu-element" data-drive="Двигун" onMouseOver={this.Navigation} onMouseOut={this.NavigationOut} >
+                                            <i className="fa fa-car fa-2x" aria-hidden="true" ></i>
+                                        </li>
+                                        <li className="menu-element" data-size="Габарити" onMouseOver={this.Navigation} onMouseOut={this.NavigationOut}>
+                                            <i className="fa fa-arrows-h fa-2x " aria-hidden="true"></i>
+                                        </li>
+                                        <li className="menu-element" data-transmission="Коробка передач" onMouseOver={this.Navigation} onMouseOut={this.NavigationOut}>
+                                            <i className="fa fa-cogs  fa-2x" aria-hidden="true"></i>
+                                        </li>
+                                        <li className="menu-element" data-fuel="Витрата пального" onMouseOver={this.Navigation} onMouseOut={this.NavigationOut}>
+                                            <i className="fa fa-battery-half  fa-2x" aria-hidden="true"></i>
+                                        </li>
+                                    </ul>
+
+                               </div>
+                                
+                            </div>
+
                         </div>
                     </div>
 

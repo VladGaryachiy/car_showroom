@@ -80,7 +80,7 @@ class Pickup extends React.Component {
                         { to: `/cars/${item.name}`, key: item.key, onClick: this.UpScroll },
                         React.createElement(
                             'div',
-                            { className: "col-md-5 col-sm-12   pickupBlock" + i, key: item.key, 'data-name': item.name },
+                            { className: "col-md-5 col-sm-12  t pickupBlock" + i, key: item.key, 'data-name': item.name },
                             React.createElement(
                                 'div',
                                 { className: 'block' },
@@ -264,7 +264,7 @@ class AllCars extends React.Component {
     render() {
         return React.createElement(
             'div',
-            { className: 'cars-container', id: 'cars-container' },
+            { className: 'cars-container col-sm-12 col-xs-12 col-md-12', id: 'cars-container' },
             React.createElement(
                 ScrollOverPack,
                 null,
