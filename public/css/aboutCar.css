@@ -115,16 +115,16 @@
 .prev-car {
     z-index: 10;
     position: relative;
-    background-size: 80% 85%;
+    background-size: 63% 89%;
     background-repeat: no-repeat;
-    transform: translateX(400px) ;
+    transform: translateX(380px);
     margin-top: 0px;
 }
 
 
 .navigation-container{
     z-index: 1000;
-    left: 93%;
+    margin-left: 200px;
     position: fixed;
     height: 250px;
 /*    background: black;*/
@@ -137,7 +137,7 @@
 .menu-element{
     cursor: pointer;
     margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 5, 5, 0.8);
     width: 45px;
     height: 45px;
     border-radius: 50px;
