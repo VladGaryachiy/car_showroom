@@ -2,72 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d29c557d-d916-4b75-8bdf-0a2a85c54bdd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/canyon_extended_cab/new2 — копия.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/path/path.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/process/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/process/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/process/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/process/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/process/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/process/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/process/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/.zuul.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/node_modules/inherits/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/node_modules/inherits/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/node_modules/inherits/inherits.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/node_modules/inherits/inherits_browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/node_modules/inherits/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/node_modules/inherits/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/support/isBuffer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/support/isBufferBrowser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/test/browser/inspect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/test/browser/is.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/test/node/debug.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/test/node/format.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/test/node/inspect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/test/node/log.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/test/node/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/util/util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/canyon_crew_cab/new2.jpg" afterPath="$PROJECT_DIR$/public/img/canyon_crew_cab/new2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/canyon_extended_cab/new2.jpg" afterPath="$PROJECT_DIR$/public/img/canyon_extended_cab/new2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/sierra_crew_cab/new2.jpg" afterPath="$PROJECT_DIR$/public/img/sierra_crew_cab/new2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/sierra_double_cab/new2.jpg" afterPath="$PROJECT_DIR$/public/img/sierra_double_cab/new2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/sierra_regular_cab/new2.jpg" afterPath="$PROJECT_DIR$/public/img/sierra_regular_cab/new2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/cars.js" afterPath="$PROJECT_DIR$/controllers/cars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/aboutCar.css" afterPath="$PROJECT_DIR$/public/css/aboutCar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/aboutcar.js" afterPath="$PROJECT_DIR$/public/view/aboutcar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/aboutcar.jsx" afterPath="$PROJECT_DIR$/public/view/aboutcar.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/app.js" afterPath="$PROJECT_DIR$/public/view/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/app.jsx" afterPath="$PROJECT_DIR$/public/view/app.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/cars.js" afterPath="$PROJECT_DIR$/public/view/cars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/cars.jsx" afterPath="$PROJECT_DIR$/public/view/cars.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/contact.js" afterPath="$PROJECT_DIR$/public/view/contact.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/contact.jsx" afterPath="$PROJECT_DIR$/public/view/contact.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/home.js" afterPath="$PROJECT_DIR$/public/view/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/home.jsx" afterPath="$PROJECT_DIR$/public/view/home.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/type_cars/pickup.js" afterPath="$PROJECT_DIR$/public/view/type_cars/pickup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/type_cars/pickup.jsx" afterPath="$PROJECT_DIR$/public/view/type_cars/pickup.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/type_cars/suv.js" afterPath="$PROJECT_DIR$/public/view/type_cars/suv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/type_cars/suv.jsx" afterPath="$PROJECT_DIR$/public/view/type_cars/suv.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/type_cars/van.js" afterPath="$PROJECT_DIR$/public/view/type_cars/van.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view/type_cars/van.jsx" afterPath="$PROJECT_DIR$/public/view/type_cars/van.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -101,8 +37,8 @@
       <file leaf-file-name="aboutcar.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/view/aboutcar.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="185" column="116" lean-forward="false" selection-start-line="185" selection-start-column="116" selection-end-line="185" selection-end-column="116" />
+            <state relative-caret-position="318">
+              <caret line="211" column="139" lean-forward="false" selection-start-line="211" selection-start-column="139" selection-end-line="211" selection-end-column="139" />
               <folding />
             </state>
           </provider>
@@ -111,8 +47,8 @@
       <file leaf-file-name="aboutCar.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/aboutCar.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="323" column="20" lean-forward="true" selection-start-line="323" selection-start-column="20" selection-end-line="323" selection-end-column="20" />
+            <state relative-caret-position="76">
+              <caret line="273" column="23" lean-forward="true" selection-start-line="273" selection-start-column="23" selection-end-line="273" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -391,7 +327,7 @@
       <workItem from="1519289604942" duration="7245000" />
       <workItem from="1519329525612" duration="5374000" />
       <workItem from="1519389158380" duration="12655000" />
-      <workItem from="1519577474350" duration="15019000" />
+      <workItem from="1519577474350" duration="15697000" />
     </task>
     <task id="LOCAL-00001" summary="c_show">
       <created>1516442962574</created>
@@ -404,7 +340,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="395995000" />
+    <option name="totallyTimeSpent" value="396673000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -720,16 +656,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/aboutCar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="323" column="20" lean-forward="true" selection-start-line="323" selection-start-column="20" selection-end-line="323" selection-end-column="20" />
+        <state relative-caret-position="76">
+          <caret line="273" column="23" lean-forward="true" selection-start-line="273" selection-start-column="23" selection-end-line="273" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/view/aboutcar.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="185" column="116" lean-forward="false" selection-start-line="185" selection-start-column="116" selection-end-line="185" selection-end-column="116" />
+        <state relative-caret-position="318">
+          <caret line="211" column="139" lean-forward="false" selection-start-line="211" selection-start-column="139" selection-end-line="211" selection-end-column="139" />
           <folding />
         </state>
       </provider>
