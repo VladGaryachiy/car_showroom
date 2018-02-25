@@ -22,21 +22,25 @@ const DataPickups = {
 
 (function () {
     $.ajax({
-        url: '/pickups',
+        url: '/pickupsData',
         method: 'GET',
         contentType: "application/json; charset=utf-8",
         cache: false,
+        async: false,
         success: function (result) {
-
-            for (let i = 0; i < result.result.length; i++) {
-                DataPickups.pickups.push(result.result[i]);
-            }
+            dataParser(result);
         },
         error: function (error) {
             return error;
         }
     });
 })();
+
+function dataParser(result) {
+    for (let i = 0; i < result.result.length; i++) {
+        DataPickups.pickups.push(result.result[i]);
+    }
+}
 
 class AllPickups extends React.Component {
 

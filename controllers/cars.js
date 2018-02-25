@@ -17,10 +17,15 @@ module.exports = function (req,res) {
                 if(err){
                     return console.error('Error',err);
                 }
-                result;
 
-                res.status(200).json({result:result.rows});
+                    res.status(200).json({result:result.rows});
+
                 done();
+
+
             })
         });
+
+
+
 };

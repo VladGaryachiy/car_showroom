@@ -3,6 +3,7 @@ let ReactDOM = require('react-dom');
 let BrowserRouter = require('react-router-dom').BrowserRouter;
 let Route = require('react-router-dom').Route;
 let Link = require('react-router-dom').Link;
+let Switch = require('react-router-dom').Switch;
 
 /*Pages*/
 

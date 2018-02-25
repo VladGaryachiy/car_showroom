@@ -26,26 +26,25 @@ const DataSUVS = {
 
 (function () {
     $.ajax({
-        url:'/suvs',
+        url:'/suvsData',
         method:'GET',
         contentType: "application/json; charset=utf-8",
         cache: false,
+        async: false,
         success: function (result) {
-
-            for(let i = 0; i < result.result.length; i++) {
-                DataSUVS.suvs.push(result.result[i]);
-            }
-
-
+            dataParser(result);
         },
         error: function (error) {
             return error;
         }
     });
-
 })();
 
-
+function dataParser(result) {
+    for(let i = 0; i < result.result.length; i++) {
+        DataSUVS.suvs.push(result.result[i]);
+    }
+}
 
 class AllSUVS extends React.Component{
 

@@ -3,6 +3,7 @@ let ReactDOM = require('react-dom');
 let BrowserRouter = require('react-router-dom').BrowserRouter;
 let Route = require('react-router-dom').Route;
 let Link = require('react-router-dom').Link;
+let Switch = require('react-router-dom').Switch;
 
 
 /*Pages*/
@@ -42,6 +43,7 @@ render(){
             {/*PAGES*/}
             <div className="container-fluid contentContainer" id="content" >
                 <div className="row">
+
                     <Route exact path = "/" component={Home}/>
                     <Route path = "/cars" component={Cars}/>
                     <Route exact path = "/services" component={Services}/>

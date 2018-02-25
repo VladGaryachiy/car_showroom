@@ -1,6 +1,5 @@
 let React = require('react');
 let $ = require('jquery');
-require('velocity-animate/velocity');
 
 let Tween = require('rc-tween-one/lib/TweenOne');
 let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
@@ -14,18 +13,13 @@ class AboutCar extends React.Component {
 
     NavigationUp(event) {
 
-        let nameElement = event.currentTarget.attributes[1].nodeValue;
-        let element = event.currentTarget.attributes[1].name;
+        /*     let element = event.currentTarget.children[0].children[1].attributes[1].name;*/
 
-        event.currentTarget.textContent = nameElement;
-        $('[' + element + ']').animate({
-            marginLeft: '-165px',
+        let el = event.currentTarget.parentElement.nextSibling.attributes[1].name;
+
+        $('[' + el + ']').animate({
             width: "210px",
-            backgroundColor: 'rgba(173, 0, 0, 1)',
-            fontSize: '18px',
-            cursor: 'pointer',
-            paddingLeft: '25px',
-            paddingTop: '10px'
+            opacity: 1
 
         }, 300, function () {
             console.log(1);
@@ -33,32 +27,11 @@ class AboutCar extends React.Component {
     }
 
     NavigationOut(event) {
-
-        let nameElement = event.currentTarget.attributes[1].nodeValue;
-        let element = event.currentTarget.attributes[1].name;
-
-        $('[' + element + ']').animate({
-            cursor: 'pointer',
-            marginTop: '20px',
-            backgroundColor: 'rgba(252, 5, 5, 0.6)',
-            width: '45px',
-            borderRadius: '50px',
-            paddingTop: '5px',
-            paddingLeft: '3px',
-            color: 'white',
-            marginLeft: '0px'
-        }, 300, function () {
-
-            if (nameElement === "Двигун") {
-                $('[' + element + ']').html('<i class="fa fa-car fa-2x" aria-hidden="true" ></i>');
-            } else if (nameElement === "Габарити") {
-                $('[' + element + ']').html('<i class="fa fa-arrows-h fa-2x " aria-hidden="true"></i>');
-            } else if (nameElement === "Коробка передач") {
-                $('[' + element + ']').html('<i class="fa fa-cogs  fa-2x" aria-hidden="true"></i>');
-            } else if (nameElement === "Витрата пального") {
-                $('[' + element + ']').html('<i class="fa fa-battery-half  fa-2x" aria-hidden="true"></i>');
-            }
-        });
+        let el = event.currentTarget.parentElement.nextSibling.attributes[1].name;
+        $('[' + el + ']').animate({
+            width: "1px",
+            opacity: 0
+        }, 300);
     }
     render() {
         let data = this.props.infoCar;
@@ -70,7 +43,7 @@ class AboutCar extends React.Component {
                 { className: 'container-fluid' },
                 React.createElement(
                     'div',
-                    { className: 'row' },
+                    { className: 'row one-part' },
                     React.createElement(
                         'div',
                         { className: 'col-md-12 col-xs-12 col-sm-12' },
@@ -130,10 +103,10 @@ class AboutCar extends React.Component {
             ),
             React.createElement(
                 'div',
-                { className: 'container-fluid' },
+                { className: 'container-fluid two-part' },
                 React.createElement(
                     'div',
-                    { className: 'row' },
+                    { className: 'row ' },
                     React.createElement(
                         'div',
                         { className: 'col-md-9 col-sm-9 col-xs-9', style: {
@@ -164,7 +137,9 @@ class AboutCar extends React.Component {
                     ),
                     React.createElement(
                         'div',
-                        { className: 'col-md-3 col-sm-3 col-xs-3' },
+                        { className: 'col-md-3 col-sm-3 col-xs-3', style: {
+                                zIndex: 30
+                            } },
                         React.createElement(
                             'div',
                             { className: 'navigation-container' },
@@ -173,23 +148,75 @@ class AboutCar extends React.Component {
                                 { className: 'list-menu' },
                                 React.createElement(
                                     'li',
-                                    { className: 'menu-element', 'data-drive': '\u0414\u0432\u0438\u0433\u0443\u043D', onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut },
-                                    React.createElement('i', { className: 'fa fa-car fa-2x', 'aria-hidden': 'true' })
+                                    { className: 'element-menu', 'data-drive': '\u0414\u0432\u0438\u0433\u0443\u043D' },
+                                    React.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-ico ' },
+                                            React.createElement('i', { onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut, className: 'fa fa-car fa-2x icons', 'aria-hidden': 'true' })
+                                        ),
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-name', 'data-name-one': true },
+                                            '\u0414\u0432\u0438\u0433\u0443\u043D'
+                                        )
+                                    )
                                 ),
                                 React.createElement(
                                     'li',
-                                    { className: 'menu-element', 'data-size': '\u0413\u0430\u0431\u0430\u0440\u0438\u0442\u0438', onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut },
-                                    React.createElement('i', { className: 'fa fa-arrows-h fa-2x ', 'aria-hidden': 'true' })
+                                    { className: 'element-menu', 'data-size': '\u0413\u0430\u0431\u0430\u0440\u0438\u0442\u0438' },
+                                    React.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-ico' },
+                                            React.createElement('i', { onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut, className: 'fa fa-arrows-h fa-2x icons', 'aria-hidden': 'true' })
+                                        ),
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-name', 'data-name-two': true },
+                                            '\u0413\u0430\u0431\u0430\u0440\u0438\u0442\u0438'
+                                        )
+                                    )
                                 ),
                                 React.createElement(
                                     'li',
-                                    { className: 'menu-element', 'data-transmission': '\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043F\u0435\u0440\u0435\u0434\u0430\u0447', onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut },
-                                    React.createElement('i', { className: 'fa fa-cogs  fa-2x', 'aria-hidden': 'true' })
+                                    { className: 'element-menu', 'data-transmission': '\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043F\u0435\u0440\u0435\u0434\u0430\u0447' },
+                                    React.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-ico' },
+                                            React.createElement('i', { onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut, className: 'fa fa-cogs  fa-2x icons', 'aria-hidden': 'true' })
+                                        ),
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-name', 'data-name-three': true },
+                                            '\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043F\u0435\u0440\u0435\u0434\u0430\u0447'
+                                        )
+                                    )
                                 ),
                                 React.createElement(
                                     'li',
-                                    { className: 'menu-element', 'data-fuel': '\u0412\u0438\u0442\u0440\u0430\u0442\u0430 \u043F\u0430\u043B\u044C\u043D\u043E\u0433\u043E', onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut },
-                                    React.createElement('i', { className: 'fa fa-battery-half  fa-2x', 'aria-hidden': 'true' })
+                                    { className: 'element-menu', 'data-fuel': '\u0412\u0438\u0442\u0440\u0430\u0442\u0430 \u043F\u0430\u043B\u044C\u043D\u043E\u0433\u043E' },
+                                    React.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-ico' },
+                                            React.createElement('i', { onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut, className: 'fa fa-battery-half  fa-2x icons', 'aria-hidden': 'true' })
+                                        ),
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-name', 'data-name-four': true },
+                                            '\u0412\u0438\u0442\u0440\u0430\u0442\u0430 \u043F\u0430\u043B\u044C\u043D\u043E\u0433\u043E'
+                                        )
+                                    )
                                 )
                             )
                         )
@@ -198,29 +225,480 @@ class AboutCar extends React.Component {
             ),
             React.createElement(
                 'div',
-                { className: 'container-fluid', key: data[0].key },
+                { className: 'container-fluid three-part', key: data[0].key },
                 React.createElement(
-                    'div',
-                    { className: 'row' },
-                    React.createElement('hr', null),
+                    ScrollOverPack,
+                    null,
                     React.createElement(
-                        'div',
-                        { className: 'col-md-6' },
+                        Tween,
+                        {
+                            key: '1',
+                            animation: { type: 'from', ease: 'easeOutQuart', opacity: 0, translateX: '-300px' }
+                        },
                         React.createElement(
                             'h1',
-                            { className: 'info-drive' },
+                            { className: 'info-drive-name' },
                             '\u0414\u0432\u0438\u0433\u0443\u043D'
                         )
                     ),
                     React.createElement(
-                        'div',
-                        { className: 'col-md-6' },
-                        React.createElement('div', { className: 'info-drive-img', style: {
-                                backgroundImage: 'url(' + data[0].img2 + ')'
-                            } })
+                        Tween,
+                        null,
+                        React.createElement(
+                            'div',
+                            { className: 'row ', key: '2' },
+                            React.createElement(
+                                'div',
+                                { className: 'col-md-5' },
+                                React.createElement(
+                                    Tween,
+                                    null,
+                                    React.createElement(
+                                        'div',
+                                        null,
+                                        React.createElement(
+                                            'ul',
+                                            { className: 'full-event-drive', key: '3' },
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u0414\u0432\u0438\u0433\u0443\u043D: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].motor
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u041A\u043E\u0434 \u0434\u0432\u0438\u0433\u0443\u043D\u0430: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].motor_code
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u0422\u0438\u043F \u0434\u0432\u0438\u0433\u0443\u043D\u0430: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].motor_type
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u0422\u0438\u043F \u043F\u0430\u043B\u044C\u043D\u043E\u0433\u043E: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].fuel_type
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u041E\u0431\'\u0454\u043C \u0434\u0432\u0438\u0433\u0443\u043D\u0430: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].engine_capecity
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u0446\u0438\u043B\u0456\u043D\u0434\u0440\u0456\u0432: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].numb_cylinder
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u043A\u043B\u0430\u043F\u0430\u043D\u0456\u0432: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].numb_valves
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u041F\u043E\u0442\u0443\u0436\u043D\u0456\u0441\u0442\u044C: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].power,
+                                                                ' \u043B.\u0441'
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u041E\u0431\u043E\u0440\u043E\u0442\u0438 \u043C\u0430\u043A\u0441. \u0448\u0432\u0438\u0434\u043A\u043E\u0441\u0442\u0456: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].turnovers_max_power
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            React.createElement(
+                                                'li',
+                                                { className: 'drive-event-container' },
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-ico-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        { style: {
+                                                                width: '35px', height: '35px'
+                                                            } },
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', rotate: '-480deg', duration: 1500, width: '35px', height: '35px' }
+                                                            },
+                                                            React.createElement('i', { className: 'glyphicon glyphicon-cog' })
+                                                        )
+                                                    )
+                                                ),
+                                                React.createElement(
+                                                    'span',
+                                                    { className: 'part-name-two' },
+                                                    React.createElement(
+                                                        ScrollOverPack,
+                                                        null,
+                                                        React.createElement(
+                                                            Tween,
+                                                            {
+                                                                animation: { type: 'from', translateX: '-45px', duration: 1500, opacity: 0 }
+                                                            },
+                                                            '\u041A\u0440\u0443\u0442\u044F\u0449\u0438\u0439 \u043C\u043E\u043C\u0435\u043D\u0442: ',
+                                                            React.createElement(
+                                                                'span',
+                                                                { className: 'about-drive' },
+                                                                data[0].targue
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            ),
+                            React.createElement(
+                                Tween,
+                                {
+                                    key: '3',
+                                    animation: { type: 'from', scale: 0.2, duration: 700, opacity: 0 }
+                                },
+                                React.createElement(
+                                    'div',
+                                    { className: 'col-md-7' },
+                                    React.createElement(
+                                        'div',
+                                        { className: 'img-drive-container' },
+                                        React.createElement(
+                                            'div',
+                                            { className: 'img-drive' },
+                                            React.createElement('img', { src: data[0].img_motor, className: 'info-drive-img', alt: '' })
+                                        )
+                                    )
+                                )
+                            )
+                        )
                     )
                 )
-            )
+            ),
+            React.createElement('div', { style: { height: '600px' } })
         );
     }
 

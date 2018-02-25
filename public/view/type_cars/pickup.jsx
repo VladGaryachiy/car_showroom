@@ -26,17 +26,13 @@ const DataPickups = {
 
 (function () {
     $.ajax({
-        url:'/pickups',
+        url:'/pickupsData',
         method:'GET',
         contentType: "application/json; charset=utf-8",
         cache: false,
+        async: false,
         success: function (result) {
-
-              for(let i = 0; i < result.result.length; i++) {
-                  DataPickups.pickups.push(result.result[i]);
-              }
-
-
+            dataParser(result);
         },
         error: function (error) {
             return error;
@@ -45,7 +41,11 @@ const DataPickups = {
 
 })();
 
-
+function dataParser(result){
+    for(let i = 0; i < result.result.length; i++) {
+        DataPickups.pickups.push(result.result[i]);
+    }
+}
 
 class AllPickups extends React.Component{
 
@@ -131,7 +131,7 @@ class Pickups extends React.Component{
             <div>
                 <Switch>
                     <Route exact path='/pickups' component={AllPickups}/>
-                    <Route path='/pickups/:pickup' component={Pickup}/>
+                    <Route  path='/pickups/:pickup' component={Pickup}/>
                 </Switch>
             </div>
         )

@@ -8,6 +8,7 @@
     "bootstrap": "^3.3.7",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
+    "path": "^0.12.7",
     "pg": "^6.4.2",
     "pg-connect": "^2.0.2",
     "rc-scroll-anim": "^2.2.1",

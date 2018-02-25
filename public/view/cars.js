@@ -25,30 +25,34 @@ let vans = [];
 
 (function () {
     $.ajax({
-        url: '/cars',
+        url: '/carsData',
         method: 'GET',
         contentType: "application/json; charset=utf-8",
         cache: false,
+        async: false,
         success: function (result) {
-
-            for (let i = 0; i < result.result.length; i++) {
-                DataCars.cars.push(result.result[i]);
-            }
-            pickups = result.result.filter(function (item) {
-                return item.type_car === 'Пікап';
-            });
-            SUVs = result.result.filter(function (item) {
-                return item.type_car === 'Позашляховик';
-            });
-            vans = result.result.filter(function (item) {
-                return item.type_car === 'Фургон';
-            });
+            dataParser(result);
         },
         error: function (error) {
             return error;
         }
     });
 })();
+
+function dataParser(result) {
+    for (let i = 0; i < result.result.length; i++) {
+        DataCars.cars.push(result.result[i]);
+    }
+    pickups = result.result.filter(function (item) {
+        return item.type_car === 'Пікап';
+    });
+    SUVs = result.result.filter(function (item) {
+        return item.type_car === 'Позашляховик';
+    });
+    vans = result.result.filter(function (item) {
+        return item.type_car === 'Фургон';
+    });
+}
 
 class Pickup extends React.Component {
     constructor(props) {
@@ -246,11 +250,7 @@ class Car extends React.Component {
         return React.createElement(
             'div',
             { className: 'aboutCars-container', id: 'aboutCars-container' },
-            React.createElement(
-                React.Fragment,
-                null,
-                React.createElement(AboutCar, { infoCar: Car })
-            )
+            React.createElement(AboutCar, { infoCar: Car })
         );
     }
 

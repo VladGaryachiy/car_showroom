@@ -217,6 +217,7 @@ body{
     font-family: Impact, fantasy;
     font-size: 35px;
     border-bottom: 1px solid red;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1em rgba(0, 0, 0, 0);
 }
 
 .GMC{
@@ -235,11 +236,13 @@ body{
     background-color: red;
     font-family: Impact, fantasy;
     color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 0 0 1em rgba(0, 0, 0, 0.1);
 }
 .price{
     margin-top: -4px;
     text-align:right;
-    font-family: "New Century Schoolbook", "TeX Gyre Schola", serif;
+    font-family: 'Brush Script MT',script;
+    font-style: italic;
     font-size: 27px;
     color: #9d9d9d;
     font-weight: 100

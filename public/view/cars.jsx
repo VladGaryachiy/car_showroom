@@ -23,31 +23,20 @@ const DataCars = {
     }
 
 };
- let pickups = [];
- let SUVs = [];
- let vans = [];
+let pickups = [];
+let SUVs = [];
+let vans = [];
+
 
 (function () {
     $.ajax({
-        url:'/cars',
+        url:'/carsData',
         method:'GET',
         contentType: "application/json; charset=utf-8",
         cache: false,
+        async: false,
         success: function (result) {
-            
-            for(let i = 0; i < result.result.length; i++){
-                DataCars.cars.push(result.result[i]);
-            }
-            pickups = result.result.filter(function (item) {
-                return item.type_car === 'Пікап'
-            });
-            SUVs = result.result.filter(function (item) {
-                return item.type_car === 'Позашляховик'
-            });
-            vans = result.result.filter(function (item) {
-                return item.type_car === 'Фургон'
-            });
-
+            dataParser(result);
         },
         error: function (error) {
             return error;
@@ -55,6 +44,22 @@ const DataCars = {
     });
 
 })();
+
+function dataParser(result){
+    for(let i = 0; i < result.result.length; i++){
+        DataCars.cars.push(result.result[i]);
+    }
+    pickups = result.result.filter(function (item) {
+        return item.type_car === 'Пікап'
+    });
+    SUVs = result.result.filter(function (item) {
+        return item.type_car === 'Позашляховик'
+    });
+    vans = result.result.filter(function (item) {
+        return item.type_car === 'Фургон'
+    });
+
+}
 
 
 class Pickup extends React.Component{
@@ -204,10 +209,8 @@ class Car extends  React.Component{
         const Car = DataCars.get(this.props.match.params.car) ;
         return(
             <div className="aboutCars-container" id="aboutCars-container">
-                <React.Fragment>
                     <AboutCar infoCar={Car}/>
               {/*      <Link to='/cars'>Back</Link>*/}
-                </React.Fragment>
             </div>
 
         )

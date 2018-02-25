@@ -1,6 +1,6 @@
 let React = require('react');
 let $ = require('jquery');
-require('velocity-animate/velocity');
+
 
 
 
@@ -14,59 +14,30 @@ class AboutCar extends React.Component{
         this.NavigationOut = this.NavigationOut.bind(this);
     }
 
-
     NavigationUp(event){
 
-        let nameElement = event.currentTarget.attributes[1].nodeValue;
-        let element = event.currentTarget.attributes[1].name;
 
-            event.currentTarget.textContent = nameElement;
-            $('['+element+']').animate({
-                marginLeft:'-165px',
-                width: "210px",
-                backgroundColor: 'rgba(173, 0, 0, 1)',
-                fontSize: '18px',
-                cursor:'pointer',
-                paddingLeft: '25px',
-                paddingTop: '10px'
+   /*     let element = event.currentTarget.children[0].children[1].attributes[1].name;*/
 
-            },300,function () {
-                console.log(1)
-            });
+        let el = event.currentTarget.parentElement.nextSibling.attributes[1].name;
 
+
+
+        $('['+el+']').animate({
+            width: "210px",
+            opacity:1
+
+        },300,function () {
+            console.log(1)
+        });
     }
 
     NavigationOut(event){
-
-
-        let nameElement = event.currentTarget.attributes[1].nodeValue;
-        let element = event.currentTarget.attributes[1].name;
-
-            $('['+element+']').animate({
-                cursor: 'pointer',
-                marginTop: '20px',
-                backgroundColor: 'rgba(252, 5, 5, 0.6)',
-                width: '45px',
-                borderRadius: '50px',
-                paddingTop: '5px',
-                paddingLeft: '3px',
-                color:'white',
-                marginLeft:'0px',
-            },300,function () {
-
-                if(nameElement === "Двигун"){
-                    $('['+element+']').html('<i class="fa fa-car fa-2x" aria-hidden="true" ></i>');
-                }
-                else if(nameElement === "Габарити"){
-                    $('['+element+']').html('<i class="fa fa-arrows-h fa-2x " aria-hidden="true"></i>')
-                }
-                else if(nameElement === "Коробка передач"){
-                    $('['+element+']').html('<i class="fa fa-cogs  fa-2x" aria-hidden="true"></i>')
-                }
-                else if(nameElement === "Витрата пального"){
-                    $('['+element+']').html('<i class="fa fa-battery-half  fa-2x" aria-hidden="true"></i>')
-                }
-            });
+            let el = event.currentTarget.parentElement.nextSibling.attributes[1].name;
+            $('['+el+']').animate({
+                width: "1px",
+                opacity:0
+            },300);
     }
         render(){
             let data = this.props.infoCar;
@@ -104,7 +75,7 @@ class AboutCar extends React.Component{
                         </div>
                     </div>*/}
                     <div className="container-fluid">
-                        <div className="row">
+                        <div className="row one-part">
                             <div className="col-md-12 col-xs-12 col-sm-12">
                                 <Tween
                                     key="1"
@@ -142,8 +113,8 @@ class AboutCar extends React.Component{
                         </div>
                     </div>
 
-                    <div className="container-fluid">
-                        <div className="row">
+                    <div className="container-fluid two-part">
+                        <div className="row ">
 
                             <div className="col-md-9 col-sm-9 col-xs-9"  style={{
                                 position:'relative',
@@ -171,20 +142,34 @@ class AboutCar extends React.Component{
                                 </Tween>
                             </div>
 
-                            <div className="col-md-3 col-sm-3 col-xs-3">
+                            <div className="col-md-3 col-sm-3 col-xs-3" style={{
+                                zIndex:30
+                            }}>
                                <div className="navigation-container">
                                     <ul className="list-menu">
-                                        <li className="menu-element" data-drive="Двигун" onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} >
-                                            <i className="fa fa-car fa-2x" aria-hidden="true" ></i>
+                                        <li  className="element-menu" data-drive="Двигун"  >
+                                            <a href="#">
+                                                <span  className="part-ico "><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-car fa-2x icons" aria-hidden="true" ></i></span>
+                                                <span className="part-name" data-name-one>Двигун</span>
+                                            </a>
                                         </li>
-                                        <li className="menu-element" data-size="Габарити" onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut}>
-                                            <i className="fa fa-arrows-h fa-2x " aria-hidden="true"></i>
+                                        <li className="element-menu" data-size="Габарити">
+                                            <a href="#">
+                                                <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-arrows-h fa-2x icons" aria-hidden="true"></i></span>
+                                                <span className="part-name" data-name-two>Габарити</span>
+                                            </a>
                                         </li>
-                                        <li className="menu-element" data-transmission="Коробка передач" onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut}>
-                                            <i className="fa fa-cogs  fa-2x" aria-hidden="true"></i>
+                                        <li className="element-menu" data-transmission="Коробка передач" >
+                                            <a href="#">
+                                                <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-cogs  fa-2x icons" aria-hidden="true"></i></span>
+                                                <span className="part-name" data-name-three>Коробка передач</span>
+                                            </a>
                                         </li>
-                                        <li className="menu-element" data-fuel="Витрата пального" onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut}>
-                                            <i className="fa fa-battery-half  fa-2x" aria-hidden="true"></i>
+                                        <li className="element-menu"  data-fuel="Витрата пального">
+                                            <a href="#">
+                                                <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-battery-half  fa-2x icons" aria-hidden="true"></i></span>
+                                                <span className="part-name" data-name-four>Витрата пального</span>
+                                            </a>
                                         </li>
                                     </ul>
                                </div>
@@ -192,25 +177,329 @@ class AboutCar extends React.Component{
                         </div>
                     </div>
 
-                    <div className="container-fluid" key={data[0].key}>
-                        <div className="row">
-                            <hr/>
-                            <div className="col-md-6">
-                                <h1 className='info-drive'>Двигун</h1>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="info-drive-img" style={{
-                                    backgroundImage:'url('+data[0].img2+')',
-                                }}>
 
-                                </div>
+{/*---------------------------------------------Drive Container----------------------------------------------------------*/}
+                    <div className="container-fluid three-part" key={data[0].key}>
+                      <ScrollOverPack >
+                          <Tween
+                              key="1"
+                              animation={{  type: 'from', ease: 'easeOutQuart', opacity: 0, translateX: '-300px'  }}
+                          >
+                              <h1 className='info-drive-name'>Двигун</h1>
+                          </Tween>
+                         <Tween>
+                             <div className="row " key="2">
+                                 <div className="col-md-5">
+                                     <Tween>
+                                         <div>
+                                             <ul className = "full-event-drive" key='3'>
+                                                 <li className="drive-event-container">
 
-                            </div>
-                        </div>
+                                                        <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                                 <Tween
+                                                                     animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                                 >
+                                                                        Двигун: <span className="about-drive">{data[0].motor}</span>
+                                                                 </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                             Код двигуна: <span className="about-drive">{data[0].motor_code}</span>
+                                                             </Tween>
+                                                        </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                           Тип двигуна: <span className="about-drive">{data[0].motor_type}</span>
+                                                             </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                        Тип пального: <span className="about-drive">{data[0].fuel_type}</span>
+                                                             </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                        Об'єм двигуна: <span className="about-drive">{data[0].engine_capecity}</span>
+                                                             </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                         Кількість циліндрів: <span className="about-drive">{data[0].numb_cylinder}</span>
+                                                             </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                        Кількість клапанів: <span className="about-drive">{data[0].numb_valves}</span>
+                                                             </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                       Потужність: <span className="about-drive">{data[0].power} л.с</span>
+                                                             </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                        Обороти макс. швидкості: <span className="about-drive">{data[0].turnovers_max_power}</span>
+                                                             </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                                 <li  className="drive-event-container">
+                                                     <span className="part-ico-two">
+                                                           <ScrollOverPack style={{
+                                                               width:'35px',height:'35px'
+                                                           }} >
+                                                             <Tween
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1500,width:'35px',height:'35px'}}
+                                                             >
+                                                             <i  className="glyphicon glyphicon-cog"></i>
+                                                            </Tween>
+                                                           </ScrollOverPack>
+                                                        </span>
+                                                     <span className="part-name-two">
+                                                         <ScrollOverPack>
+                                                             <Tween
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1500, opacity:0}}
+                                                             >
+                                                                          Крутящий момент: <span className="about-drive">{data[0].targue}</span>
+                                                             </Tween>
+                                                         </ScrollOverPack>
+                                                     </span>
+                                                 </li>
+                                             </ul>
+                                         </div>
+                                     </Tween>
+                                 </div>
+                                 {/*доробить*/}
+                                 <Tween
+                                     key="3"
+                                     animation={{ type: 'from', scale: 0.2,duration:700,opacity:0}}
+                                 >
+                                     <div className="col-md-7">
+                                         <div className="img-drive-container">
+                                                 <div className="img-drive">
+                                                     <img src={data[0].img_motor} className="info-drive-img" alt=""/>
+                                                 </div>
+                                         </div>
+                                     </div>
+                                 </Tween>
+
+
+                                 {/*     <div className="col-md-7 col-sm-7 col-xs-7">
+
+                                    <div className="container event-drive-container">
+                                        <div className="row">
+                                            <div className="col-md-4 event-col">
+                                               <div>
+                                                   <p className="event-drive">Двигун:{data[0].motor}</p>
+                                               </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Код двигуна :{data[0].motor_code}</p>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Тип двигуна:{data[0].motor_type}</p>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Тип пального :{data[0].fuel_type}</p>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Об'єм двигуна :{data[0].engine_capecity}</p>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Кількість циліндрів :{data[0].numb_cylinder}</p>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Кількість клапанів :{data[0].numb_valves}</p>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Потужність :{data[0].power} л.с</p>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Обороти максимальної швидкоcті :{data[0].turnovers_max_power}</p>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-4 event-col">
+                                                <div>
+                                                    <p className="event-drive">Крутящий момент :{data[0].targue}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>*/}
+                             </div>
+                         </Tween>
+                      </ScrollOverPack>
+                    </div>
+                    <div style={{height:'600px'}}>
+
                     </div>
 
 
-                        
 
 
 

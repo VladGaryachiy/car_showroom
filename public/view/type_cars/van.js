@@ -22,21 +22,25 @@ const DataVans = {
 
 (function () {
     $.ajax({
-        url: '/vans',
+        url: '/vansData',
         method: 'GET',
         contentType: "application/json; charset=utf-8",
         cache: false,
+        async: false,
         success: function (result) {
-
-            for (let i = 0; i < result.result.length; i++) {
-                DataVans.vans.push(result.result[i]);
-            }
+            dataParser(result);
         },
         error: function (error) {
             return error;
         }
     });
 })();
+
+function dataParser(result) {
+    for (let i = 0; i < result.result.length; i++) {
+        DataVans.vans.push(result.result[i]);
+    }
+}
 
 class AllVans extends React.Component {
 
