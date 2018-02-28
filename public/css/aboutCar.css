@@ -297,8 +297,8 @@
     margin-top: 30px;
 }
 .part-ico-two{
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     padding-top: 5px;
     padding-left: 3px;
     color:black;
@@ -335,4 +335,31 @@
     color:red;
     font-family: Impact, fantasy;
 
+}
+
+.ScrollContainer{
+    width: 35px;
+    height: 35px;
+}
+.img-size{
+    text-align: center;
+    margin-top: 60px;
+}
+.info-size-img{
+    height: 55%;
+    width: 55%;
+}
+.parent-container-size{
+    text-align: center;
+}
+.event-size-container{
+
+    width: 1000px;
+    margin-left:12%;
+    margin-top:60px;
+}
+
+.size-element-property-name{
+    padding-bottom:2px;
+    border-bottom: 1px solid red;
 }

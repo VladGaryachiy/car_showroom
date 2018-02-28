@@ -3,22 +3,23 @@ body{
 
 }
 .navbar{
-    height:70px;
+    height:50px;
     border-radius: 0;
     border: none;
 }
 .navbar-inverse{
-    background-color: rgba(235, 235, 235, 0.9);
+    /*background-color: rgba(235, 235, 235, 0.9);*/
+    background-color: rgba(0, 0, 0, 0.9);
 }
 .navbar-inverse .navbar-nav>li>a{
-    color: black;
+    color: white;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-weight: 500;
     font-size: 15px;
 }
 
 .navbar-inverse .navbar-nav>li>a:visited{
-    color: black;
+    color: white;
 }
 .navbar-inverse .navbar-nav>li>a:active{
     color: rgba(105, 0, 0, 1);
@@ -32,7 +33,7 @@ body{
     float: right;
     padding: 5px;
     margin-right: 100px;
-    margin-top:5px;
+    margin-top:-5px;
 }
 .navbar-inverse .navbar-nav>li>.MainPage{
     color:red;
@@ -43,9 +44,9 @@ body{
     color:red;
 }
 .navbar-header{
-    padding-top: 5px;
+    padding-bottom:5px;
     padding-left: 14px;
-    height: 70px;
+    height: 50px;
     width: 110px;
     background-color: white;
 }
@@ -53,13 +54,13 @@ body{
 .nav>li{
     position: relative;
     display: block;
-    height: 70px;
+    height: 60px;
     margin-top: -10px;
     padding-top: 10px;
 }
 
 .nav>li:hover{
-    background-color:rgba(0, 0, 0, 0.1);
+    background-color:rgba(250, 250, 250, 0.1);
     color:white;
 }
 
@@ -88,7 +89,7 @@ body{
 }
 
 .brandStyle{
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 
