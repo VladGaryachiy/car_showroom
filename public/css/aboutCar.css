@@ -94,7 +94,7 @@
 
 }
 
-.carName-price{
+.carName-price,.carName-year{
     position: relative;
     padding-right:40px;
     padding-bottom: 5px;
@@ -102,10 +102,15 @@
     margin-left: 50px;
     margin-top: -4px;
 
-    font-family: 'Brush Script MT',script;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-style: italic;
-    font-size: 30px;
+    font-size: 25px;
     color: grey;
+}
+.carName-year{
+    font-size: 21px;
+    color: black;
+    font-weight:600;
 }
 
 .GMC-main{
@@ -125,7 +130,7 @@
 
 .navigation-container{
     z-index: 1500;
-    margin-left: 250px;
+    margin-left: 18%;
     position: fixed;
     height: 250px;
 /*    background: black;*/
@@ -274,10 +279,10 @@
     text-align: center;
 }
 .info-drive-img{
-    height: 80%;
-    width: 80%;
+    height: 86%;
+    width: 86%;
     position:relative;
-    margin-top:80px;
+    margin-top:70px;
 
 }
 .test{
@@ -308,11 +313,11 @@
     top: 0;
 }
 .part-name-two{
+    display: inline-block;
     left: 0;
     top: 0;
     height: 45px;
     color:black;
-    display: inline-block;
     margin-left: 50px;
     font-size: 24px;
     font-family: Impact, fantasy;
@@ -354,12 +359,244 @@
 }
 .event-size-container{
 
-    width: 1000px;
-    margin-left:12%;
-    margin-top:60px;
+    width: 1100px;
+    margin-left:11%;
+    margin-top:10px;
 }
 
 .size-element-property-name{
     padding-bottom:2px;
-    border-bottom: 1px solid red;
+}
+
+.event-size-element{
+    height: 145px;
+    background: rgba(166, 166, 166, 0.2);
+    padding-top:5px;
+    /*border-right:1px solid rgba(166, 166, 166, 0.2);
+    border-left:1px solid rgba(166, 166, 166, 0.2);*/
+
+
+    margin: 4px;
+/*    border-radius: 50%;*/
+    border:1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 6px 5px 9px rgba(0,0,0,0.6);
+}
+
+.size-element-property-name{
+    padding-top: 10px;
+    padding-bottom:0;
+    margin:0;
+    height:60px;
+    display: inline-block;
+    font-size: 16px;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    color:rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+.grey{
+    background: rgba(166, 166, 166, 0.1);
+}
+.size-property-line{
+    padding:0;
+    margin:0;
+    border-top: 1px solid white;
+}
+.size-element-description{
+    margin-top:10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    color:rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 768px){
+    .event-size-element {
+        width: 25%;
+    }
+
+}
+
+@media (min-width: 992px){
+    .event-size-element {
+        width: 12.99999%;
+        padding:0;
+    }
+}
+
+.padding-size-element{
+    padding-top: 15px;
+}
+.ico-size{
+    height:30px;
+    width:30px;
+    filter: invert(0.2);
+}
+
+.icon{
+    height:30px;
+    padding:0;
+    margin:5px 0 0 0;
+}
+.img-length{
+    height:35px;
+    width:37px;
+}
+
+.transmission-container-image{
+    height:520px;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+
+.ico-left-block{
+
+
+}
+
+.description-transs-block{
+
+    height: 45px;
+    color:black;
+    font-size: 21px;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    padding-top: 5px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 0 0 1em rgba(0, 0, 0, 0);
+
+}
+
+.ico-right-block{
+    display: inline-block;
+    left: 0;
+    top: 0;
+
+}
+.full-event-transs{
+    list-style-type: none;
+    padding-top: 10px;
+    width: 600px;
+    height: 430px;
+    margin-left: 50px;
+    margin-top: 50px;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+
+}
+
+.description-transs-block{
+    width: 400px;
+    color:white;
+
+}
+
+.transs-line{
+    width: 430px;
+    border-bottom: 1px solid white;
+}
+.transs-event-container{
+    margin-top: 20px;
+    width: 430px;
+}
+
+.about-transs{
+    color:red;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: 600;
+
+}
+.fa-arrow-right,.fa-arrow-left{
+    font-size: 25px;
+    color:rgba(54, 18, 0, 0.8);
+}
+
+.main-props-transs-container{
+    height:520px;
+    /*background-color:rgba(171, 171, 171, 0.1);*/
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.fuel_consumption{
+    text-align: center;
+    font-size: 22px;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    padding: 0;
+    margin:0;
+}
+.inCity,.outCity{
+
+}
+
+.outCity{
+
+}
+
+.inCity{
+
+}
+.about-fuel_consumption{
+    padding:0;
+    width:550px;
+    margin-top:8px;
+}
+.city{
+    color:red;
+    font-weight: 600;
+}
+.type_drive{
+
+}
+.drive-type-description{
+    padding-top: 10px;
+}
+.padding-fuel{
+    margin-top: 10px;
+}
+
+.banner-car{
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 520px;
+    width: 804.4px;
+}
+
+.fa-angle-right{
+    font-size: 32px;
+    color:white;
+}
+
+.review-size-one{
+    margin-top: 5%;
+    margin-left: 20%;
+    height: 70%;
+    width: 70%;
+}
+.review-size-two{
+    height: 85%;
+    width: 85%;
+}
+.review-car-container{
+    margin-top: 3%;
+}
+
+.test-drive-name{
+    text-align: center;
+}
+
+.form-container{
+    height: 300px;
+
+}
+.test-drive-form{
+    width: 400px;
+    margin-left:35%;
+}
+.dateName{
+    margin-bottom: 10px;
+}
+.input-group{
+    margin-top: 5px;
+    margin-bottom: 10px;
 }

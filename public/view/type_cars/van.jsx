@@ -74,7 +74,7 @@ class AllVans extends React.Component{
                                     <div className={"col-md-5 col-sm-12   vanBlock"+i} key={item.key}  data-name={item.name}>
                                         <div className="block">
                                             <h2 className="carName"><span className="GMC">GMC</span> {item.name}</h2>
-                                            <h3 className="price">Ціна від - {item.price}</h3>
+                                            <h3 className="price">Ціна від - {item.price} грн</h3>
                                         </div>
                                         <div className='logo' style={{
                                             backgroundImage:'url('+item.logo+')',

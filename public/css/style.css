@@ -242,9 +242,9 @@ body{
 .price{
     margin-top: -4px;
     text-align:right;
-    font-family: 'Brush Script MT',script;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-style: italic;
-    font-size: 27px;
+    font-size: 22px;
     color: #9d9d9d;
     font-weight: 100
 }

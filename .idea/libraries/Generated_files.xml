@@ -11,7 +11,6 @@
         <item url="file://$PROJECT_DIR$/public/view/contact.js" />
         <item url="file://$PROJECT_DIR$/public/view/type_cars/pickup.js" />
         <item url="file://$PROJECT_DIR$/public/view/aboutcar.js" />
-        <item url="file://$PROJECT_DIR$/public/view/type_cars/pickupData.js" />
         <item url="file://$PROJECT_DIR$/public/view/finance.js" />
         <item url="file://$PROJECT_DIR$/public/view/component/navbar.js" />
         <item url="file://$PROJECT_DIR$/public/view/container.js" />
@@ -25,6 +24,7 @@
       <root url="file://$PROJECT_DIR$/public/view/type_cars/pickups.js" />
       <root url="file://$PROJECT_DIR$/public/view/type_cars/pickups.js" />
       <root url="file://$PROJECT_DIR$/public/view/type_cars/aboutcar.js" />
+      <root url="file://$PROJECT_DIR$/public/view/type_cars/pickupData.js" />
       <root url="file://$PROJECT_DIR$/public/view/cars.js" />
       <root url="file://$PROJECT_DIR$/public/view/component/carousel.js" />
       <root url="file://$PROJECT_DIR$/public/view/app.js" />
@@ -34,7 +34,6 @@
       <root url="file://$PROJECT_DIR$/public/view/contact.js" />
       <root url="file://$PROJECT_DIR$/public/view/type_cars/pickup.js" />
       <root url="file://$PROJECT_DIR$/public/view/aboutcar.js" />
-      <root url="file://$PROJECT_DIR$/public/view/type_cars/pickupData.js" />
       <root url="file://$PROJECT_DIR$/public/view/finance.js" />
       <root url="file://$PROJECT_DIR$/public/view/component/navbar.js" />
       <root url="file://$PROJECT_DIR$/public/view/container.js" />

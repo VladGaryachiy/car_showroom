@@ -1,17 +1,21 @@
 let React = require('react');
 let $ = require('jquery');
 
-
+let line = 'https://www.google.com.ua/search?q=rfhnbyrb&rlz=1C1CHBD_ruUA768UA768&tbm=isch&source=iu&ictx=1&fir=Ww8-5bW7cBGhQM%253A%252C703lE2099ryQ3M%252C_&usg=__xd-k77DHnA1eqwgZqMDsVt9rlUQ%3D&sa=X&ved=0ahUKEwix5I2TqdPZAhXCh6YKHZ3FAtAQ9QEILjAC#imgrc=65HTbrU4oYctQM:';
 
 
 let Tween = require('rc-tween-one/lib/TweenOne');
 let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
+
+let arrAge = [];
 
 class AboutCar extends React.Component{
     constructor(props) {
         super(props);
         this.NavigationUp = this.NavigationUp.bind(this);
         this.NavigationOut = this.NavigationOut.bind(this);
+        this.TestDriveForm = this.TestDriveForm.bind(this)
+        /*this.LowSpeed = this.LowSpeed.bind(this);*/
     }
 
     NavigationUp(event){
@@ -34,6 +38,46 @@ class AboutCar extends React.Component{
                 opacity:0
             },300);
     }
+
+    TestDriveForm(event){
+        event.preventDefault();
+        let nameClient = event.currentTarget[0].id;
+        let emailClient = event.currentTarget[1].id;
+
+
+        let importData = {
+            'name':$('#'+nameClient).val(),
+            'email':$('#'+emailClient).val()
+        };
+
+            $.ajax({
+                method:'POST',
+                url:'/test-drive',
+                data: JSON.stringify(importData),
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                success: function (result) {
+
+                },
+                error: function (error) {
+
+                }
+
+            });
+    }
+
+
+
+
+
+
+    /*LowSpeed(event){
+        event.preventDefault();
+        let id = $(this).attr('href'), top = $(id).offset().top;
+        $('body,html').animate({
+            scrollTop: top
+        }, 1000); // время, за которое будет осуществлена прокрутка.
+    }*/
         render(){
             let data = this.props.infoCar;
             return(
@@ -100,7 +144,8 @@ class AboutCar extends React.Component{
                                         position:'relative',
                                         zIndex:100
                                     }}>
-                                    <h1 className='carName-price'>Ціна від - {data[0].price}</h1>
+                                    <h1 className='carName-price'>Ціна від - {data[0].price} грн</h1>
+                                    <h1 className='carName-year'>{data[0].year}р. </h1>
                                 </Tween>
                             </div>
                         </div>
@@ -140,25 +185,25 @@ class AboutCar extends React.Component{
                                <div className="navigation-container">
                                     <ul className="list-menu">
                                         <li  className="element-menu" data-drive="Двигун"  >
-                                            <a href="#">
+                                            <a href="#motor">
                                                 <span  className="part-ico "><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-car fa-2x icons" aria-hidden="true" ></i></span>
                                                 <span className="part-name" data-name-one>Двигун</span>
                                             </a>
                                         </li>
                                         <li className="element-menu" data-size="Габарити">
-                                            <a href="#">
+                                            <a href="#size"  >
                                                 <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-arrows-h fa-2x icons" aria-hidden="true"></i></span>
                                                 <span className="part-name" data-name-two>Габарити</span>
                                             </a>
                                         </li>
                                         <li className="element-menu" data-transmission="Коробка передач" >
-                                            <a href="#">
+                                            <a href="#transmission">
                                                 <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-cogs  fa-2x icons" aria-hidden="true"></i></span>
                                                 <span className="part-name" data-name-three>Коробка передач</span>
                                             </a>
                                         </li>
                                         <li className="element-menu"  data-fuel="Витрата пального">
-                                            <a href="#">
+                                            <a href="#fuel">
                                                 <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-battery-half  fa-2x icons" aria-hidden="true"></i></span>
                                                 <span className="part-name" data-name-four>Витрата пального</span>
                                             </a>
@@ -171,6 +216,7 @@ class AboutCar extends React.Component{
 
 
 {/*---------------------------------------------Drive Container----------------------------------------------------------*/}
+                    <a name="motor"></a>
                     <div className="container-fluid three-part" key={data[0].key}>
                       <ScrollOverPack >
                           <Tween
@@ -179,19 +225,18 @@ class AboutCar extends React.Component{
                           >
                               <h1 className='info-drive-name'>Двигун</h1>
                           </Tween>
+                      </ScrollOverPack>
                              <div className="row " key="2">
                                  <div className="col-md-5 col-sm-5 col-xs-5">
-                                     <Tween>
                                          <div>
                                              <ul className = "full-event-drive" >
                                                  <li className="drive-event-container" key='1'>
-
                                                         <span className="part-ico-two">
                                                            <ScrollOverPack className='ScrollContainer' >
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -201,7 +246,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                                  <Tween
                                                                      key='1'
-                                                                     animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                     animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                                  >
                                                                         Двигун: <span className="about-drive">{data[0].motor}</span>
                                                                  </Tween>
@@ -215,7 +260,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -225,7 +270,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                              Код двигуна: <span className="about-drive">{data[0].motor_code}</span>
                                                              </Tween>
@@ -238,7 +283,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -248,7 +293,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                            Тип двигуна: <span className="about-drive">{data[0].motor_type}</span>
                                                              </Tween>
@@ -261,7 +306,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -271,7 +316,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                         Тип пального: <span className="about-drive">{data[0].fuel_type}</span>
                                                              </Tween>
@@ -284,7 +329,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -294,7 +339,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                         Об'єм двигуна: <span className="about-drive">{data[0].engine_capecity}</span>
                                                              </Tween>
@@ -307,7 +352,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -317,7 +362,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                          Кількість циліндрів: <span className="about-drive">{data[0].numb_cylinder}</span>
                                                              </Tween>
@@ -330,7 +375,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -340,7 +385,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                         Кількість клапанів: <span className="about-drive">{data[0].numb_valves}</span>
                                                              </Tween>
@@ -353,7 +398,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -363,7 +408,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                        Потужність: <span className="about-drive">{data[0].power} л.с</span>
                                                              </Tween>
@@ -376,7 +421,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -386,7 +431,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                         Обороти макс. швидкості: <span className="about-drive">{data[0].turnovers_max_power}</span>
                                                              </Tween>
@@ -399,7 +444,7 @@ class AboutCar extends React.Component{
                                                              <Tween
                                                                  style={{height:'35px'}}
                                                                  key='1'
-                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1400,width:'35px',height:'35px'}}
+                                                                 animation={{ type: 'from', rotate: '-480deg',duration:1000,width:'35px',height:'35px'}}
                                                              >
                                                              <i  className="glyphicon glyphicon-cog"></i>
                                                             </Tween>
@@ -409,7 +454,7 @@ class AboutCar extends React.Component{
                                                          <ScrollOverPack>
                                                              <Tween
                                                                  key='1'
-                                                                 animation={{ type: 'from', translateX:'-45px',duration:1400, opacity:0,fontSize:'19px'}}
+                                                                 animation={{ type: 'from', translateX:'-45px',duration:1000, opacity:0,fontSize:'19px'}}
                                                              >
                                                                           Крутящий момент: <span className="about-drive">{data[0].targue}</span>
                                                              </Tween>
@@ -418,13 +463,12 @@ class AboutCar extends React.Component{
                                                  </li>
                                              </ul>
                                          </div>
-                                     </Tween>
                                  </div>
-
-                                 <div className="col-md-7">
+                            <ScrollOverPack>
+                                <div className="col-md-7 col-sm-7 col-xs-7" key="3">
                                      <Tween
                                          key="3"
-                                         animation={{ type: 'from', scale: 0.2,duration:900,opacity:0,translateX:'300px'}}
+                                         animation={{ type: 'from', scale: 0.2,duration:400,opacity:0}}
                                      >
                                          <div className="img-drive-container">
                                              <div className="img-drive">
@@ -433,11 +477,13 @@ class AboutCar extends React.Component{
                                          </div>
                                      </Tween>
                                  </div>
-
+                            </ScrollOverPack>
                              </div>
-                      </ScrollOverPack>
                     </div>
                     <br/>
+                    <br/>
+                    <br/>
+                    <a name="size"></a>
                     <br/>
                     <br/>
                     {/*-----------------------Size--------------------------*/}
@@ -453,52 +499,293 @@ class AboutCar extends React.Component{
                                <div className="row">
 
                                    <div className="col-md-12 col-sm-12 col-xs-12">
-                                       <Tween
-                                           key='2'>
-                                           <div className="img-size-container">
-                                               <div className="img-size">
-                                                   <img src={data[0].img1} className="info-size-img" alt=""/>
+                                       <ScrollOverPack>
+                                           <Tween
+                                               key='1'
+                                               animation={{  type: 'from', ease: 'easeOutQuart',  translateX: '1200px',duration:800  }}
+                                               reverseDelay={300}
+                                           >
+                                               <div className="img-size-container">
+                                                   <div className="img-size">
+                                                       <img src={data[0].img1} className="info-size-img" alt=""/>
+                                                   </div>
+
                                                </div>
-
-                                           </div>
-                                       </Tween>
-                                      <div className="col-md-12 col-sm-12 col-xs-12 parent-container-size">
-                                          <div className="row event-size-container">
-                                              <div className="col-md-2 col-sm-6 col-xs-12 event-size-element">
-                                                  <p className="size-element-property-name">Кількість місць </p>
-                                                  <p className="size-element-description">{data[0].places} </p>
-                                              </div>
-                                              <div className="col-md-2 col-sm-6 col-xs-12  event-size-element">
-                                                  <p className="size-element-property-name">Довжина</p>
-                                                  <p className="size-element-description">{data[0].length} см.</p>
-                                              </div>
-                                              <div className="col-md-2 col-sm-6 col-xs-12  event-size-element">
-                                                  <p className="size-element-property-name">Ширина</p>
-                                                  <p className="size-element-description">{data[0].width} см.</p>
-                                              </div>
-                                              <div className="col-md-2 col-sm-6 col-xs-12  event-size-element">
-                                                  <p className="size-element-property-name">Висота</p>
-                                                  <p className="size-element-description">{data[0].height} см.</p>
-                                              </div>
-                                              <div className="col-md-2 col-sm-6 col-xs-12 event-size-element">
-                                                  <p className="size-element-property-name">Вантажне відділення</p>
-                                                  <p className="size-element-description">{data[0].amount_cargo_cell}</p>
-                                              </div>
-                                              <div className="col-md-2 col-sm-6 col-xs-12 event-size-element">
-                                                  <p className="size-element-property-name">Об'єм баку</p>
-                                                  <p className="size-element-description">{data[0].amount_fuel_tank} л.</p>
-                                              </div>
-                                          </div>
-                                      </div>
+                                           </Tween>
+                                           <Tween key='2' className="review-car-container">
+                                                <div className="col-md-12 col-sm-12 col-xs-12">
+                                                    <div className="row">
+                                                        <div className="col-md-6 col-sm-12 col-xs-12">
+                                                            <div className="review-one">
+                                                                <img src={data[0].img3} className="review-size-one" alt=""/>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-6 col-sm-12 col-xs-12">
+                                                            <div className="review-two">
+                                                                <img src={data[0].img5} className="review-size-two" alt=""/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           </Tween>
+                                       </ScrollOverPack>
+                                       <ScrollOverPack>
+                                           <Tween
+                                               key='1'
+                                               animation={{  type: 'from', ease: 'easeOutQuart',  translateY: '300px',duration:600  }}
+                                           >
+                                               <div className="col-md-12 col-sm-12 col-xs-12 parent-container-size">
+                                                   <div className="row event-size-container">
+                                                       <div className="col-md-1 col-sm-3 col-xs-3 event-size-element grey">
+                                                           <p className="icon"><img className="img-place ico-size" src="../img/icons/place-ico.png" alt=""/></p>
+                                                           <p className="size-element-property-name">Кількість <br/> місць </p>
+                                                           <hr className="size-property-line"/>
+                                                           <p className="size-element-description">{data[0].places} </p>
+                                                       </div>
+                                                       <div className="col-md-1 col-sm-3 col-xs-3  event-size-element">
+                                                           <p className="icon"><img className="img-length ico-size" src="../img/icons/car-length-ico.png" alt=""/></p>
+                                                           <p className="size-element-property-name padding-size-element">Довжина</p>
+                                                           <hr className="size-property-line"/>
+                                                           <p className="size-element-description">{data[0].length} см.</p>
+                                                       </div>
+                                                       <div className="col-md-1 col-sm-3 col-xs-3  event-size-element grey">
+                                                           <p className="icon"><img className="img-width ico-size" src="../img/icons/width-ico.png" alt=""/></p>
+                                                           <p className="size-element-property-name padding-size-element">Ширина</p>
+                                                           <hr className="size-property-line"/>
+                                                           <p className="size-element-description">{data[0].width} см.</p>
+                                                       </div>
+                                                       <div className="col-md-1 col-sm-3 col-xs-3  event-size-element">
+                                                           <p className="icon"><img className="img-height ico-size" src="../img/icons/height-ico.png" alt=""/></p>
+                                                           <p className="size-element-property-name padding-size-element">Висота</p>
+                                                           <hr className="size-property-line"/>
+                                                           <p className="size-element-description">{data[0].height} см.</p>
+                                                       </div>
+                                                       <div className="col-md-1 col-sm-3 col-xs-3 event-size-element grey">
+                                                           <p className="icon"><img className="img-trunck ico-size" src="../img/icons/trunck-size-ico.png" alt=""/></p>
+                                                           <p className="size-element-property-name">Вантажне <br/> відділення</p>
+                                                           <hr className="size-property-line"/>
+                                                           <p className="size-element-description">{data[0].amount_cargo_cell}</p>
+                                                       </div>
+                                                       <div className="col-md-1 col-sm-3 col-xs-3 event-size-element">
+                                                           <p className="icon"><img className="img-canister ico-size" src="../img/icons/fuel-ico.png" alt=""/></p>
+                                                           <p className="size-element-property-name">Об'єм <br/> баку</p>
+                                                           <hr className="size-property-line"/>
+                                                           <p className="size-element-description">{data[0].amount_fuel_tank} л.</p>
+                                                       </div>
+                                                       <div className="col-md-1 col-sm-3 col-xs-3 event-size-element grey">
+                                                           <p className="icon"><img className="img-weight ico-size" src="../img/icons/weight-ico.jpg" alt=""/></p>
+                                                           <p className="size-element-property-name padding-size-element">Вага</p>
+                                                           <hr className="size-property-line"/>
+                                                           <p className="size-element-description">{data[0].amount_fuel_tank} л.</p>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </Tween>
+                                       </ScrollOverPack>
                                    </div>
-
                                </div>
                            </div>
                        </Tween>
-
                     </ScrollOverPack>
+                    <br/>
+                    <br/>
+                    {/*-----------------------Transmission-----------------------------*/}
+                    <a name="transmission"></a>
+                    <br/>
+                    <br/>
+                    <ScrollOverPack>
+                        <Tween
+                            key='1'
+                            animation={{  type: 'from', ease: 'easeOutQuart', opacity: 0, translateX: '-300px'  }}
+                        >
+                            <h1 className='info-drive-name'>Коробка передач і привід</h1>
+                        </Tween>
+                        <Tween
+                            key='2'>
 
+                            <div className="container-fluid">
+                                <div className="row">
+                                    <br/>
+                                    <div className="col-md-5 col-xs-5 col-sm-5 transmission-container-image" style={{
+                                        backgroundImage:'url('+data[0].img6+')'
 
+                                    }}>
+
+                                    </div>
+                                    <div className="col-md-7 col-xs-7 col-sm-7 main-props-transs-container" style={{
+                                        backgroundImage:'url('+data[0].banner+')'
+                                    }} >
+                                        <div className="banner-car" >
+                                            <ScrollOverPack>
+                                                <Tween
+                                                    key='1'
+                                                    animation={{ y:40, type: 'from', ease: 'easeOutQuart', opacity: 0  }}
+                                                >
+                                                    <ul className = "full-event-transs" >
+                                                        <li className="transs-event-container" key='0'>
+                                                            <span className="description-transs-block">
+                                                                <ScrollOverPack>
+                                                                    <Tween
+                                                                        key='2'
+                                                                    >
+                                                                            Коробка передач: <span className="about-transs">{data[0].transmission}</span>
+                                                                     </Tween>
+                                                                </ScrollOverPack>
+                                                            </span>
+                                                        </li>
+                                                        <li  className="transs-event-container" key='2'>
+                                                              <span className="description-transs-block ">
+                                                                 <ScrollOverPack>
+                                                                     <Tween
+                                                                         key='2'
+                                                                     >
+                                                                                     Тип коробки передач: <span className="about-transs">{data[0].type_trans}</span>
+                                                                     </Tween>
+                                                                </ScrollOverPack>
+                                                             </span>
+                                                        </li>
+                                                        <li  className="transs-event-container" key='3'>
+                                                            <span className="description-transs-block">
+                                                             <ScrollOverPack>
+                                                                 <Tween
+                                                                     key='2'
+                                                                 >
+                                                                               Кількість передач: <span className="about-transs">{data[0].amount_gears}</span>
+                                                                 </Tween>
+                                                             </ScrollOverPack>
+                                                            </span>
+                                                        </li>
+
+                                                        <li  className="transs-event-container" key='4'>
+                                                            <span className="description-transs-block">
+                                                             <ScrollOverPack>
+                                                                 <Tween
+                                                                     key='2'
+                                                                 >
+
+                                                                             Привід: <span className="about-transs">
+                                                                         {
+                                                                             data.length > 1 ? <span>{data[0].drive} / {data[1].drive}</span> : <span>{data[0].drive}</span>
+                                                                         }
+                                                                     </span>
+                                                                 </Tween>
+                                                             </ScrollOverPack>
+                                                             </span>
+                                                        </li>
+
+                                                        <li  className="transs-event-container" key='5'>
+                                                                <span className="description-transs-block">
+                                                                     <ScrollOverPack>
+                                                                         <Tween
+                                                                             key='2'
+                                                                             style={{
+                                                                                 width:"430px"
+                                                                             }}
+                                                                         >
+                                                                              <h3 className="fuel_consumption">Витрата пального</h3>
+
+                                                                             {
+                                                                                 data.length > 1 ?
+                                                                                     <div className="col-md-12 about-fuel_consumption ">
+                                                                                         <div className="row">
+                                                                                             <div className="one inCity col-md-6">
+                                                                                                 <p className="drive-type-description"><span className="type_drive">{data[0].drive} привід</span>:</p>
+                                                                                                 <div className="padding-fuel">
+                                                                                                     <span className="city">по місту</span> - {data[0].consumption_in_city}
+                                                                                                 </div>
+                                                                                                 <div className="padding-fuel">
+                                                                                                     <span className="city">за містом</span> - {data[0].consumption_out_city}
+                                                                                                 </div>
+                                                                                             </div>
+                                                                                             <div className="two outCity col-md-6">
+                                                                                                 <p className="drive-type-description"><span className="type_drive">{data[1].drive} привід</span>:</p>
+                                                                                                 <div className="padding-fuel">
+                                                                                                     <span className="city">по місту</span> - {data[1].consumption_in_city}
+                                                                                                 </div>
+                                                                                                 <div className="padding-fuel">
+                                                                                                     <span className="city">за містом</span> - {data[1].consumption_out_city}
+                                                                                                 </div>
+                                                                                             </div>
+                                                                                         </div>
+                                                                                     </div>
+
+                                                                                     :
+
+                                                                                     <div className="one inCity">
+                                                                                         <p className="drive-type-description"><span className="type_drive">{data[0].drive} привід</span>:</p>
+                                                                                         <div className="padding-fuel">
+                                                                                             <span className="city">по місту</span> - {data[0].consumption_in_city}
+                                                                                         </div>
+                                                                                         <div className="padding-fuel">
+                                                                                             <span className="city">за містом</span> - {data[0].consumption_out_city}
+                                                                                         </div>
+                                                                                     </div>
+                                                                             }
+                                                                         </Tween>
+                                                                     </ScrollOverPack>
+                                                                 </span>
+                                                            </li>
+                                                    </ul>
+                                                </Tween>
+                                            </ScrollOverPack>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Tween>
+                    </ScrollOverPack>
+                    <br/>
+                    <br/>
+                    <div className="container-fluid test-drive-main-container">
+                        <div className="row">
+                            <h1 className="test-drive-name">
+                                Записатися на тест-драйв
+                            </h1>
+                            <div className="form-container">
+                                <form action="/test-drive" method="post" id="test-drive" className="test-drive-form" onSubmit={this.TestDriveForm}>
+                                    <input type="text" name="name" placeholder="Ваше ім'я" id="clientName" className="input-text form-control"/><br/>
+                                    <input type="text" name="surname" placeholder="Ваше прізвище" id="clientSurname" className="input-text form-control"/><br/>
+                                    <input type="text" name="phone" placeholder="Ваший номер телефону" id="clientPhone" className="input-text form-control"/><br/>
+                                    <input type="text" name="email" placeholder="Ваший email"  id="clientEmail" className="input-text form-control"/><br/>
+                                    <input type="text" name="city" placeholder="Місто"  id="clientCity" className="input-text form-control"/><br/>
+                                    <div className="radio-container">
+                                        {
+                                            data.length > 1 ?
+                                                        <React.Fragment>
+                                                            <span className="drive-radio">Привід: </span>
+
+                                                            <input type="radio" id="driveOne"
+                                                                   name="driveRadio" value={data[0].drive} checked/>
+                                                            <label for="driveOne">{data[0].drive}</label>
+
+                                                            <input type="radio" id="driveTwo"
+                                                                   name="driveRadio" value={data[1].drive}/>
+                                                            <label for="driveTwo">{data[1].drive}</label>
+                                                        </React.Fragment>
+
+                                                        :
+
+                                                         <React.Fragment>
+                                                             <span className="drive-radio">Привід: </span>
+                                                             <input type="radio" id="driveOne"
+                                                                    name="driveOne" value={data[0].drive} checked/>
+                                                                 <label for="driveOne">{data[0].drive}</label>
+                                                         </React.Fragment>
+
+                                            }
+                                    </div>
+                                    <span className="dateName">Бажана дата та час</span>
+                                    <div className="input-group" id="datetimepicker1">
+                                        <input type="text" className="form-control" />
+                                        <span className="input-group-addon">
+                                            <span className="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                    <button type="submit" className="test-drive-button">Надіслати</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
 
 

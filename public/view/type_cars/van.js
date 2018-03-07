@@ -94,7 +94,8 @@ class AllVans extends React.Component {
                                         'h3',
                                         { className: 'price' },
                                         '\u0426\u0456\u043D\u0430 \u0432\u0456\u0434 - ',
-                                        item.price
+                                        item.price,
+                                        ' \u0433\u0440\u043D'
                                     )
                                 ),
                                 React.createElement('div', { className: 'logo', style: {

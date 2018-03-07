@@ -9,6 +9,7 @@
     <link href="/css/font-awesome.css" rel="stylesheet">
     <link href = "/css/style.css" rel = "stylesheet">
     <link href = "/css/aboutCar.css" rel = "stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css" />
 
 
 
@@ -28,11 +29,18 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>
+    <script src="/js/moment-with-locales.min.js"></script>
+    <script src="/js/bootstrap-datetimepicker.min.js"></script>
     <script src="/js/main.js"></script>
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.ui.min.js"></script>-->
 
-
+    <script>
+        $(function () {
+            // идентификатор элемента (например: #datetimepicker1), для которого необходимо инициализировать виджет Bootstrap DateTimePicker
+            $('#datetimepicker1').datetimepicker({
+                locale: 'ru'
+            });
+        });
+    </script>
 
 </body>
 </html>
