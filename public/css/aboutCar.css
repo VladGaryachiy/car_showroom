@@ -672,3 +672,24 @@
     color:black;
 
 }
+
+#result-message{
+    margin-left: 50px;
+}
+
+.error{
+    height: 70px;
+    border: 1px solid red;
+    background-color: #ff6b6b;
+    font-size: 20px;
+    color: black;
+    border-radius: 5px;
+}
+.success{
+    height: 70px;
+    border: 1px solid green;
+    background-color: #438049;
+    font-size: 20px;
+    color: black;
+    border-radius: 5px;
+}

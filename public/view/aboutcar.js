@@ -9,10 +9,12 @@ let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
 class AboutCar extends React.Component {
     constructor(props) {
         super(props);
+
         this.NavigationUp = this.NavigationUp.bind(this);
         this.NavigationOut = this.NavigationOut.bind(this);
         this.TestDriveForm = this.TestDriveForm.bind(this);
-        /*this.LowSpeed = this.LowSpeed.bind(this);*/
+
+        /*    this.LowSpeed = this.LowSpeed.bind(this);*/
     }
 
     NavigationUp(event) {
@@ -88,9 +90,25 @@ class AboutCar extends React.Component {
             cache: false,
             success: function (result) {
                 alert('Good, your message is send');
+                $('#result-message').text('GOOD');
+                $('#result-message').toggleClass('success');
+
+                setTimeout(function () {
+
+                    $('#result-message').removeClass('success');
+                    $('#result-message').text('');
+                }, 10000);
             },
             error: function (error) {
                 alert('Bad, failed send');
+                $('#result-message').text('BAD');
+                $('#result-message').toggleClass('error');
+
+                setTimeout(function () {
+
+                    $('#result-message').removeClass('error');
+                    $('#result-message').text('');
+                }, 10000);
             }
 
         });
@@ -1366,6 +1384,7 @@ class AboutCar extends React.Component {
                         { className: 'test-drive-name' },
                         '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u0438\u0441\u044F \u043D\u0430 \u0442\u0435\u0441\u0442-\u0434\u0440\u0430\u0439\u0432'
                     ),
+                    React.createElement('div', { id: 'result-message' }),
                     React.createElement(
                         'div',
                         { className: 'form-container' },

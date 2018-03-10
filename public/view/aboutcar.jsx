@@ -7,14 +7,18 @@ let line = 'https://www.google.com.ua/search?q=rfhnbyrb&rlz=1C1CHBD_ruUA768UA768
 let Tween = require('rc-tween-one/lib/TweenOne');
 let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
 
-
 class AboutCar extends React.Component{
     constructor(props) {
         super(props);
+
+
+
         this.NavigationUp = this.NavigationUp.bind(this);
         this.NavigationOut = this.NavigationOut.bind(this);
-        this.TestDriveForm = this.TestDriveForm.bind(this)
-        /*this.LowSpeed = this.LowSpeed.bind(this);*/
+        this.TestDriveForm = this.TestDriveForm.bind(this);
+
+
+    /*    this.LowSpeed = this.LowSpeed.bind(this);*/
     }
 
     NavigationUp(event){
@@ -92,14 +96,35 @@ class AboutCar extends React.Component{
                 contentType: "application/json; charset=utf-8",
                 cache: false,
                 success: function (result) {
-                    alert('Good, your message is send')
+                    alert('Good, your message is send');
+                    $('#result-message').text('GOOD');
+                    $('#result-message').toggleClass('success');
+
+
+
+
+                    setTimeout(function () {
+
+                        $('#result-message').removeClass('success');
+                        $('#result-message').text('');
+                    },10000)
+
                 },
                 error: function (error) {
-                    alert('Bad, failed send')
+                    alert('Bad, failed send');
+                    $('#result-message').text('BAD');
+                    $('#result-message').toggleClass('error');
+
+                    setTimeout(function () {
+
+                        $('#result-message').removeClass('error');
+                        $('#result-message').text('');
+                    },10000)
                 }
 
             });
     }
+
 
 
 
@@ -776,6 +801,9 @@ class AboutCar extends React.Component{
                             <h1 className="test-drive-name">
                                 Записатися на тест-драйв
                             </h1>
+                            <div id="result-message" >
+
+                            </div>
                             <div className="form-container">
                                 <form action="/test-drive" method="post" id="test-drive" className="test-drive-form" onSubmit={this.TestDriveForm}>
                                     <h3 className="name-car-in-form" name="car_name_form">Авто: <span className="logo-name-two">GMC {data[0].name}</span> </h3>
