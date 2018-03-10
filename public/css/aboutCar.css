@@ -589,9 +589,16 @@
     height: 300px;
 
 }
+.test-drive-main-container{
+
+}
 .test-drive-form{
-    width: 400px;
-    margin-left:35%;
+    padding: 40px;
+    width: 500px;
+    margin-left:32%;
+    border: 2px solid red;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    margin-bottom:100px;
 }
 .dateName{
     margin-bottom: 10px;
@@ -599,4 +606,69 @@
 .input-group{
     margin-top: 5px;
     margin-bottom: 10px;
+}
+.test-drive-name{
+    margin-bottom: 25px;
+    font-family: Impact, fantasy;
+    font-size: 38px;
+    color:red;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1em rgba(0, 0, 0, 0);
+}
+.input-text{
+    border: 1px solid red;
+}
+.test-drive-button{
+    margin-top: 10px;
+    border:2px solid red;
+    color:red;
+    height: 40px;
+    width: 130px;
+    background: white;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.test-drive-button:hover{
+    background: red;
+    border:2px solid white;
+    color:white;
+}
+
+.radio-container{
+    margin-bottom: 5px;
+}
+
+.calendar{
+    color:white;
+}
+.input-group{
+
+
+}
+
+.input-group-addon{
+    border-color: red;
+    background-color: red;
+    cursor: pointer;
+}
+.drive-radio{
+    font-size: 16px;
+    color:black;
+}
+
+.label-form{
+    margin-left:5px;
+    margin-right:10px;
+}
+.radio-style{
+}
+.second-radio{
+    margin-left: 20px;
+}
+.name-car-in-form{
+    text-align: right;
+    font-size: 16px;
+    border-bottom:1px solid rgba(148, 146, 146, 0.2);
+    padding-bottom: 7px;
+    margin-bottom: 10px;
+    color:black;
+
 }

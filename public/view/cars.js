@@ -62,6 +62,12 @@ class Pickup extends React.Component {
 
     UpScroll() {
         window.scrollTo(0, 0);
+
+        /*При нажатии надо как-то перезапустить скрипты*/
+        /*
+                $( "body" ).append( '  <script src="/js/moment-with-locales.min.js" ></script>\n' +
+                    '    <script src="/js/bootstrap-datetimepicker.min.js" async></script>\n' +
+                    '    <script src="/js/datePicker.js" async></script>' );*/
     }
 
     render() {

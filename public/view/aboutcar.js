@@ -6,8 +6,6 @@ let line = 'https://www.google.com.ua/search?q=rfhnbyrb&rlz=1C1CHBD_ruUA768UA768
 let Tween = require('rc-tween-one/lib/TweenOne');
 let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
 
-let arrAge = [];
-
 class AboutCar extends React.Component {
     constructor(props) {
         super(props);
@@ -40,12 +38,46 @@ class AboutCar extends React.Component {
 
     TestDriveForm(event) {
         event.preventDefault();
-        let nameClient = event.currentTarget[0].id;
-        let emailClient = event.currentTarget[1].id;
+        let nameClient, surnameClient, phoneClient, emailClient, cityClient, driveClientOne, driveClientTwo, dateClient, nameCar;
+        let arr = [];let checkedDrive;
+        nameCar = event.currentTarget.children[0].children[0].textContent;
+        let drive;
+        if (event.currentTarget[6].name === "driveRadio") {
+            nameClient = event.currentTarget[0].value;
+            surnameClient = event.currentTarget[1].value;
+            phoneClient = event.currentTarget[2].value;
+            emailClient = event.currentTarget[3].value;
+            cityClient = event.currentTarget[4].value;
+            driveClientOne = event.currentTarget[5];
+            driveClientTwo = event.currentTarget[6];
+            dateClient = event.currentTarget[7].value;
 
+            arr.push(driveClientOne, driveClientTwo);
+            checkedDrive = arr.filter(function (item) {
+                return item.checked === true;
+            });
+
+            drive = checkedDrive[0].value;
+        } else {
+            nameClient = event.currentTarget[0].value;
+            surnameClient = event.currentTarget[1].value;
+            phoneClient = event.currentTarget[2].value;
+            emailClient = event.currentTarget[3].value;
+            cityClient = event.currentTarget[4].value;
+            driveClientOne = event.currentTarget[5].value;
+            dateClient = event.currentTarget[6].value;
+
+            drive = driveClientOne;
+        }
         let importData = {
-            'name': $('#' + nameClient).val(),
-            'email': $('#' + emailClient).val()
+            'name': nameClient,
+            'surname': surnameClient,
+            'phone': phoneClient,
+            'email': emailClient,
+            'city': cityClient,
+            'drive': drive,
+            'date': dateClient,
+            'carName': nameCar
         };
 
         $.ajax({
@@ -54,8 +86,12 @@ class AboutCar extends React.Component {
             data: JSON.stringify(importData),
             contentType: "application/json; charset=utf-8",
             cache: false,
-            success: function (result) {},
-            error: function (error) {}
+            success: function (result) {
+                alert('Good, your message is send');
+            },
+            error: function (error) {
+                alert('Bad, failed send');
+            }
 
         });
     }
@@ -1336,6 +1372,18 @@ class AboutCar extends React.Component {
                         React.createElement(
                             'form',
                             { action: '/test-drive', method: 'post', id: 'test-drive', className: 'test-drive-form', onSubmit: this.TestDriveForm },
+                            React.createElement(
+                                'h3',
+                                { className: 'name-car-in-form', name: 'car_name_form' },
+                                '\u0410\u0432\u0442\u043E: ',
+                                React.createElement(
+                                    'span',
+                                    { className: 'logo-name-two' },
+                                    'GMC ',
+                                    data[0].name
+                                ),
+                                ' '
+                            ),
                             React.createElement('input', { type: 'text', name: 'name', placeholder: '\u0412\u0430\u0448\u0435 \u0456\u043C\'\u044F', id: 'clientName', className: 'input-text form-control' }),
                             React.createElement('br', null),
                             React.createElement('input', { type: 'text', name: 'surname', placeholder: '\u0412\u0430\u0448\u0435 \u043F\u0440\u0456\u0437\u0432\u0438\u0449\u0435', id: 'clientSurname', className: 'input-text form-control' }),
@@ -1358,17 +1406,17 @@ class AboutCar extends React.Component {
                                         '\u041F\u0440\u0438\u0432\u0456\u0434: '
                                     ),
                                     React.createElement('input', { type: 'radio', id: 'driveOne',
-                                        name: 'driveRadio', value: data[0].drive, checked: true }),
+                                        name: 'driveRadio', className: 'radio-style', value: data[0].drive, defaultChecked: true }),
                                     React.createElement(
                                         'label',
-                                        { 'for': 'driveOne' },
+                                        { htmlFor: 'driveOne', className: 'label-form' },
                                         data[0].drive
                                     ),
                                     React.createElement('input', { type: 'radio', id: 'driveTwo',
-                                        name: 'driveRadio', value: data[1].drive }),
+                                        name: 'driveRadio', className: 'radio-style second-radio', value: data[1].drive }),
                                     React.createElement(
                                         'label',
-                                        { 'for': 'driveTwo' },
+                                        { htmlFor: 'driveTwo', className: 'label-form' },
                                         data[1].drive
                                     )
                                 ) : React.createElement(
@@ -1380,10 +1428,10 @@ class AboutCar extends React.Component {
                                         '\u041F\u0440\u0438\u0432\u0456\u0434: '
                                     ),
                                     React.createElement('input', { type: 'radio', id: 'driveOne',
-                                        name: 'driveOne', value: data[0].drive, checked: true }),
+                                        name: 'driveOne', value: data[0].drive, defaultChecked: true }),
                                     React.createElement(
                                         'label',
-                                        { 'for': 'driveOne' },
+                                        { htmlFor: 'driveOne', className: 'label-form' },
                                         data[0].drive
                                     )
                                 )
@@ -1396,11 +1444,11 @@ class AboutCar extends React.Component {
                             React.createElement(
                                 'div',
                                 { className: 'input-group', id: 'datetimepicker1' },
-                                React.createElement('input', { type: 'text', className: 'form-control' }),
+                                React.createElement('input', { type: 'text', className: 'form-control input-text' }),
                                 React.createElement(
                                     'span',
                                     { className: 'input-group-addon' },
-                                    React.createElement('span', { className: 'glyphicon glyphicon-calendar' })
+                                    React.createElement('span', { className: 'glyphicon glyphicon-calendar calendar' })
                                 )
                             ),
                             React.createElement(
