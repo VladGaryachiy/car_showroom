@@ -13,8 +13,9 @@ body{
 }
 .navbar-inverse .navbar-nav>li>a{
     color: white;
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-weight: 500;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
     font-size: 15px;
 }
 
@@ -69,7 +70,9 @@ body{
 
 }
 .dropdown-menu {
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
 }
 
 .footer{

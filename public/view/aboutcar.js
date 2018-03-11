@@ -13,8 +13,7 @@ class AboutCar extends React.Component {
         this.NavigationUp = this.NavigationUp.bind(this);
         this.NavigationOut = this.NavigationOut.bind(this);
         this.TestDriveForm = this.TestDriveForm.bind(this);
-
-        /*    this.LowSpeed = this.LowSpeed.bind(this);*/
+        this.LowSpeed = this.LowSpeed.bind(this);
     }
 
     NavigationUp(event) {
@@ -89,8 +88,7 @@ class AboutCar extends React.Component {
             contentType: "application/json; charset=utf-8",
             cache: false,
             success: function (result) {
-                alert('Good, your message is send');
-                $('#result-message').text('GOOD');
+                $('#result-message').text('Дані успішно відправлені, всі подальші інструкції відправлені вам на пошту');
                 $('#result-message').toggleClass('success');
 
                 setTimeout(function () {
@@ -100,8 +98,7 @@ class AboutCar extends React.Component {
                 }, 10000);
             },
             error: function (error) {
-                alert('Bad, failed send');
-                $('#result-message').text('BAD');
+                $('#result-message').text('Помилка відправки даних, провірте правильність оформлення заявки');
                 $('#result-message').toggleClass('error');
 
                 setTimeout(function () {
@@ -114,18 +111,21 @@ class AboutCar extends React.Component {
         });
     }
 
-    /*LowSpeed(event){
+    LowSpeed(event) {
         event.preventDefault();
-        let id = $(this).attr('href'), top = $(id).offset().top;
+        let id = event.currentTarget.attributes[1].nodeValue;
+        let top = $('#' + id).offset().top;
         $('body,html').animate({
             scrollTop: top
-        }, 1000); // время, за которое будет осуществлена прокрутка.
-    }*/
+        }, 600); // время, за которое будет осуществлена прокрутка.
+    }
     render() {
         let data = this.props.infoCar;
         return React.createElement(
             React.Fragment,
             null,
+            React.createElement('a', { name: 'home', id: 'home' }),
+            React.createElement('br', null),
             React.createElement(
                 'div',
                 { className: 'container-fluid' },
@@ -240,10 +240,28 @@ class AboutCar extends React.Component {
                                 { className: 'list-menu' },
                                 React.createElement(
                                     'li',
+                                    { className: 'element-menu', 'data-home': '\u0413\u043E\u043B\u043E\u0432\u043D\u0430' },
+                                    React.createElement(
+                                        'a',
+                                        { href: '#home', 'data-name': 'home', onClick: this.LowSpeed },
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-ico ' },
+                                            React.createElement('i', { onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut, className: 'fa fa-home fa-2x icons', 'aria-hidden': 'true' })
+                                        ),
+                                        React.createElement(
+                                            'span',
+                                            { className: 'part-name', 'data-name-zero': true },
+                                            '\u0413\u043E\u043B\u043E\u0432\u043D\u0430'
+                                        )
+                                    )
+                                ),
+                                React.createElement(
+                                    'li',
                                     { className: 'element-menu', 'data-drive': '\u0414\u0432\u0438\u0433\u0443\u043D' },
                                     React.createElement(
                                         'a',
-                                        { href: '#motor' },
+                                        { href: '#motor', 'data-name': 'motor', onClick: this.LowSpeed },
                                         React.createElement(
                                             'span',
                                             { className: 'part-ico ' },
@@ -261,7 +279,7 @@ class AboutCar extends React.Component {
                                     { className: 'element-menu', 'data-size': '\u0413\u0430\u0431\u0430\u0440\u0438\u0442\u0438' },
                                     React.createElement(
                                         'a',
-                                        { href: '#size' },
+                                        { href: '#size', 'data-name': 'size', onClick: this.LowSpeed },
                                         React.createElement(
                                             'span',
                                             { className: 'part-ico' },
@@ -279,7 +297,7 @@ class AboutCar extends React.Component {
                                     { className: 'element-menu', 'data-transmission': '\u041A\u043E\u0440\u043E\u0431\u043A\u0430 \u043F\u0435\u0440\u0435\u0434\u0430\u0447' },
                                     React.createElement(
                                         'a',
-                                        { href: '#transmission' },
+                                        { href: '#transmission', 'data-name': 'transmission', onClick: this.LowSpeed },
                                         React.createElement(
                                             'span',
                                             { className: 'part-ico' },
@@ -297,16 +315,16 @@ class AboutCar extends React.Component {
                                     { className: 'element-menu', 'data-fuel': '\u0412\u0438\u0442\u0440\u0430\u0442\u0430 \u043F\u0430\u043B\u044C\u043D\u043E\u0433\u043E' },
                                     React.createElement(
                                         'a',
-                                        { href: '#fuel' },
+                                        { href: '#test-drive', 'data-name': 'test-drive', onClick: this.LowSpeed },
                                         React.createElement(
                                             'span',
                                             { className: 'part-ico' },
-                                            React.createElement('i', { onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut, className: 'fa fa-battery-half  fa-2x icons', 'aria-hidden': 'true' })
+                                            React.createElement('i', { onMouseOver: this.NavigationUp, onMouseOut: this.NavigationOut, className: 'fa fa-tachometer  fa-2x icons', 'aria-hidden': 'true' })
                                         ),
                                         React.createElement(
                                             'span',
                                             { className: 'part-name', 'data-name-four': true },
-                                            '\u0412\u0438\u0442\u0440\u0430\u0442\u0430 \u043F\u0430\u043B\u044C\u043D\u043E\u0433\u043E'
+                                            '\u0422\u0435\u0441\u0442-\u0434\u0440\u0430\u0439\u0432'
                                         )
                                     )
                                 )
@@ -315,7 +333,9 @@ class AboutCar extends React.Component {
                     )
                 )
             ),
-            React.createElement('a', { name: 'motor' }),
+            React.createElement('a', { name: 'motor', id: 'motor' }),
+            React.createElement('br', null),
+            React.createElement('br', null),
             React.createElement(
                 'div',
                 { className: 'container-fluid three-part', key: data[0].key },
@@ -797,10 +817,7 @@ class AboutCar extends React.Component {
                     )
                 )
             ),
-            React.createElement('br', null),
-            React.createElement('br', null),
-            React.createElement('br', null),
-            React.createElement('a', { name: 'size' }),
+            React.createElement('a', { name: 'size', id: 'size' }),
             React.createElement('br', null),
             React.createElement('br', null),
             React.createElement(
@@ -1057,9 +1074,7 @@ class AboutCar extends React.Component {
                     )
                 )
             ),
-            React.createElement('br', null),
-            React.createElement('br', null),
-            React.createElement('a', { name: 'transmission' }),
+            React.createElement('a', { name: 'transmission', id: 'transmission' }),
             React.createElement('br', null),
             React.createElement('br', null),
             React.createElement(
@@ -1373,9 +1388,11 @@ class AboutCar extends React.Component {
             ),
             React.createElement('br', null),
             React.createElement('br', null),
+            React.createElement('a', { name: 'test-drive', id: 'test-drive' }),
             React.createElement(
                 'div',
                 { className: 'container-fluid test-drive-main-container' },
+                React.createElement('div', { id: 'result-message', className: 'result-message' }),
                 React.createElement(
                     'div',
                     { className: 'row' },
@@ -1384,7 +1401,6 @@ class AboutCar extends React.Component {
                         { className: 'test-drive-name' },
                         '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u0438\u0441\u044F \u043D\u0430 \u0442\u0435\u0441\u0442-\u0434\u0440\u0430\u0439\u0432'
                     ),
-                    React.createElement('div', { id: 'result-message' }),
                     React.createElement(
                         'div',
                         { className: 'form-container' },

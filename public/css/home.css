@@ -1,0 +1,38 @@
+.home-main-title{
+    color:white;
+    text-align: center;
+/*    font-family: Impact, fantasy;*/
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1em rgba(0, 0, 0, 0);
+    font-size:32px;
+    background-color: #302f2f;
+    padding-top:60px;
+    padding-bottom:60px;
+
+
+
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+
+
+
+    line-height: 3.2rem;
+    width: 1381px;
+
+}
+
+.home-logo{
+    color:red;
+}
+
+.home-part-one{
+    margin-top: -30px;
+}
+
+.col-md-12, .col-sm-12, .col-xs-12{
+
+}
+
+.row{
+    margin-right: 0;
+}

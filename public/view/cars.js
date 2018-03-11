@@ -63,11 +63,11 @@ class Pickup extends React.Component {
     UpScroll() {
         window.scrollTo(0, 0);
 
-        /*При нажатии надо как-то перезапустить скрипты*/
-        /*
-                $( "body" ).append( '  <script src="/js/moment-with-locales.min.js" ></script>\n' +
-                    '    <script src="/js/bootstrap-datetimepicker.min.js" async></script>\n' +
-                    '    <script src="/js/datePicker.js" async></script>' );*/
+        let oneScript = $('#1').detach();
+        let twoScript = $('#2').detach();
+        let threeScript = $('#3').detach();
+
+        $("body").append('<script src="/js/moment-with-locales.min.js" id="1"></script>' + '<script src="/js/bootstrap-datetimepicker.min.js" id="2"></script>' + '<script src="/js/datePicker.js"  id="3"></script>');
     }
 
     render() {
@@ -133,6 +133,12 @@ class SUV extends React.Component {
     }
     UpScroll() {
         window.scrollTo(0, 0);
+
+        let oneScript = $('#1').detach();
+        let twoScript = $('#2').detach();
+        let threeScript = $('#3').detach();
+
+        $("body").append('<script src="/js/moment-with-locales.min.js" id="1"></script>' + '<script src="/js/bootstrap-datetimepicker.min.js" id="2"></script>' + '<script src="/js/datePicker.js"  id="3"></script>');
     }
 
     render() {
@@ -196,6 +202,12 @@ class Van extends React.Component {
     }
     UpScroll() {
         window.scrollTo(0, 0);
+
+        let oneScript = $('#1').detach();
+        let twoScript = $('#2').detach();
+        let threeScript = $('#3').detach();
+
+        $("body").append('<script src="/js/moment-with-locales.min.js" id="1"></script>' + '<script src="/js/bootstrap-datetimepicker.min.js" id="2"></script>' + '<script src="/js/datePicker.js"  id="3"></script>');
     }
     render() {
         let data = this.props.info;

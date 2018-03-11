@@ -16,9 +16,7 @@ class AboutCar extends React.Component{
         this.NavigationUp = this.NavigationUp.bind(this);
         this.NavigationOut = this.NavigationOut.bind(this);
         this.TestDriveForm = this.TestDriveForm.bind(this);
-
-
-    /*    this.LowSpeed = this.LowSpeed.bind(this);*/
+        this.LowSpeed = this.LowSpeed.bind(this);
     }
 
     NavigationUp(event){
@@ -96,11 +94,8 @@ class AboutCar extends React.Component{
                 contentType: "application/json; charset=utf-8",
                 cache: false,
                 success: function (result) {
-                    alert('Good, your message is send');
-                    $('#result-message').text('GOOD');
+                    $('#result-message').text('Дані успішно відправлені, всі подальші інструкції відправлені вам на пошту');
                     $('#result-message').toggleClass('success');
-
-
 
 
                     setTimeout(function () {
@@ -111,8 +106,7 @@ class AboutCar extends React.Component{
 
                 },
                 error: function (error) {
-                    alert('Bad, failed send');
-                    $('#result-message').text('BAD');
+                    $('#result-message').text('Помилка відправки даних, провірте правильність оформлення заявки');
                     $('#result-message').toggleClass('error');
 
                     setTimeout(function () {
@@ -131,13 +125,14 @@ class AboutCar extends React.Component{
 
 
 
-    /*LowSpeed(event){
+    LowSpeed(event){
         event.preventDefault();
-        let id = $(this).attr('href'), top = $(id).offset().top;
+        let id = event.currentTarget.attributes[1].nodeValue;
+        let top = $('#'+id).offset().top;
         $('body,html').animate({
             scrollTop: top
-        }, 1000); // время, за которое будет осуществлена прокрутка.
-    }*/
+        }, 600); // время, за которое будет осуществлена прокрутка.
+    }
         render(){
             let data = this.props.infoCar;
             return(
@@ -173,6 +168,9 @@ class AboutCar extends React.Component{
                             </a>
                         </div>
                     </div>*/}
+
+                    <a name="home" id="home"></a>
+                    <br/>
                     <div className="container-fluid">
                         <div className="row one-part">
                             <div className="col-md-12 col-xs-12 col-sm-12">
@@ -244,28 +242,34 @@ class AboutCar extends React.Component{
                             }}>
                                <div className="navigation-container">
                                     <ul className="list-menu">
+                                        <li  className="element-menu" data-home="Головна"  >
+                                            <a href="#home" data-name="home" onClick={this.LowSpeed}>
+                                                <span  className="part-ico "><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-home fa-2x icons" aria-hidden="true" ></i></span>
+                                                <span className="part-name" data-name-zero>Головна</span>
+                                            </a>
+                                        </li>
                                         <li  className="element-menu" data-drive="Двигун"  >
-                                            <a href="#motor">
+                                            <a href="#motor" data-name="motor" onClick={this.LowSpeed}>
                                                 <span  className="part-ico "><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-car fa-2x icons" aria-hidden="true" ></i></span>
                                                 <span className="part-name" data-name-one>Двигун</span>
                                             </a>
                                         </li>
                                         <li className="element-menu" data-size="Габарити">
-                                            <a href="#size"  >
+                                            <a href="#size"  data-name="size" onClick={this.LowSpeed} >
                                                 <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-arrows-h fa-2x icons" aria-hidden="true"></i></span>
                                                 <span className="part-name" data-name-two>Габарити</span>
                                             </a>
                                         </li>
                                         <li className="element-menu" data-transmission="Коробка передач" >
-                                            <a href="#transmission">
+                                            <a href="#transmission" data-name="transmission" onClick={this.LowSpeed}>
                                                 <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-cogs  fa-2x icons" aria-hidden="true"></i></span>
                                                 <span className="part-name" data-name-three>Коробка передач</span>
                                             </a>
                                         </li>
                                         <li className="element-menu"  data-fuel="Витрата пального">
-                                            <a href="#fuel">
-                                                <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-battery-half  fa-2x icons" aria-hidden="true"></i></span>
-                                                <span className="part-name" data-name-four>Витрата пального</span>
+                                            <a href="#test-drive" data-name="test-drive" onClick={this.LowSpeed}>
+                                                <span  className="part-ico"><i onMouseOver={this.NavigationUp} onMouseOut={this.NavigationOut} className="fa fa-tachometer  fa-2x icons" aria-hidden="true"></i></span>
+                                                <span className="part-name" data-name-four>Тест-драйв</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -276,7 +280,9 @@ class AboutCar extends React.Component{
 
 
 {/*---------------------------------------------Drive Container----------------------------------------------------------*/}
-                    <a name="motor"></a>
+                    <a name="motor" id="motor"></a>
+                    <br/>
+                    <br/>
                     <div className="container-fluid three-part" key={data[0].key}>
                       <ScrollOverPack >
                           <Tween
@@ -540,10 +546,7 @@ class AboutCar extends React.Component{
                             </ScrollOverPack>
                              </div>
                     </div>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <a name="size"></a>
+                    <a name="size" id="size"></a>
                     <br/>
                     <br/>
                     {/*-----------------------Size--------------------------*/}
@@ -647,10 +650,8 @@ class AboutCar extends React.Component{
                            </div>
                        </Tween>
                     </ScrollOverPack>
-                    <br/>
-                    <br/>
                     {/*-----------------------Transmission-----------------------------*/}
-                    <a name="transmission"></a>
+                    <a name="transmission" id="transmission"></a>
                     <br/>
                     <br/>
                     <ScrollOverPack>
@@ -796,14 +797,15 @@ class AboutCar extends React.Component{
                     </ScrollOverPack>
                     <br/>
                     <br/>
+                    <a name="test-drive" id="test-drive"></a>
                     <div className="container-fluid test-drive-main-container">
+                        <div id="result-message" className="result-message">
+
+                        </div>
                         <div className="row">
                             <h1 className="test-drive-name">
                                 Записатися на тест-драйв
                             </h1>
-                            <div id="result-message" >
-
-                            </div>
                             <div className="form-container">
                                 <form action="/test-drive" method="post" id="test-drive" className="test-drive-form" onSubmit={this.TestDriveForm}>
                                     <h3 className="name-car-in-form" name="car_name_form">Авто: <span className="logo-name-two">GMC {data[0].name}</span> </h3>
