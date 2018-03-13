@@ -128,10 +128,10 @@ class AboutCar extends React.Component {
             React.createElement('br', null),
             React.createElement(
                 'div',
-                { className: 'container-fluid' },
+                { className: 'container-fluid one-part' },
                 React.createElement(
                     'div',
-                    { className: 'row one-part' },
+                    { className: 'row ' },
                     React.createElement(
                         'div',
                         { className: 'col-md-12 col-xs-12 col-sm-12' },
@@ -1392,104 +1392,128 @@ class AboutCar extends React.Component {
             React.createElement(
                 'div',
                 { className: 'container-fluid test-drive-main-container' },
-                React.createElement('div', { id: 'result-message', className: 'result-message' }),
                 React.createElement(
                     'div',
                     { className: 'row' },
                     React.createElement(
-                        'h1',
-                        { className: 'test-drive-name' },
-                        '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u0438\u0441\u044F \u043D\u0430 \u0442\u0435\u0441\u0442-\u0434\u0440\u0430\u0439\u0432'
+                        'div',
+                        { className: 'test-drive-container' },
+                        React.createElement(
+                            'button',
+                            { className: 'test-drive-button', type: 'button', 'data-toggle': 'modal', 'data-target': '#formModal' },
+                            '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u0438\u0441\u044F \u043D\u0430 \u0442\u0435\u0441\u0442-\u0434\u0440\u0430\u0439\u0432'
+                        ),
+                        React.createElement('br', null),
+                        React.createElement('br', null),
+                        React.createElement('br', null)
                     ),
                     React.createElement(
                         'div',
-                        { className: 'form-container' },
+                        { className: 'modal fade', id: 'formModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'formModalLabel' },
                         React.createElement(
-                            'form',
-                            { action: '/test-drive', method: 'post', id: 'test-drive', className: 'test-drive-form', onSubmit: this.TestDriveForm },
-                            React.createElement(
-                                'h3',
-                                { className: 'name-car-in-form', name: 'car_name_form' },
-                                '\u0410\u0432\u0442\u043E: ',
-                                React.createElement(
-                                    'span',
-                                    { className: 'logo-name-two' },
-                                    'GMC ',
-                                    data[0].name
-                                ),
-                                ' '
-                            ),
-                            React.createElement('input', { type: 'text', name: 'name', placeholder: '\u0412\u0430\u0448\u0435 \u0456\u043C\'\u044F', id: 'clientName', className: 'input-text form-control' }),
-                            React.createElement('br', null),
-                            React.createElement('input', { type: 'text', name: 'surname', placeholder: '\u0412\u0430\u0448\u0435 \u043F\u0440\u0456\u0437\u0432\u0438\u0449\u0435', id: 'clientSurname', className: 'input-text form-control' }),
-                            React.createElement('br', null),
-                            React.createElement('input', { type: 'text', name: 'phone', placeholder: '\u0412\u0430\u0448\u0438\u0439 \u043D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443', id: 'clientPhone', className: 'input-text form-control' }),
-                            React.createElement('br', null),
-                            React.createElement('input', { type: 'text', name: 'email', placeholder: '\u0412\u0430\u0448\u0438\u0439 email', id: 'clientEmail', className: 'input-text form-control' }),
-                            React.createElement('br', null),
-                            React.createElement('input', { type: 'text', name: 'city', placeholder: '\u041C\u0456\u0441\u0442\u043E', id: 'clientCity', className: 'input-text form-control' }),
-                            React.createElement('br', null),
+                            'div',
+                            { className: 'modal-dialog' },
                             React.createElement(
                                 'div',
-                                { className: 'radio-container' },
-                                data.length > 1 ? React.createElement(
-                                    React.Fragment,
-                                    null,
-                                    React.createElement(
-                                        'span',
-                                        { className: 'drive-radio' },
-                                        '\u041F\u0440\u0438\u0432\u0456\u0434: '
-                                    ),
-                                    React.createElement('input', { type: 'radio', id: 'driveOne',
-                                        name: 'driveRadio', className: 'radio-style', value: data[0].drive, defaultChecked: true }),
-                                    React.createElement(
-                                        'label',
-                                        { htmlFor: 'driveOne', className: 'label-form' },
-                                        data[0].drive
-                                    ),
-                                    React.createElement('input', { type: 'radio', id: 'driveTwo',
-                                        name: 'driveRadio', className: 'radio-style second-radio', value: data[1].drive }),
-                                    React.createElement(
-                                        'label',
-                                        { htmlFor: 'driveTwo', className: 'label-form' },
-                                        data[1].drive
-                                    )
-                                ) : React.createElement(
-                                    React.Fragment,
-                                    null,
-                                    React.createElement(
-                                        'span',
-                                        { className: 'drive-radio' },
-                                        '\u041F\u0440\u0438\u0432\u0456\u0434: '
-                                    ),
-                                    React.createElement('input', { type: 'radio', id: 'driveOne',
-                                        name: 'driveOne', value: data[0].drive, defaultChecked: true }),
-                                    React.createElement(
-                                        'label',
-                                        { htmlFor: 'driveOne', className: 'label-form' },
-                                        data[0].drive
-                                    )
-                                )
-                            ),
-                            React.createElement(
-                                'span',
-                                { className: 'dateName' },
-                                '\u0411\u0430\u0436\u0430\u043D\u0430 \u0434\u0430\u0442\u0430 \u0442\u0430 \u0447\u0430\u0441'
-                            ),
-                            React.createElement(
-                                'div',
-                                { className: 'input-group', id: 'datetimepicker1' },
-                                React.createElement('input', { type: 'text', className: 'form-control input-text' }),
+                                { className: 'modal-content' },
+                                React.createElement('div', { id: 'result-message', className: 'result-message' }),
                                 React.createElement(
-                                    'span',
-                                    { className: 'input-group-addon' },
-                                    React.createElement('span', { className: 'glyphicon glyphicon-calendar calendar' })
+                                    'form',
+                                    { action: '/test-drive', method: 'post', id: 'test-drive', className: 'test-drive-form', onSubmit: this.TestDriveForm },
+                                    React.createElement(
+                                        'h3',
+                                        { className: 'name-car-in-form', name: 'car_name_form' },
+                                        '\u0410\u0432\u0442\u043E: ',
+                                        React.createElement(
+                                            'span',
+                                            { className: 'logo-name-two' },
+                                            'GMC ',
+                                            data[0].name
+                                        ),
+                                        ' '
+                                    ),
+                                    React.createElement('input', { type: 'text', name: 'name', placeholder: '\u0412\u0430\u0448\u0435 \u0456\u043C\'\u044F', id: 'clientName', className: ' form-control' }),
+                                    React.createElement('br', null),
+                                    React.createElement('input', { type: 'text', name: 'surname', placeholder: '\u0412\u0430\u0448\u0435 \u043F\u0440\u0456\u0437\u0432\u0438\u0449\u0435', id: 'clientSurname', className: ' form-control' }),
+                                    React.createElement('br', null),
+                                    React.createElement('input', { type: 'text', name: 'phone', placeholder: '\u0412\u0430\u0448\u0438\u0439 \u043D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443', id: 'clientPhone', className: ' form-control' }),
+                                    React.createElement('br', null),
+                                    React.createElement('input', { type: 'text', name: 'email', placeholder: '\u0412\u0430\u0448\u0438\u0439 email', id: 'clientEmail', className: ' form-control' }),
+                                    React.createElement('br', null),
+                                    React.createElement('input', { type: 'text', name: 'city', placeholder: '\u041C\u0456\u0441\u0442\u043E', id: 'clientCity', className: ' form-control' }),
+                                    React.createElement('br', null),
+                                    React.createElement(
+                                        'div',
+                                        { className: 'radio-container' },
+                                        data.length > 1 ? React.createElement(
+                                            React.Fragment,
+                                            null,
+                                            React.createElement(
+                                                'span',
+                                                { className: 'drive-radio' },
+                                                '\u041F\u0440\u0438\u0432\u0456\u0434: '
+                                            ),
+                                            React.createElement('input', { type: 'radio', id: 'driveOne',
+                                                name: 'driveRadio', className: 'radio-style', value: data[0].drive, defaultChecked: true }),
+                                            React.createElement(
+                                                'label',
+                                                { htmlFor: 'driveOne', className: 'label-form' },
+                                                data[0].drive
+                                            ),
+                                            React.createElement('input', { type: 'radio', id: 'driveTwo',
+                                                name: 'driveRadio', className: 'radio-style second-radio', value: data[1].drive }),
+                                            React.createElement(
+                                                'label',
+                                                { htmlFor: 'driveTwo', className: 'label-form' },
+                                                data[1].drive
+                                            )
+                                        ) : React.createElement(
+                                            React.Fragment,
+                                            null,
+                                            React.createElement(
+                                                'span',
+                                                { className: 'drive-radio' },
+                                                '\u041F\u0440\u0438\u0432\u0456\u0434: '
+                                            ),
+                                            React.createElement('input', { type: 'radio', id: 'driveOne',
+                                                name: 'driveOne', value: data[0].drive, defaultChecked: true }),
+                                            React.createElement(
+                                                'label',
+                                                { htmlFor: 'driveOne', className: 'label-form' },
+                                                data[0].drive
+                                            )
+                                        )
+                                    ),
+                                    React.createElement(
+                                        'span',
+                                        { className: 'dateName' },
+                                        '\u0411\u0430\u0436\u0430\u043D\u0430 \u0434\u0430\u0442\u0430 \u0442\u0430 \u0447\u0430\u0441'
+                                    ),
+                                    React.createElement(
+                                        'div',
+                                        { className: 'input-group', id: 'datetimepicker1' },
+                                        React.createElement('input', { type: 'text', className: 'form-control ' }),
+                                        React.createElement(
+                                            'span',
+                                            { className: 'input-group-addon' },
+                                            React.createElement('span', { className: 'glyphicon glyphicon-calendar calendar' })
+                                        )
+                                    ),
+                                    React.createElement(
+                                        'div',
+                                        { className: 'modal-footer' },
+                                        React.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn btn-default', 'data-dismiss': 'modal' },
+                                            '\u0412\u0438\u0439\u0442\u0438'
+                                        ),
+                                        React.createElement(
+                                            'button',
+                                            { type: 'submit', className: 'btn btn-success' },
+                                            '\u041D\u0430\u0434\u0456\u0441\u043B\u0430\u0442\u0438'
+                                        )
+                                    )
                                 )
-                            ),
-                            React.createElement(
-                                'button',
-                                { type: 'submit', className: 'test-drive-button' },
-                                '\u041D\u0430\u0434\u0456\u0441\u043B\u0430\u0442\u0438'
                             )
                         )
                     )

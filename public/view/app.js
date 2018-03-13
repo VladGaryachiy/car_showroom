@@ -41,20 +41,16 @@ class MainComponent extends React.Component {
                     null,
                     React.createElement(Navbar, null),
                     React.createElement(
-                        'div',
-                        { className: 'container-fluid contentContainer', id: 'content' },
-                        React.createElement(
-                            'div',
-                            { className: 'row' },
-                            React.createElement(Route, { exact: true, path: '/', component: Home }),
-                            React.createElement(Route, { path: '/cars', component: Cars }),
-                            React.createElement(Route, { exact: true, path: '/services', component: Services }),
-                            React.createElement(Route, { exact: true, path: '/finance', component: Finance }),
-                            React.createElement(Route, { exact: true, path: '/contacts', component: Contacts }),
-                            React.createElement(Route, { path: '/pickups', component: Pickups }),
-                            React.createElement(Route, { path: '/suvs', component: SUVS }),
-                            React.createElement(Route, { path: '/vans', component: VANS })
-                        )
+                        React.Fragment,
+                        null,
+                        React.createElement(Route, { exact: true, path: '/', component: Home }),
+                        React.createElement(Route, { path: '/cars', component: Cars }),
+                        React.createElement(Route, { exact: true, path: '/services', component: Services }),
+                        React.createElement(Route, { exact: true, path: '/finance', component: Finance }),
+                        React.createElement(Route, { exact: true, path: '/contacts', component: Contacts }),
+                        React.createElement(Route, { path: '/pickups', component: Pickups }),
+                        React.createElement(Route, { path: '/suvs', component: SUVS }),
+                        React.createElement(Route, { path: '/vans', component: VANS })
                     )
                 )
             )

@@ -9,34 +9,49 @@ class Carousel extends React.Component{
 
     render(){
         return(
-            <div id="carousel" className="carousel slide">
-               <ol className="carousel-indicators">
-                   <li className="active" data-target="#carousel" data-slide="0"></li>
-                   <li data-target="#carousel" data-slide="1"></li>
-                   <li data-target="#carousel" data-slide="2"></li>
-                   <li data-target="#carousel" data-slide="3"></li>
-               </ol>
-                <div className="carousel-inner">
-                    <div className="item active">
-                        <img src="../img/test1.jpg" alt=""/>
-                    </div>
-                    <div className="item ">
-                        <img src="../img/test2.jpg" alt=""/>
-                    </div>
-                    <div className="item">
-                        <img src="../img/test3.jpg" alt=""/>
-                    </div>
-                    <div className="item ">
-                        <img src="../img/test4.jpg" alt=""/>
-                    </div>
+            <div className='owl-carousel' id='owlCarousel'>
+                <div className='slide'>
+                    <img className='owl-item-bg' src='../../img/slider/slide1.jpg'/>
+                        <div className='slide-content'>
+                            <div className='overlay'></div>
+                            <h3><span className = "slider-logo">GMC</span> Canyon</h3>
+                            <h2>Автомобіль з яким ти зруйнуєш всі стереотипи</h2>
+                        </div>
                 </div>
-
-                <a href="#carousel" className="left carousel-control" data-slide="prev">
-                   <span className="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a href="#carousel" className="right carousel-control" data-slide="next">
-                    <span className="glyphicon glyphicon-chevron-right"></span>
-                </a>
+                <div className='slide'>
+                    <img className='owl-item-bg' src='../../img/slider/slide2.jpg'/>
+                        <div className='slide-content'>
+                            <div className='overlay'></div>
+                            <h3><span className = "slider-logo">GMC</span> Sierra</h3>
+                            <h2>Автомобіль з яким комфортно подорожувати</h2>
+                        </div>
+                </div>
+                <div className='slide'>
+                    <img className='owl-item-bg' src='../../img/slider/slide3.jpg'/>
+                        <div className='slide-content'>
+                            <div className='overlay'></div>
+                            <h3><span className = "slider-logo">GMC</span> Acadia</h3>
+                            <h2>Автомобіль 2017 року</h2>
+                            <hr/>
+                            <h1>Ціна від - 550000 грн</h1>
+                        </div>
+                </div>
+                <div className='slide'>
+                    <img className='owl-item-bg' src='../../img/slider/slide4.jpg'/>
+                        <div className='slide-content'>
+                            <div className='overlay'></div>
+                            <h3><span className = "slider-logo">GMC</span> Terrain</h3>
+                            <h2>Автомобіль, що пасує до вашого стилю</h2>
+                        </div>
+                </div>
+                <div className='slide'>
+                    <img className='owl-item-bg' src='../../img/slider/slide5.jpg'/>
+                        <div className='slide-content'>
+                            <div className='overlay'></div>
+                            <h3><span className = "slider-logo">GMC</span> Yukon</h3>
+                            <h2>Автомобіль, що має характер</h2>
+                </div>
+                </div>
             </div>
 
         )

@@ -41,22 +41,18 @@ render(){
            {/*NAVBAR*/}
             <Navbar/>
             {/*PAGES*/}
-            <div className="container-fluid contentContainer" id="content" >
-                <div className="row">
+              <React.Fragment>
+                  <Route exact path = "/" component={Home}/>
+                  <Route path = "/cars" component={Cars}/>
+                  <Route exact path = "/services" component={Services}/>
+                  <Route exact path = "/finance" component={Finance}/>
+                  <Route exact path = "/contacts" component={Contacts}/>
 
-                    <Route exact path = "/" component={Home}/>
-                    <Route path = "/cars" component={Cars}/>
-                    <Route exact path = "/services" component={Services}/>
-                    <Route exact path = "/finance" component={Finance}/>
-                    <Route exact path = "/contacts" component={Contacts}/>
-
-                        {/*Type cars pages*/}
-                    <Route  path = "/pickups" component={Pickups}/>
-                    <Route  path = "/suvs" component={SUVS}/>
-                    <Route  path = "/vans" component={VANS}/>
-
-                </div>
-            </div>
+                  {/*Type cars pages*/}
+                  <Route  path = "/pickups" component={Pickups}/>
+                  <Route  path = "/suvs" component={SUVS}/>
+                  <Route  path = "/vans" component={VANS}/>
+              </React.Fragment>
           </React.Fragment>
         </BrowserRouter>
 

@@ -9,11 +9,22 @@ class Navbar extends React.Component{
        super(props);
 
         this.UpScroll = this.UpScroll.bind(this);
+        this.reloadScript = this.reloadScript.bind(this);
+
     }
     UpScroll(){
         window.scrollTo(0, 0);
     }
 
+    reloadScript(){
+
+        let oneScript = $('#carousel1').detach();
+        let twoScript = $('#carousel2').detach();
+
+
+        $( "body" ).append( ' <script id="carousel1" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.js"></script>'+
+            '<script id="carousel2" src="/js/carousel.js"></script>');
+    }
 
 
     render(){
@@ -29,7 +40,7 @@ class Navbar extends React.Component{
                             </div>
                             <div className="collapse navbar-collapse" id="responsive-menu">
                                 <ul className="nav navbar-nav">
-                                    <li ><Link to="/"  className ="MainPage">Головна</Link></li>
+                                    <li onClick={this.reloadScript} ><Link to="/"  className ="MainPage">Головна</Link></li>
                                     <li className="dropdown">
                                         <a href="#"  className="dropdown-toggle" data-toggle="dropdown">Автомобілі
                                             <b className="caret"/>

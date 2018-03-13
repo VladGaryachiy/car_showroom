@@ -171,8 +171,8 @@ class AboutCar extends React.Component{
 
                     <a name="home" id="home"></a>
                     <br/>
-                    <div className="container-fluid">
-                        <div className="row one-part">
+                    <div className="container-fluid one-part">
+                        <div className="row ">
                             <div className="col-md-12 col-xs-12 col-sm-12">
                                 <Tween
                                     animation={{
@@ -799,58 +799,67 @@ class AboutCar extends React.Component{
                     <br/>
                     <a name="test-drive" id="test-drive"></a>
                     <div className="container-fluid test-drive-main-container">
-                        <div id="result-message" className="result-message">
 
-                        </div>
                         <div className="row">
-                            <h1 className="test-drive-name">
-                                Записатися на тест-драйв
-                            </h1>
-                            <div className="form-container">
-                                <form action="/test-drive" method="post" id="test-drive" className="test-drive-form" onSubmit={this.TestDriveForm}>
-                                    <h3 className="name-car-in-form" name="car_name_form">Авто: <span className="logo-name-two">GMC {data[0].name}</span> </h3>
-                                    <input type="text" name="name" placeholder="Ваше ім'я" id="clientName" className="input-text form-control"/><br/>
-                                    <input type="text" name="surname" placeholder="Ваше прізвище" id="clientSurname" className="input-text form-control"/><br/>
-                                    <input type="text" name="phone" placeholder="Ваший номер телефону" id="clientPhone" className="input-text form-control"/><br/>
-                                    <input type="text" name="email" placeholder="Ваший email"  id="clientEmail" className="input-text form-control"/><br/>
-                                    <input type="text" name="city" placeholder="Місто"  id="clientCity" className="input-text form-control"/><br/>
-                                    <div className="radio-container">
-                                        {
-                                            data.length > 1 ?
-                                                        <React.Fragment>
-                                                            <span className="drive-radio">Привід: </span>
-
-                                                            <input type="radio" id="driveOne"
-                                                                   name="driveRadio"  className="radio-style" value={data[0].drive} defaultChecked/>
-                                                            <label htmlFor="driveOne" className="label-form">{data[0].drive}</label>
-
-                                                            <input type="radio" id="driveTwo"
-                                                                   name="driveRadio" className="radio-style second-radio" value={data[1].drive}/>
-                                                            <label htmlFor="driveTwo" className="label-form">{data[1].drive}</label>
-                                                        </React.Fragment>
-
-                                                        :
-
-                                                         <React.Fragment>
-                                                             <span className="drive-radio">Привід: </span>
-                                                             <input type="radio" id="driveOne"
-                                                                    name="driveOne" value={data[0].drive} defaultChecked/>
-                                                                 <label htmlFor="driveOne" className="label-form">{data[0].drive}</label>
-                                                         </React.Fragment>
-
-                                            }
-                                    </div>
-                                    <span className="dateName">Бажана дата та час</span>
-                                    <div className="input-group" id="datetimepicker1">
-                                        <input type="text" className="form-control input-text" />
-                                        <span className="input-group-addon">
-                                            <span className="glyphicon glyphicon-calendar calendar"></span>
-                                        </span>
-                                    </div>
-                                    <button type="submit" className="test-drive-button">Надіслати</button>
-                                </form>
+                            <div className="test-drive-container">
+                                <button className="test-drive-button" type="button" data-toggle="modal" data-target="#formModal">Записатися на тест-драйв</button>
+                                <br/>
+                                <br/>
+                                <br/>
                             </div>
-                        </div>
+                                <div className="modal fade" id="formModal" tabIndex="-1" role="dialog" aria-labelledby="formModalLabel">
+                                    <div className="modal-dialog">
+                                        <div className="modal-content">
+                                            <div id="result-message" className="result-message"></div>
+                                            <form action="/test-drive" method="post" id="test-drive" className="test-drive-form" onSubmit={this.TestDriveForm}>
+                                                <h3 className="name-car-in-form" name="car_name_form">Авто: <span className="logo-name-two">GMC {data[0].name}</span> </h3>
+                                                <input type="text" name="name" placeholder="Ваше ім'я" id="clientName" className=" form-control"/><br/>
+                                                <input type="text" name="surname" placeholder="Ваше прізвище" id="clientSurname" className=" form-control"/><br/>
+                                                <input type="text" name="phone" placeholder="Ваший номер телефону" id="clientPhone" className=" form-control"/><br/>
+                                                <input type="text" name="email" placeholder="Ваший email"  id="clientEmail" className=" form-control"/><br/>
+                                                <input type="text" name="city" placeholder="Місто"  id="clientCity" className=" form-control"/><br/>
+                                                <div className="radio-container">
+                                                    {
+                                                        data.length > 1 ?
+                                                            <React.Fragment>
+                                                                <span className="drive-radio">Привід: </span>
+
+                                                                <input type="radio" id="driveOne"
+                                                                       name="driveRadio"  className="radio-style" value={data[0].drive} defaultChecked/>
+                                                                <label htmlFor="driveOne" className="label-form">{data[0].drive}</label>
+
+                                                                <input type="radio" id="driveTwo"
+                                                                       name="driveRadio" className="radio-style second-radio" value={data[1].drive}/>
+                                                                <label htmlFor="driveTwo" className="label-form">{data[1].drive}</label>
+                                                            </React.Fragment>
+
+                                                            :
+
+                                                            <React.Fragment>
+                                                                <span className="drive-radio">Привід: </span>
+                                                                <input type="radio" id="driveOne"
+                                                                       name="driveOne" value={data[0].drive} defaultChecked/>
+                                                                <label htmlFor="driveOne" className="label-form">{data[0].drive}</label>
+                                                            </React.Fragment>
+
+                                                    }
+                                                </div>
+                                                <span className="dateName">Бажана дата та час</span>
+                                                <div className="input-group" id="datetimepicker1">
+                                                    <input type="text" className="form-control " />
+                                                    <span className="input-group-addon">
+                                                        <span className="glyphicon glyphicon-calendar calendar"></span>
+                                                    </span>
+                                                </div>
+                                                <div className="modal-footer">
+                                                    <button type="button" className="btn btn-default" data-dismiss="modal">Вийти</button>
+                                                    <button type="submit" className="btn btn-success">Надіслати</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
 
 
