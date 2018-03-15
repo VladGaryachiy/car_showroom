@@ -279,8 +279,9 @@
     font-style: normal;
     color:black;
     padding-bottom: 5px;
-    border-bottom: 2px solid grey;
     width:300px
+
+
 
 }
 .type-car-container{
@@ -291,14 +292,17 @@
 }
 .about-company{
 
-    margin-left: 37%;
-    width: 300px;
+    margin-left: 28%;
+    width: 600px;
     padding-bottom: 5px;
-    border-bottom: 2px solid rgba(128, 0, 64, 0.14);
+
 
     font-family: 'XoloniumRegular';
     font-weight: normal;
     font-style: normal;
+
+    color:rgba(128, 0, 64, 1);
+
 }
 
 .about-company-text{
@@ -307,8 +311,68 @@
     font-weight: normal;
     font-style: normal;
     font-size: 21px;
-    margin-top: 5px;
+    padding: 5px 20px 20px 20px;
+    color:black;
 }
 .history-company{
     margin-top: 20px;
+}
+.about-company-img-container{
+    margin: 0;
+    padding: 0;
+    background: url("../img/home/gmc1.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 490px;
+}
+.img-about-company{
+
+    width: 100%;
+}
+
+.side-line{
+    width:70px;
+    border-top:3px solid rgba(128, 0, 64, 0.13);
+    display:inline-block;
+}
+
+.logo-home{
+    color:red;
+}
+.about-company-text-container{
+    padding: 0;
+    margin: 0;
+
+    
+}
+
+.banner-home{
+    position: relative;
+    top:0;
+    left: 0;
+/*    background-color: rgba(0, 0, 0, 0.4);*/
+    height: 507px;
+}
+
+
+.home-type-img{
+    margin-top: 50px;
+    height: 290px;
+    width: 350px;
+}
+.home-type-cars-container{
+    margin-top: 45px;
+}
+.home-type-cars-name{
+    border-bottom: 2px solid rgba(112, 112, 112, 0.1);
+    width: 330px;
+    text-align: right;
+    float:right;
+    padding-bottom: 5px;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    color: black
+
+;
 }
