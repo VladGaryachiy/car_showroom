@@ -1,8 +1,6 @@
 let React = require('react');
 let $ = require('jquery');
 
-let line = 'https://www.google.com.ua/search?q=rfhnbyrb&rlz=1C1CHBD_ruUA768UA768&tbm=isch&source=iu&ictx=1&fir=Ww8-5bW7cBGhQM%253A%252C703lE2099ryQ3M%252C_&usg=__xd-k77DHnA1eqwgZqMDsVt9rlUQ%3D&sa=X&ved=0ahUKEwix5I2TqdPZAhXCh6YKHZ3FAtAQ9QEILjAC#imgrc=65HTbrU4oYctQM:';
-
 let Tween = require('rc-tween-one/lib/TweenOne');
 let ScrollOverPack = require('rc-scroll-anim/lib/ScrollOverPack');
 
@@ -83,7 +81,7 @@ class AboutCar extends React.Component {
 
         $.ajax({
             method: 'POST',
-            url: '/test-drive',
+            url: '/test-drive-form',
             data: JSON.stringify(importData),
             contentType: "application/json; charset=utf-8",
             cache: false,
@@ -1419,7 +1417,7 @@ class AboutCar extends React.Component {
                                 React.createElement('div', { id: 'result-message', className: 'result-message' }),
                                 React.createElement(
                                     'form',
-                                    { action: '/test-drive', method: 'post', id: 'test-drive', className: 'test-drive-form', onSubmit: this.TestDriveForm },
+                                    { action: '/test-drive-form', method: 'post', id: 'test-drive', className: 'test-drive-form', onSubmit: this.TestDriveForm },
                                     React.createElement(
                                         'h3',
                                         { className: 'name-car-in-form', name: 'car_name_form' },

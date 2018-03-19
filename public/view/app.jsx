@@ -27,6 +27,10 @@ let Navbar = require('./component/navbar').Navbar;
 let Footer = require('./component/footer').Footer;
 
 
+/*Services*/
+let TestDrive = require('./services/test-drive').TestDrive;
+
+
 
 class MainComponent extends React.Component{
     constructor(props){
@@ -52,6 +56,9 @@ render(){
                   <Route  path = "/pickups" component={Pickups}/>
                   <Route  path = "/suvs" component={SUVS}/>
                   <Route  path = "/vans" component={VANS}/>
+
+                  {/*Services pages*/}
+                  <Route  path = "/test-drive" component={TestDrive}/>
               </React.Fragment>
           </React.Fragment>
         </BrowserRouter>
@@ -59,7 +66,7 @@ render(){
 
       {/*FOOTER*/}
 
-    {/*  <Footer/>*/}
+      <Footer/>
 
     </React.Fragment>
         )

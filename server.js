@@ -27,7 +27,8 @@ server.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public/index.html'))
 });
 
-server.post('/test-drive',require('./controllers/testDrive.js'));
+server.post('/test-drive-form',require('./controllers/testDrive.js'));
+server.post('/tdServices',require('./controllers/testDriveServices.js'));
 
 
 server.listen(8001);

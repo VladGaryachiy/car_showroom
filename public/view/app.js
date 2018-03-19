@@ -24,6 +24,9 @@ let VANS = require('./type_cars/van').VANS;
 let Navbar = require('./component/navbar').Navbar;
 let Footer = require('./component/footer').Footer;
 
+/*Services*/
+let TestDrive = require('./services/test-drive').TestDrive;
+
 class MainComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -50,10 +53,12 @@ class MainComponent extends React.Component {
                         React.createElement(Route, { exact: true, path: '/contacts', component: Contacts }),
                         React.createElement(Route, { path: '/pickups', component: Pickups }),
                         React.createElement(Route, { path: '/suvs', component: SUVS }),
-                        React.createElement(Route, { path: '/vans', component: VANS })
+                        React.createElement(Route, { path: '/vans', component: VANS }),
+                        React.createElement(Route, { path: '/test-drive', component: TestDrive })
                     )
                 )
-            )
+            ),
+            React.createElement(Footer, null)
         );
     }
 }

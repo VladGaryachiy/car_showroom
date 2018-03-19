@@ -266,3 +266,11 @@ body{
     transition: opacity 500ms ease-in;
 }
 
+.footer {
+    margin-top: 200px;
+    height: 500px;
+    width: 100%;
+    background-color: black;
+    opacity: 1;
+    display: inline-block;
+}

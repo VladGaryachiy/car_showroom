@@ -655,7 +655,7 @@
 }
 
 .calendar{
-    color:white;
+    color:grey;
 }
 .input-group{
 
@@ -663,8 +663,6 @@
 }
 
 .input-group-addon{
-    border-color: red;
-    background-color: red;
     cursor: pointer;
 }
 .drive-radio{
@@ -701,9 +699,9 @@
     border-radius: 3px;
     text-align: center;
     color: white;
-    margin-left:18px;
     margin-top:15px;
-    width: 560px;
+    margin-bottom:20px;
+    width: 100%;
     padding: 10px;
     font-size: 15px;
 }
@@ -715,9 +713,9 @@
     color: white;
     padding: 10px;
     font-size: 17px;
-    margin-left:18px;
     margin-top:15px;
-    width: 560px;
+    margin-bottom:20px;
+    width: 100%;
 }
 .modal-footer{
     padding: 0;

@@ -17,6 +17,8 @@ class Navbar extends React.Component {
 
     reloadScript() {
 
+        window.scrollTo(0, 0);
+
         let oneScript = $('#carousel1').detach();
         let twoScript = $('#carousel2').detach();
 
@@ -121,21 +123,11 @@ class Navbar extends React.Component {
                                         { className: 'dropdown-menu' },
                                         React.createElement(
                                             'li',
-                                            null,
+                                            { onClick: this.UpScroll },
                                             React.createElement(
                                                 Link,
-                                                { to: '/services' },
-                                                '\u0421\u0435\u0440\u0432\u0456\u0441\u0438'
-                                            )
-                                        ),
-                                        React.createElement('hr', null),
-                                        React.createElement(
-                                            'li',
-                                            null,
-                                            React.createElement(
-                                                Link,
-                                                { to: '/' },
-                                                '\u0406\u043D\u0448\u0435'
+                                                { to: '/test-drive' },
+                                                '\u0422\u0435\u0441\u0442-\u0434\u0440\u0430\u0439\u0432'
                                             )
                                         ),
                                         React.createElement(

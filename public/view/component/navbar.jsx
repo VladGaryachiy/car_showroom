@@ -18,6 +18,8 @@ class Navbar extends React.Component{
 
     reloadScript(){
 
+        window.scrollTo(0, 0);
+
         let oneScript = $('#carousel1').detach();
         let twoScript = $('#carousel2').detach();
 
@@ -58,9 +60,7 @@ class Navbar extends React.Component{
                                             <b className="caret"/>
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><Link to="/services">Сервіси</Link></li>
-                                            <hr/>
-                                            <li><Link to="/">Інше</Link></li>
+                                            <li onClick={this.UpScroll}><Link to="/test-drive">Тест-драйв</Link></li>
                                             <li><Link to="/">Інше</Link></li>
                                             <li><Link to="/">Інше</Link></li>
                                         </ul>

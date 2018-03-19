@@ -1,7 +1,7 @@
 let React = require('react');
 let $ = require('jquery');
 
-let line = 'https://www.google.com.ua/search?q=rfhnbyrb&rlz=1C1CHBD_ruUA768UA768&tbm=isch&source=iu&ictx=1&fir=Ww8-5bW7cBGhQM%253A%252C703lE2099ryQ3M%252C_&usg=__xd-k77DHnA1eqwgZqMDsVt9rlUQ%3D&sa=X&ved=0ahUKEwix5I2TqdPZAhXCh6YKHZ3FAtAQ9QEILjAC#imgrc=65HTbrU4oYctQM:';
+
 
 
 let Tween = require('rc-tween-one/lib/TweenOne');
@@ -89,7 +89,7 @@ class AboutCar extends React.Component{
 
             $.ajax({
                 method:'POST',
-                url:'/test-drive',
+                url:'/test-drive-form',
                 data: JSON.stringify(importData),
                 contentType: "application/json; charset=utf-8",
                 cache: false,
@@ -137,38 +137,6 @@ class AboutCar extends React.Component{
             let data = this.props.infoCar;
             return(
                 <React.Fragment>
-                    {/*Navigation*/}
-                   {/* <div className="container anchor-container">
-                        <div className="row">
-                            <a href="#motor">
-                                <div className="col-md-2 anchor">
-                                    <p>Двигун</p>
-                                    <br/>
-                                    <i className="fa fa-car  fa-2x" aria-hidden="true" ></i>
-                                </div>
-                            </a>
-                            <a href="#dimensions">
-                                <div className="col-md-2 anchor">
-                                    <p>Габарити</p>
-                                    <br/>
-                                    <i className="fa fa-arrows-h  fa-2x" aria-hidden="true"></i>
-                                </div>
-                            </a>
-                            <a href="#transmission ">
-                                <div className="col-md-2 anchor">
-                                    <p>Коробка передач</p>
-                                    <i className="fa fa-cogs  fa-2x" aria-hidden="true"></i>
-                                </div>
-                            </a>
-                            <a href="#fuel ">
-                                <div className="col-md-2 anchor">
-                                    <p>Витрата пального</p>
-                                    <i className="fa fa-battery-half  fa-2x" aria-hidden="true"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>*/}
-
                     <a name="home" id="home"></a>
                     <br/>
                     <div className="container-fluid one-part">
@@ -811,7 +779,7 @@ class AboutCar extends React.Component{
                                     <div className="modal-dialog">
                                         <div className="modal-content">
                                             <div id="result-message" className="result-message"></div>
-                                            <form action="/test-drive" method="post" id="test-drive" className="test-drive-form" onSubmit={this.TestDriveForm}>
+                                            <form action="/test-drive-form" method="post" id="test-drive" className="test-drive-form" onSubmit={this.TestDriveForm}>
                                                 <h3 className="name-car-in-form" name="car_name_form">Авто: <span className="logo-name-two">GMC {data[0].name}</span> </h3>
                                                 <input type="text" name="name" placeholder="Ваше ім'я" id="clientName" className=" form-control"/><br/>
                                                 <input type="text" name="surname" placeholder="Ваше прізвище" id="clientSurname" className=" form-control"/><br/>
