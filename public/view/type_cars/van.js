@@ -131,12 +131,7 @@ class Van extends React.Component {
             React.createElement(
                 React.Fragment,
                 null,
-                React.createElement(AboutCar, { infoCar: Van }),
-                React.createElement(
-                    Link,
-                    { to: '/vans' },
-                    'Back'
-                )
+                React.createElement(AboutCar, { infoCar: Van })
             )
         );
     }

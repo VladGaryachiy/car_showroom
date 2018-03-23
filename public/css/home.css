@@ -374,7 +374,11 @@
     font-family: 'XoloniumRegular';
     font-weight: normal;
     font-style: normal;
-    color: black
+    color: black;
+}
 
-;
+.label-form{
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
 }

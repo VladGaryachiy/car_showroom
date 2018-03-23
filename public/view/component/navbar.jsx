@@ -14,6 +14,15 @@ class Navbar extends React.Component{
     }
     UpScroll(){
         window.scrollTo(0, 0);
+
+        let oneScript = $('#1').detach();
+        let twoScript = $('#2').detach();
+        let threeScript = $('#3').detach();
+
+
+        $( "body" ).append( '<script src="/js/moment-with-locales.min.js" id="1"></script>'+
+            '<script src="/js/bootstrap-datetimepicker.min.js" id="2"></script>'+
+            '<script src="/js/datePicker.js"  id="3"></script>');
     }
 
     reloadScript(){
@@ -65,7 +74,7 @@ class Navbar extends React.Component{
                                             <li><Link to="/">Інше</Link></li>
                                         </ul>
                                     </li>
-                                    <li><Link to="/finance">Фінансові послуги</Link></li>
+                                    <li onClick={this.UpScroll}><Link to="/finance">Фінансові послуги</Link></li>
                                     <li><Link to="/contacts">Контакти</Link></li>
                                 </ul>
                             </div>

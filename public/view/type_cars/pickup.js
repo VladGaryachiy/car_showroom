@@ -132,12 +132,7 @@ class Pickup extends React.Component {
             React.createElement(
                 React.Fragment,
                 null,
-                React.createElement(AboutCar, { infoCar: Pickup }),
-                React.createElement(
-                    Link,
-                    { to: '/pickups' },
-                    'Back'
-                )
+                React.createElement(AboutCar, { infoCar: Pickup })
             )
         );
     }

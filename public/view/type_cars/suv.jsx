@@ -118,7 +118,6 @@ class SUV extends React.Component{
             <div className="aboutCars-container" id="aboutCars-container">
                 <React.Fragment>
                     <AboutCar infoCar={SUV}/>
-                    <Link to='/suvs'>Back</Link>
                 </React.Fragment>
             </div>
         )

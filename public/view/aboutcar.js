@@ -12,6 +12,29 @@ class AboutCar extends React.Component {
         this.NavigationOut = this.NavigationOut.bind(this);
         this.TestDriveForm = this.TestDriveForm.bind(this);
         this.LowSpeed = this.LowSpeed.bind(this);
+        this.OpenCloseRead = this.OpenCloseRead.bind(this);
+    }
+
+    OpenCloseRead(event) {
+        let checkClass = $("#td-form-about-container")[0].className;
+        let SearchClass;
+
+        if (SearchClass = /close-text/.test(checkClass)) {
+            event.currentTarget.textContent = 'Читати далі';
+            $("#td-form-about-container").removeClass('close-text');
+            $("#td-form-about-container").animate({
+                height: '98px',
+                overflow: 'hidden'
+            }, 400);
+        } else {
+            event.currentTarget.textContent = 'Згорнути';
+            $("#td-form-about-container").toggleClass('close-text');
+            $("#td-form-about-container").animate({
+                height: '495px',
+                overflow: 'visible'
+            }, 400);
+        }
+        console.dir($("#td-form-about-container"));
     }
 
     NavigationUp(event) {
@@ -41,15 +64,15 @@ class AboutCar extends React.Component {
         let arr = [];let checkedDrive;
         nameCar = event.currentTarget.children[0].children[0].textContent;
         let drive;
-        if (event.currentTarget[6].name === "driveRadio") {
-            nameClient = event.currentTarget[0].value;
-            surnameClient = event.currentTarget[1].value;
-            phoneClient = event.currentTarget[2].value;
-            emailClient = event.currentTarget[3].value;
-            cityClient = event.currentTarget[4].value;
-            driveClientOne = event.currentTarget[5];
-            driveClientTwo = event.currentTarget[6];
-            dateClient = event.currentTarget[7].value;
+        if (event.currentTarget[7].name === "driveRadio") {
+            nameClient = event.currentTarget[1].value;
+            surnameClient = event.currentTarget[2].value;
+            phoneClient = event.currentTarget[3].value;
+            emailClient = event.currentTarget[4].value;
+            cityClient = event.currentTarget[5].value;
+            driveClientOne = event.currentTarget[6];
+            driveClientTwo = event.currentTarget[7];
+            dateClient = event.currentTarget[8].value;
 
             arr.push(driveClientOne, driveClientTwo);
             checkedDrive = arr.filter(function (item) {
@@ -58,13 +81,13 @@ class AboutCar extends React.Component {
 
             drive = checkedDrive[0].value;
         } else {
-            nameClient = event.currentTarget[0].value;
-            surnameClient = event.currentTarget[1].value;
-            phoneClient = event.currentTarget[2].value;
-            emailClient = event.currentTarget[3].value;
-            cityClient = event.currentTarget[4].value;
-            driveClientOne = event.currentTarget[5].value;
-            dateClient = event.currentTarget[6].value;
+            nameClient = event.currentTarget[1].value;
+            surnameClient = event.currentTarget[2].value;
+            phoneClient = event.currentTarget[3].value;
+            emailClient = event.currentTarget[4].value;
+            cityClient = event.currentTarget[5].value;
+            driveClientOne = event.currentTarget[6].value;
+            dateClient = event.currentTarget[7].value;
 
             drive = driveClientOne;
         }
@@ -1414,7 +1437,6 @@ class AboutCar extends React.Component {
                             React.createElement(
                                 'div',
                                 { className: 'modal-content' },
-                                React.createElement('div', { id: 'result-message', className: 'result-message' }),
                                 React.createElement(
                                     'form',
                                     { action: '/test-drive-form', method: 'post', id: 'test-drive', className: 'test-drive-form', onSubmit: this.TestDriveForm },
@@ -1430,6 +1452,31 @@ class AboutCar extends React.Component {
                                         ),
                                         ' '
                                     ),
+                                    React.createElement(
+                                        'div',
+                                        { className: 'td-form-img-container ' },
+                                        React.createElement('img', { className: 'td-form-img', src: data[0].logo })
+                                    ),
+                                    React.createElement(
+                                        'div',
+                                        { className: 'td-form-about-container ', id: 'td-form-about-container' },
+                                        React.createElement(
+                                            'p',
+                                            { className: 'td-about-car-info' },
+                                            data[0].about
+                                        )
+                                    ),
+                                    React.createElement(
+                                        'div',
+                                        { className: 'button-read-container' },
+                                        React.createElement(
+                                            'button',
+                                            { onClick: this.OpenCloseRead, type: 'button', id: 'read-button', className: 'read-info two-class btn btn-primary' },
+                                            '\u0427\u0438\u0442\u0430\u0442\u0438 \u0434\u0430\u043B\u0456'
+                                        )
+                                    ),
+                                    React.createElement('hr', null),
+                                    React.createElement('div', { id: 'result-message', className: 'result-message' }),
                                     React.createElement('input', { type: 'text', name: 'name', placeholder: '\u0412\u0430\u0448\u0435 \u0456\u043C\'\u044F', id: 'clientName', className: ' form-control' }),
                                     React.createElement('br', null),
                                     React.createElement('input', { type: 'text', name: 'surname', placeholder: '\u0412\u0430\u0448\u0435 \u043F\u0440\u0456\u0437\u0432\u0438\u0449\u0435', id: 'clientSurname', className: ' form-control' }),

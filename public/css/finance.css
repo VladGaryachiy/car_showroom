@@ -1,0 +1,198 @@
+.credit-main-container{
+    margin-top: 40px;
+    margin-bottom:100px;
+}
+
+
+.tableWrap{
+    border: none;
+    width: 100%;
+    padding: 0;
+}
+
+.tableWrap .tableFix {
+    position: relative;
+    float: left;
+    z-index: 9;
+    width: 50%;
+}
+.two{
+    width: 50%;
+    float: left;
+}
+.tableWrap .fixArea tr th {
+    text-align: center;
+}
+.fixArea{
+    width: 100%;
+}
+.tableWrap .fixArea th, .tableWrap .fixArea td {
+    border-right: 1px solid #424242;
+    border-bottom: 1px solid #424242;
+    width: 258px;
+}
+.tableWrap th.tableTh3 {
+    background: #fff;
+    font-size: 13px;
+    border-top: 1px solid #d6d6d6;
+    color: #333;
+}
+.tableWrap th[class*=tableTh] {
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    background: #f8f8f8;
+    font-size: 14px;
+    color: #000;
+    text-align: left;
+}
+.tableWrap th {
+    padding: 10px 14px;
+}
+.tableWrap .scrollArea {
+    table-layout: fixed;
+    overflow: hidden;
+    background: #fff;
+    width: 100%;
+}
+ table {
+    line-height: 18px;
+    font-size: 13px;
+    color: #333;
+    border-left: 1px solid #424242;
+
+
+}
+.tableWrap .scrollArea td {
+    border-left: 1px solid #424242;
+    border-bottom: 1px solid #424242;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    background: #f8f8f8;
+    font-size: 11px;
+    color: #000;
+    text-align: center;
+}
+.tableWrap td {
+    padding: 10px 14px;
+    border-top: 1px solid #d6d6d6;
+    color: #666;
+    text-align: left;
+    font-size: 13px;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+tr{
+    border-bottom: 1px solid #424242;
+    border-top: 1px solid #424242;
+}
+
+.main{
+    width: 900px;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.special-GMC{
+    padding-top: 15px;
+    padding-left: 15px;
+    color:white;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    background-color: #424242;
+    width:900px;
+    height: 50px;
+    margin: 0;
+}
+.tableFix{
+    padding: 0;
+}
+.table-block{
+    height: 1060px;
+}
+.special-GMC-container{
+    padding: 0;
+}
+
+.finance-main-name{
+    margin-top:40px;
+
+    -webkit-clip-path: circle(158.2% at 0% 800%);
+    clip-path: circle(158.2% at 0% 900%);
+    background-color: red;
+    color: white;
+    width: 650px;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 0 0 1em rgba(0, 0, 0, 0.1);
+    font-size: 32px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 50px;
+    border-bottom:1px solid red;
+}
+
+.bank-button-container{
+    text-align: center;
+    border: 1px solid #d7d7d7;
+    width: 900px;
+    margin-left: 16.7%;
+    margin-top:4%;
+}
+
+.img-bank{
+
+    cursor: pointer;
+    margin: 30px;
+}
+
+.img-ukrgas{
+    width: 270px;
+    height: 120px;
+}
+.img-globus{
+    width: 390px;
+    height: 90px;
+}
+
+.img-ukrgas:hover{
+    transform: scale(1.1);
+}
+.img-globus:hover{
+    transform: scale(1.1);
+}
+
+.select-bank-name{
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 23px;
+    height: 60px;
+    background-color: #424242;
+    /* margin-left: 30px; */
+    /* margin-right: 30px; */
+    color: white;
+    padding-top: 17px;
+    margin: 0;
+}
+
+.bank-logo-right{
+    float:right;
+    margin-right:10px;
+}
+.img-bank-group-block{
+
+}

@@ -118,7 +118,6 @@ class Pickup extends React.Component{
                 <div className="aboutCars-container" id="aboutCars-container">
                     <React.Fragment>
                             <AboutCar infoCar={Pickup}/>
-                        <Link to='/pickups'>Back</Link>
                     </React.Fragment>
                 </div>
         )

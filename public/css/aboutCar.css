@@ -617,6 +617,11 @@
 }
 .dateName{
     margin-bottom: 10px;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    color:black;
 }
 .input-group{
     margin-top: 5px;
@@ -636,7 +641,7 @@
 }
 .test-drive-button{
     font-size:19px;
-    margin-top: 10px;
+    margin-top: 80px;
     border:2px solid red;
     color:red;
     height: 60px;
@@ -666,9 +671,13 @@
     cursor: pointer;
 }
 .drive-radio{
-    font-size: 16px;
+    font-size: 14px;
     color:black;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
 }
+
 
 .label-form{
     margin-left:5px;
@@ -712,10 +721,10 @@
     text-align: center;
     color: white;
     padding: 10px;
-    font-size: 17px;
     margin-top:15px;
     margin-bottom:20px;
     width: 100%;
+    font-size: 15px;
 }
 .modal-footer{
     padding: 0;

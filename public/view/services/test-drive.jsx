@@ -107,15 +107,15 @@ class TestDrive extends React.Component{
         let arr  = []; let checkedDrive;
         nameCar = event.currentTarget.children[0].children[0].textContent;
         let drive;
-        if(event.currentTarget[6].name === "driveRadio"){
-            nameClient = event.currentTarget[0].value;
-            surnameClient = event.currentTarget[1].value;
-            phoneClient = event.currentTarget[2].value;
-            emailClient = event.currentTarget[3].value;
-            cityClient = event.currentTarget[4].value;
-            driveClientOne = event.currentTarget[5];
-            driveClientTwo = event.currentTarget[6];
-            dateClient = event.currentTarget[7].value;
+        if(event.currentTarget[7].name === "driveRadio"){
+            nameClient = event.currentTarget[1].value;
+            surnameClient = event.currentTarget[2].value;
+            phoneClient = event.currentTarget[3].value;
+            emailClient = event.currentTarget[4].value;
+            cityClient = event.currentTarget[5].value;
+            driveClientOne = event.currentTarget[6];
+            driveClientTwo = event.currentTarget[7];
+            dateClient = event.currentTarget[8].value;
 
             arr.push(driveClientOne,driveClientTwo);
             checkedDrive = arr.filter(function (item) {
@@ -126,13 +126,13 @@ class TestDrive extends React.Component{
 
         }
         else{
-            nameClient = event.currentTarget[0].value;
-            surnameClient = event.currentTarget[1].value;
-            phoneClient = event.currentTarget[2].value;
-            emailClient = event.currentTarget[3].value;
-            cityClient = event.currentTarget[4].value;
-            driveClientOne = event.currentTarget[5].value;
-            dateClient = event.currentTarget[6].value;
+            nameClient = event.currentTarget[1].value;
+            surnameClient = event.currentTarget[2].value;
+            phoneClient = event.currentTarget[3].value;
+            emailClient = event.currentTarget[4].value;
+            cityClient = event.currentTarget[5].value;
+            driveClientOne = event.currentTarget[6].value;
+            dateClient = event.currentTarget[7].value;
 
             drive = driveClientOne;
 
@@ -286,7 +286,7 @@ class TestDrive extends React.Component{
                                    <p  className="td-about-car-info">{this.state.selectedCar[0].about}</p>
                                </div>
                                <div className="button-read-container">
-                                   <button onClick={this.OpenCloseRead} type="button"  id="read-button"  className="read-info two-class">Читати далі</button>
+                                   <button onClick={this.OpenCloseRead} type="button"  id="read-button"  className="read-info two-class btn btn-primary">Читати далі</button>
                                </div>
                                <hr/>
                                <div id="result-message" className="result-message"></div>
@@ -329,8 +329,8 @@ class TestDrive extends React.Component{
                                    </span>
                                </div>
                                <div className="modal-footer">
-                                   <button type="button" className="btn btn-default" data-dismiss="modal">Вийти</button>
-                                   <button type="submit" className="btn btn-success">Надіслати</button>
+                                   <button type="button" className="btn btn-default exit" data-dismiss="modal">Вийти</button>
+                                   <button type="submit" className="btn btn-success send">Надіслати</button>
                                </div>
                            </form>
                        </div>

@@ -116,7 +116,6 @@ class Van extends React.Component{
             <div className="aboutCars-container" id="aboutCars-container">
                 <React.Fragment>
                     <AboutCar infoCar={Van}/>
-                    <Link to='/vans'>Back</Link>
                 </React.Fragment>
             </div>
         )

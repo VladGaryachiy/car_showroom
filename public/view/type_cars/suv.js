@@ -133,12 +133,7 @@ class SUV extends React.Component {
             React.createElement(
                 React.Fragment,
                 null,
-                React.createElement(AboutCar, { infoCar: SUV }),
-                React.createElement(
-                    Link,
-                    { to: '/suvs' },
-                    'Back'
-                )
+                React.createElement(AboutCar, { infoCar: SUV })
             )
         );
     }
