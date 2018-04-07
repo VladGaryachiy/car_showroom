@@ -654,6 +654,11 @@
     border:2px solid white;
     color:white;
 }
+.test-drive-button:visited{
+    border:2px solid red;
+}
+
+
 
 .radio-container{
     margin-bottom: 5px;

@@ -29,6 +29,7 @@ let Footer = require('./component/footer').Footer;
 
 /*Services*/
 let TestDrive = require('./services/test-drive').TestDrive;
+let TradeIn  = require('./services/trade-in').TradeIn;
 
 
 
@@ -59,6 +60,7 @@ render(){
 
                   {/*Services pages*/}
                   <Route  path = "/test-drive" component={TestDrive}/>
+                  <Route  path = "/trade-in" component={TradeIn}/>
               </React.Fragment>
           </React.Fragment>
         </BrowserRouter>

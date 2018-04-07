@@ -26,6 +26,7 @@ let Footer = require('./component/footer').Footer;
 
 /*Services*/
 let TestDrive = require('./services/test-drive').TestDrive;
+let TradeIn = require('./services/trade-in').TradeIn;
 
 class MainComponent extends React.Component {
     constructor(props) {
@@ -54,7 +55,8 @@ class MainComponent extends React.Component {
                         React.createElement(Route, { path: '/pickups', component: Pickups }),
                         React.createElement(Route, { path: '/suvs', component: SUVS }),
                         React.createElement(Route, { path: '/vans', component: VANS }),
-                        React.createElement(Route, { path: '/test-drive', component: TestDrive })
+                        React.createElement(Route, { path: '/test-drive', component: TestDrive }),
+                        React.createElement(Route, { path: '/trade-in', component: TradeIn })
                     )
                 )
             ),

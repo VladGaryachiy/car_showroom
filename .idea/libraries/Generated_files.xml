@@ -3,6 +3,7 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/public/view/cars.js" />
+        <item url="file://$PROJECT_DIR$/public/view/services/trade-in.js" />
         <item url="file://$PROJECT_DIR$/public/view/component/carousel.js" />
         <item url="file://$PROJECT_DIR$/public/view/app.js" />
         <item url="file://$PROJECT_DIR$/public/view/services.js" />
@@ -27,6 +28,7 @@
       <root url="file://$PROJECT_DIR$/public/view/type_cars/aboutcar.js" />
       <root url="file://$PROJECT_DIR$/public/view/type_cars/pickupData.js" />
       <root url="file://$PROJECT_DIR$/public/view/cars.js" />
+      <root url="file://$PROJECT_DIR$/public/view/services/trade-in.js" />
       <root url="file://$PROJECT_DIR$/public/view/component/carousel.js" />
       <root url="file://$PROJECT_DIR$/public/view/app.js" />
       <root url="file://$PROJECT_DIR$/public/view/services.js" />

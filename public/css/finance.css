@@ -5,7 +5,7 @@
 
 
 .tableWrap{
-    border: none;
+    border-bottom: 1px solid #424242;
     width: 100%;
     padding: 0;
 }
@@ -25,10 +25,12 @@
 }
 .fixArea{
     width: 100%;
+    border-left: 1px solid #424242;
+    border-bottom: 1px solid #424242;
 }
 .tableWrap .fixArea th, .tableWrap .fixArea td {
-    border-right: 1px solid #424242;
-    border-bottom: 1px solid #424242;
+/*    border-right: 1px solid #424242;
+    border-bottom: 1px solid #424242;*/
     width: 258px;
 }
 .tableWrap th.tableTh3 {
@@ -59,13 +61,13 @@
     line-height: 18px;
     font-size: 13px;
     color: #333;
-    border-left: 1px solid #424242;
+
 
 
 }
 .tableWrap .scrollArea td {
-    border-left: 1px solid #424242;
-    border-bottom: 1px solid #424242;
+   /* border-left: 1px solid #424242;
+    border-bottom: 1px solid #424242;*/
     font-family: 'XoloniumRegular';
     font-weight: normal;
     font-style: normal;
@@ -86,8 +88,8 @@ td, th {
     vertical-align: inherit;
 }
 tr{
-    border-bottom: 1px solid #424242;
-    border-top: 1px solid #424242;
+/*    border-bottom: 1px solid #424242;
+    border-top: 1px solid #424242;*/
 }
 
 .main{

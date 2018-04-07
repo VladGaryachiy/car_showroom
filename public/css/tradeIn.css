@@ -1,0 +1,126 @@
+.tin-name-main{
+    margin-top:80px;
+    -webkit-clip-path: circle(158.2% at 0% 800%);
+    clip-path: circle(158.2% at 0% 900%);
+    background-color: red;
+    color: white;
+    width: 650px;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 0 0 1em rgba(0, 0, 0, 0.1);
+    font-size: 32px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 50px;
+    border-bottom:1px solid red;
+}
+
+.tin-main-banner{
+    height: 450px;;
+    background:url('../img/trade-in-new1.jpg') 100% 100% no-repeat;
+
+
+}
+.tin-main-content-container{
+
+    margin-top:40px;
+    width: 870px;
+}
+.tin-banner-about{
+    margin-top: 8%;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    color:#373737;
+}
+.tin-banner-line{
+    width: 70px;
+    height:14px;
+    border-top: 4px solid red;
+}
+.tin-brand{
+}
+.tin-about-service{
+    margin-top:2%;
+    color:#4a4a4a;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+    font-size:17px;
+    border-left:2px solid #f0efef;
+    border-right:2px solid #f0efef;
+}
+.tin-service-schema-img{
+    height: 400px;
+    background:url('../img/trade-in-new2.jpg') 100% 100% no-repeat ;
+}
+.tin-service-order-button{
+    text-align: center;
+}
+.tin-order-button{
+    font-size:19px;
+    margin-top: 50px;
+    border:2px solid #3872f4;
+    color:#3872f4;
+    height: 60px;
+    width: 400px;
+    background: white;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.tin-order-button:hover{
+    background: #3872f4;
+    border:2px solid white;
+    color:white;
+}
+.trade-in-form-name-main{
+    background-color: grey;
+    padding: 5px;
+    margin-top: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.trade-in-form{
+}
+.tin-inputs-container{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.tin-label-form{
+    float: left;
+    margin-left: 45px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+.tin-text-form{
+    width: 300px;
+}
+.tin-point-name{
+    text-align: left;
+}
+
+.table-for-form-tin-your-car{
+    width: 100%;
+}
+.table-for-form-tin-your-car tr{
+    height:50px;
+}
+.tin-modal{
+    width: 85%;
+}
+textarea.form-control {
+    height: 100px;
+}
+.tin-modal-footer{
+    margin-top: 40px;
+    padding-right: 80px;
+    text-align: right;
+}
+.tin-send{
+    margin-right: 10px;
+
+}

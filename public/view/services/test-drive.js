@@ -54,6 +54,7 @@ class TestDrive extends React.Component {
     OpenCloseRead(event) {
         let checkClass = $("#td-form-about-container")[0].className;
         let SearchClass;
+        let sizeContainer = $("#td-about-car-info")[0].clientHeight;
 
         if (SearchClass = /close-text/.test(checkClass)) {
             event.currentTarget.textContent = 'Читати далі';
@@ -66,7 +67,7 @@ class TestDrive extends React.Component {
             event.currentTarget.textContent = 'Згорнути';
             $("#td-form-about-container").toggleClass('close-text');
             $("#td-form-about-container").animate({
-                height: '495px',
+                height: sizeContainer + 'px',
                 overflow: 'visible'
             }, 400);
         }
@@ -118,7 +119,7 @@ class TestDrive extends React.Component {
 
             drive = driveClientOne;
         }
-        let importData = {
+        let exportData = {
             'name': nameClient,
             'surname': surnameClient,
             'phone': phoneClient,
@@ -132,7 +133,7 @@ class TestDrive extends React.Component {
         $.ajax({
             method: 'POST',
             url: '/tdServices',
-            data: JSON.stringify(importData),
+            data: JSON.stringify(exportData),
             contentType: "application/json; charset=utf-8",
             cache: false,
             success: function (result) {
@@ -329,7 +330,7 @@ class TestDrive extends React.Component {
                                 { className: 'td-form-about-container ', id: 'td-form-about-container' },
                                 React.createElement(
                                     'p',
-                                    { className: 'td-about-car-info' },
+                                    { id: 'td-about-car-info', className: 'td-about-car-info' },
                                     this.state.selectedCar[0].about
                                 )
                             ),

@@ -23,6 +23,7 @@ class AboutCar extends React.Component{
     OpenCloseRead(event){
         let checkClass = $( "#td-form-about-container" )[0].className;
         let SearchClass;
+        let sizeContainer = $( "#td-about-car-info")[0].clientHeight;
 
         if(SearchClass = /close-text/.test(checkClass)){
             event.currentTarget.textContent = 'Читати далі';
@@ -36,11 +37,11 @@ class AboutCar extends React.Component{
             event.currentTarget.textContent = 'Згорнути';
             $( "#td-form-about-container" ).toggleClass('close-text');
             $( "#td-form-about-container" ).animate({
-                height:'495px',
+                height: sizeContainer + 'px',
                 overflow:'visible'
             },400);
         }
-        console.dir( $( "#td-form-about-container" ));
+        console.dir( $( "#td-about-car-info"));
 
     };
 
@@ -632,7 +633,7 @@ class AboutCar extends React.Component{
                                                            <p className="icon"><img className="img-weight ico-size" src="../img/icons/weight-ico.jpg" alt=""/></p>
                                                            <p className="size-element-property-name padding-size-element">Вага</p>
                                                            <hr className="size-property-line"/>
-                                                           <p className="size-element-description">{data[0].amount_fuel_tank} л.</p>
+                                                           <p className="size-element-description">{data[0].weight}</p>
                                                        </div>
                                                    </div>
                                                </div>
@@ -795,7 +796,7 @@ class AboutCar extends React.Component{
 
                         <div className="row">
                             <div className="test-drive-container">
-                                <button className="test-drive-button" type="button" data-toggle="modal" data-target="#formModal">Записатися на тест-драйв</button>
+                                <button className="test-drive-button" type="button" data-toggle="modal" data-target="#formModal" >Записатися на тест-драйв</button>
                                 <br/>
                                 <br/>
                                 <br/>
@@ -809,7 +810,7 @@ class AboutCar extends React.Component{
                                                     <img className="td-form-img" src = {data[0].logo} ></img>
                                                 </div>
                                                 <div className="td-form-about-container " id="td-form-about-container">
-                                                    <p  className="td-about-car-info">{data[0].about}</p>
+                                                    <p id="td-about-car-info" className="td-about-car-info">{data[0].about}</p>
                                                 </div>
                                                 <div className="button-read-container">
                                                     <button onClick={this.OpenCloseRead} type="button"  id="read-button"  className="read-info two-class btn btn-primary">Читати далі</button>

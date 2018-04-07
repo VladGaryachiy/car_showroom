@@ -138,20 +138,11 @@ class Navbar extends React.Component {
                                         ),
                                         React.createElement(
                                             'li',
-                                            null,
+                                            { onClick: this.UpScroll },
                                             React.createElement(
                                                 Link,
-                                                { to: '/' },
-                                                '\u0406\u043D\u0448\u0435'
-                                            )
-                                        ),
-                                        React.createElement(
-                                            'li',
-                                            null,
-                                            React.createElement(
-                                                Link,
-                                                { to: '/' },
-                                                '\u0406\u043D\u0448\u0435'
+                                                { to: '/trade-in' },
+                                                'Trade in'
                                             )
                                         )
                                     )

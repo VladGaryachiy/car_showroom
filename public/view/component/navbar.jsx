@@ -70,8 +70,7 @@ class Navbar extends React.Component{
                                         </a>
                                         <ul className="dropdown-menu">
                                             <li onClick={this.UpScroll}><Link to="/test-drive">Тест-драйв</Link></li>
-                                            <li><Link to="/">Інше</Link></li>
-                                            <li><Link to="/">Інше</Link></li>
+                                            <li onClick={this.UpScroll}><Link to="/trade-in">Trade in</Link></li>
                                         </ul>
                                     </li>
                                     <li onClick={this.UpScroll}><Link to="/finance">Фінансові послуги</Link></li>
