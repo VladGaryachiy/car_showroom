@@ -142,7 +142,7 @@ class Navbar extends React.Component {
                                             React.createElement(
                                                 Link,
                                                 { to: '/trade-in' },
-                                                'Trade in'
+                                                'Trade-in'
                                             )
                                         )
                                     )

@@ -61,22 +61,23 @@
 .tin-order-button{
     font-size:19px;
     margin-top: 50px;
-    border:2px solid #3872f4;
-    color:#3872f4;
+    border:2px solid #f8c306;
+    color:#f8c306;;
     height: 60px;
     width: 400px;
     background: white;
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .tin-order-button:hover{
-    background: #3872f4;
+    background: #f8c306;
     border:2px solid white;
     color:white;
 }
 .trade-in-form-name-main{
-    background-color: grey;
-    padding: 5px;
+    background-color: #a3a3a3;
+    color: white;
+    padding: 10px;
+    font-size: 27px;
     margin-top: 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -123,4 +124,41 @@ textarea.form-control {
 .tin-send{
     margin-right: 10px;
 
+}
+.yourNewCarLabel{
+    font-size: 13px;
+    margin-left: 20px;
+}
+.commentLabel{
+    margin-left: 45px;
+}
+
+.primary{
+    color:gold;
+    font-size: 17px;
+}
+.number-position{
+    background-color: gold;
+    color: white;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+.trade-in-form * {
+    font-family: 'XoloniumRegular';
+    font-weight: 100;
+    font-style: normal;
+}
+
+.tin-point-name{
+    padding-bottom: 7px;
+    border-bottom: 1px solid #ededed;
+    font-size: 18px;
+}
+
+.tin-form-message{
+    width: 95%;
+    margin-left: 2.5%;
 }

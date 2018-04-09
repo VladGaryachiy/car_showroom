@@ -1,0 +1,61 @@
+.gmc-map-block{
+    width: 70px;
+    height: 70px;
+    background-color: red;
+}
+
+.contact-main-container{
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'XoloniumRegular';
+    font-weight: normal;
+    font-style: normal;
+}
+.contact-main-name{
+    position: relative;
+    left: 24%;
+    border-bottom: 1px solid #ff0000;
+    width: 700px;
+    padding-bottom: 5px;
+}
+.official-diler-gmc-name{
+    margin-top: -5px;
+    font-size: 18px;
+    color:red;
+}
+.about-job-graph{
+    font-size: 19px;
+    color:#838383;
+}
+.contacts-info{
+    color:#838383;
+}
+.parent-contacts-info{
+    font-size:22px;
+}
+.phone-contact{
+    margin-left: -50px;
+}
+.service-contact{
+    margin-left: -100px;
+}
+.cart-container{
+    padding-top: 40px;
+}
+
+
+
+.look-on-cart:hover{
+    background: #f8c306;
+    border:2px solid white;
+    color:white;
+}
+.look-on-cart{
+    font-size:17px;
+    margin-top: 10px;
+    border:2px solid #f8c306;
+    color:#f8c306;;
+    height: 50px;
+    width: 300px;
+    background: white;
+}
